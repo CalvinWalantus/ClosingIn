@@ -209,14 +209,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				if (!m_IsGrounded) {
 					Vector3 airMove;
 					// This code causes the player to move exponentially backwards
-					/*if (m_StartOfJump) {
+					if (m_StartOfJump) {
 						m_InitialJumpX = m_Rigidbody.velocity.x;
 						m_InitialJumpZ = m_Rigidbody.velocity.z;
 						m_StartOfJump = false;
 					} else {
 						airMove = new Vector3 (m_Rigidbody.velocity.x + v.x - m_InitialJumpX, m_Rigidbody.velocity.y, m_Rigidbody.velocity.z + v.z - m_InitialJumpZ);
-						m_Rigidbody.velocity = airMove;
-					}*/
+						//m_Rigidbody.velocity = airMove;
+						GetComponent<Rigidbody>().AddForce(v.x, 0, v.z, ForceMode.Acceleration);
+					}
 					AdjustAirborneMovement (v);
 					if (m_StartOfJump)
 						m_StartOfJump = false;
