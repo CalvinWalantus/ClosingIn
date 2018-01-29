@@ -73,7 +73,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 			else
 			{
-				HandleAirborneMovement(move);
+				HandleAirborneMovement();
 			}
 
 			ScaleCapsuleForCrouching(crouch);
@@ -163,19 +163,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-		void HandleAirborneMovement(Vector3 move)
+		void HandleAirborneMovement()
 		{
-			// Vector3 airMove = new Vector3(move.x*6f, m_Rigidbody.velocity.y, move.z*6f);
-			// m_Rigidbody.velocity = Vector3.Lerp(m_Rigidbody.velocity, airMove, Time.deltaTime*2f);
-
-
-			// // apply extra gravity from multiplier:
-			// Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
-			// m_Rigidbody.AddForce(extraGravityForce);
-
-			// m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
 			// apply extra gravity from multiplier:
-			Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Vector3.Scale(Physics.gravity, new Vector3(1.5f, 1.5f, 1.5f));
+			Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
 			m_Rigidbody.AddForce(extraGravityForce);
 
 			m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
@@ -185,7 +176,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void HandleGroundedMovement(bool crouch, bool jump)
 		{
 			// check whether conditions are right to allow a jump:
-			Debug.Log(jump +" " + crouch);
+			//Debug.Log(jump +" " + crouch);
 			if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
 			{
 				// jump!
@@ -218,14 +209,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				if (!m_IsGrounded) {
 					Vector3 airMove;
 					// This code causes the player to move exponentially backwards
-					/*if (m_StartOfJump) {
+					if (m_StartOfJump) {
 						m_InitialJumpX = m_Rigidbody.velocity.x;
 						m_InitialJumpZ = m_Rigidbody.velocity.z;
 						m_StartOfJump = false;
 					} else {
 						airMove = new Vector3 (m_Rigidbody.velocity.x + v.x - m_InitialJumpX, m_Rigidbody.velocity.y, m_Rigidbody.velocity.z + v.z - m_InitialJumpZ);
-						m_Rigidbody.velocity = airMove;
-					}*/
+						//m_Rigidbody.velocity = airMove;
+						GetComponent<Rigidbody>().AddForce(v.x, 0, v.z, ForceMode.Acceleration);
+					}
 					AdjustAirborneMovement (v);
 					if (m_StartOfJump)
 						m_StartOfJump = false;
@@ -242,7 +234,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void AdjustAirborneMovement (Vector3 v) {
 			int x = 0, z = 0;
-			int air_adjust = 6;
+			int air_adjust = 7;
 			if (Input.GetKeyDown ("up") && !up) {
 				z -= air_adjust;
 				up = true;
@@ -252,13 +244,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				down = true;
 			}
 			if (Input.GetKeyDown ("left") && !left) {
-				x -= air_adjust;
-				//left = true;
+				x += air_adjust;
+				left = true;
 				Debug.Log ("left");
 			}
 			if (Input.GetKeyDown ("right") && !right) {
-				x += air_adjust;
-				//right = true;
+				x -= air_adjust;
+				right = true;
 			}
 			if (Input.GetKeyUp ("up") && up) {
 				z += air_adjust;
@@ -269,13 +261,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				down = false;
 			}
 			if (Input.GetKeyUp ("left") && left) {
-				x += air_adjust;
-				//left = false;
+				x -= air_adjust;
+				left = false;
 				Debug.Log ("left off");
 			}
 			if (Input.GetKeyUp ("right") && right) {
-				x -= air_adjust;
-			//	right = false;
+				x += air_adjust;
+				right = false;
 			}
 			m_Rigidbody.velocity = new Vector3 (m_Rigidbody.velocity.x + x, m_Rigidbody.velocity.y, m_Rigidbody.velocity.z + z);
 		}
@@ -288,9 +280,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// helper to visualise the ground check ray in the scene view
 			Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
 #endif
-			// 0.1f is a small offset to start the ray from inside the character
-			// it is also good to note that the transform position in the sample assets is at the base of the character
-			if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+
+            // 0.1f is a small offset to start the ray from inside the character
+            // it is also good to note that the transform position in the sample assets is at the base of the character
+            var charCtrl = GetComponent<CharacterController>();
+            Physics.SphereCast(transform.position + (Vector3.up * 0.1f), 0.35f, Vector3.down, out hitInfo, m_GroundCheckDistance);
+            Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance);
+            Physics.SphereCast(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2, Vector3.down, out hitInfo, m_GroundCheckDistance);
+            if (Physics.SphereCast(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2, Vector3.down, out hitInfo, m_GroundCheckDistance))
 			{
 				m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
@@ -305,5 +302,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Animator.applyRootMotion = false;
 			}
 		}
-	}
+        private void OnDrawGizmos()
+        {
+           // Gizmos.color = Color.red;
+           // Gizmos.DrawSphere(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2);
+        }
+
+    }
 }
