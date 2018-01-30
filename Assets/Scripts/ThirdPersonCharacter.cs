@@ -236,38 +236,38 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			int x = 0, z = 0;
 			int air_adjust = 7;
 			if (Input.GetKeyDown ("up") && !up) {
-				z -= air_adjust;
-				up = true;
+				z += air_adjust;
+				//up = true;
 			}
 			if (Input.GetKeyDown ("down") && !down) {
-				z += air_adjust;
-				down = true;
+				z -= air_adjust;
+				//down = true;
 			}
 			if (Input.GetKeyDown ("left") && !left) {
-				x += air_adjust;
-				left = true;
+				x -= air_adjust;
+				//left = true;
 				Debug.Log ("left");
 			}
 			if (Input.GetKeyDown ("right") && !right) {
-				x -= air_adjust;
-				right = true;
+				x += air_adjust;
+				//right = true;
 			}
 			if (Input.GetKeyUp ("up") && up) {
-				z += air_adjust;
-				up = false;
+				z -= air_adjust;
+				//up = false;
 			}
 			if (Input.GetKeyUp ("down") && down) {
-				z -= air_adjust;
-				down = false;
+				z += air_adjust;
+				//down = false;
 			}
 			if (Input.GetKeyUp ("left") && left) {
-				x -= air_adjust;
-				left = false;
+				x += air_adjust;
+				//left = false;
 				Debug.Log ("left off");
 			}
 			if (Input.GetKeyUp ("right") && right) {
-				x += air_adjust;
-				right = false;
+				x -= air_adjust;
+				//right = false;
 			}
 			m_Rigidbody.velocity = new Vector3 (m_Rigidbody.velocity.x + x, m_Rigidbody.velocity.y, m_Rigidbody.velocity.z + z);
 		}
