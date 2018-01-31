@@ -21,7 +21,6 @@ public class MovingPlatform : MonoBehaviour {
 		current_destination = destination.position;
 
 		if (trigger != null && trigger.gameObject.activeSelf) {
-			Debug.Log ("trigger detected");
 			trigger.hitEvent += TriggerHit;
 			moving = false;
 		}
