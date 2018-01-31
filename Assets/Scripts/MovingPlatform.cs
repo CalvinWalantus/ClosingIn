@@ -6,16 +6,25 @@ public class MovingPlatform : MonoBehaviour {
 
 	public bool moving = true;
 
-	public float velocity = 5.0f;
+	public float velocity = 4.0f;
 
 	public Transform destination;
+
+	public Trigger trigger;
 
 	Vector3 origin, current_destination;
 
 	// Use this for initialization
 	void Start () {
+		
 		origin = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
 		current_destination = destination.position;
+
+		if (trigger != null && trigger.gameObject.activeSelf) {
+			Debug.Log ("trigger detected");
+			trigger.hitEvent += TriggerHit;
+			moving = false;
+		}
 	}
 	
 	// Update is called once per frame
@@ -25,12 +34,9 @@ public class MovingPlatform : MonoBehaviour {
 
 		if (moving) {
 			float step = velocity * Time.deltaTime;
-			//Debug.Log ("destination: " + current_destination.position);
-			//Debug.Log ("location: " + gameObject.transform.position);
 			transform.position = Vector3.MoveTowards (gameObject.transform.position, current_destination, step);
 			if (V3Equal(current_destination, gameObject.transform.position)) {
 				if (V3Equal(current_destination, destination.position)) {
-					Debug.Log ("hi"+ origin);
 					current_destination = origin;
 				} else {
 					current_destination = destination.position;
@@ -39,7 +45,12 @@ public class MovingPlatform : MonoBehaviour {
 		}
 	}
 
-	public bool V3Equal(Vector3 a, Vector3 b){
+	// Possibly should be put in a header file?
+	bool V3Equal(Vector3 a, Vector3 b){
 		return Vector3.SqrMagnitude(a - b) < 0.01;
+	}
+
+	public void TriggerHit (int trigger_id) {
+		moving = true;
 	}
 }
