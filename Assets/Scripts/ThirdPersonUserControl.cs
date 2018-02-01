@@ -13,11 +13,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 		private bool m_VerticalMovement = false;
+		bool dimension = GameObject.Find ("WorldController").GetComponent<World> ().dimension;
 
-		bool dimension;
         
         private void Start()
         {
+			
             // get the transform of the main camera
             if (Camera.main != null)
             {
@@ -37,10 +38,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
+			dimension = GameObject.Find ("WorldController").GetComponent<World> ().dimension;
+			var m_rigidbody = GetComponent<Rigidbody> ();
+			if (dimension == false) {
+				m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+			} else {
+				m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+			}
            if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
+
         }
 
 
@@ -48,12 +57,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void FixedUpdate()
         {
             // read inputs
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
 			float v;
+            float h = CrossPlatformInputManager.GetAxis("Horizontal");
+			if (dimension == true) {
+				v = CrossPlatformInputManager.GetAxis ("Vertical");
+			} else {
+				v = 0;
+			}
 
 			//CUSTOM - disables horizontal movement, for 2D
-			if (m_VerticalMovement) v = CrossPlatformInputManager.GetAxis("Vertical");
-			else v = 0;
+			//if (m_VerticalMovement) v = CrossPlatformInputManager.GetAxis("Vertical");
+			//else v = 0;
 
 
             bool crouch = Input.GetKey(KeyCode.C);
