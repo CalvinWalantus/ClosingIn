@@ -5,12 +5,11 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour {
 
 	public bool moving = true;
-
 	public float velocity = 4.0f;
 
 	public Transform destination;
-
 	public Trigger trigger;
+	public GameObject player;
 
 	Vector3 origin, current_destination;
 
@@ -45,7 +44,7 @@ public class MovingPlatform : MonoBehaviour {
 	}
 
 	// Possibly should be put in a header file?
-	bool V3Equal(Vector3 a, Vector3 b){
+	bool V3Equal(Vector3 a, Vector3 b) {
 		return Vector3.SqrMagnitude(a - b) < 0.01;
 	}
 
