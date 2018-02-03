@@ -9,7 +9,7 @@ public class FreezePosition : MonoBehaviour {
 	bool dimension;
 	int two_shot;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		world_controller = FindObjectOfType<World> ();
 		world_controller.shotChangeEvent += ShotChange;
 		world_controller.shiftEvent += Shift;
