@@ -13,11 +13,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 		private bool m_VerticalMovement = false;
-		bool dimension = GameObject.Find ("WorldController").GetComponent<World> ().dimension;
+		bool dimension;
 
         
         private void Start()
         {
+
+			dimension = GameObject.Find ("WorldController").GetComponent<World> ().dimension;
 			
             // get the transform of the main camera
             if (Camera.main != null)
