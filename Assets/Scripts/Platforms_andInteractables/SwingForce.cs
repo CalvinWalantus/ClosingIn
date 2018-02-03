@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class oe : MonoBehaviour {
+public class SwingForce : MonoBehaviour {
     public Rigidbody rb;
     // Use this for initialization
     void Start () {
