@@ -176,7 +176,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void HandleGroundedMovement(bool crouch, bool jump)
 		{
 			// check whether conditions are right to allow a jump:
-			//Debug.Log(jump +" " + crouch);
+
 			if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
 			{
 				// jump!
@@ -246,7 +246,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (Input.GetKeyDown ("left") && !left) {
 				x -= air_adjust;
 				//left = true;
-				Debug.Log ("left");
 			}
 			if (Input.GetKeyDown ("right") && !right) {
 				x += air_adjust;
@@ -263,7 +262,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (Input.GetKeyUp ("left") && left) {
 				x += air_adjust;
 				//left = false;
-				Debug.Log ("left off");
 			}
 			if (Input.GetKeyUp ("right") && right) {
 				x -= air_adjust;

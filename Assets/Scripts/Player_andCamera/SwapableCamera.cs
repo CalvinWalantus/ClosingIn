@@ -43,7 +43,7 @@ public class SwapableCamera : MonoBehaviour {
 	}
 
 	void Shift(bool dim, float time) {
-		Debug.Log ("shift SwapCam");
+		
 		if (dim)
 			MoveCamera (three_shot + 4);
 		else

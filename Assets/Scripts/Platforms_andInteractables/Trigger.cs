@@ -17,7 +17,6 @@ public class Trigger : MonoBehaviour {
 	// Update is called once per frame
 	void OnTriggerEnter (Collider other) {
 		if (other.tag.Equals("Player")) {
-			Debug.Log ("Trigger: collision");
 			hitEvent (id);
 		}
 	}
