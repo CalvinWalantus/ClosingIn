@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityStandardAssets.CrossPlatformInput;
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
 	[RequireComponent(typeof(Rigidbody))]
@@ -35,7 +35,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		float m_InitialJumpX, m_InitialJumpZ;
 
 		bool up = false, down = false, left = false, right = false;
-
+		public int horizontal_jump_force=8;
 
 		void Start()
 		{
@@ -233,41 +233,45 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
 		void AdjustAirborneMovement (Vector3 v) {
-			int x = 0, z = 0;
-			int air_adjust = 7;
-			if (Input.GetKeyDown ("up") && !up) {
-				z += air_adjust;
-				//up = true;
-			}
-			if (Input.GetKeyDown ("down") && !down) {
-				z -= air_adjust;
-				//down = true;
-			}
-			if (Input.GetKeyDown ("left") && !left) {
-				x -= air_adjust;
-				//left = true;
-			}
-			if (Input.GetKeyDown ("right") && !right) {
-				x += air_adjust;
-				//right = true;
-			}
-			if (Input.GetKeyUp ("up") && up) {
-				z -= air_adjust;
-				//up = false;
-			}
-			if (Input.GetKeyUp ("down") && down) {
-				z += air_adjust;
-				//down = false;
-			}
-			if (Input.GetKeyUp ("left") && left) {
-				x += air_adjust;
-				//left = false;
-			}
-			if (Input.GetKeyUp ("right") && right) {
-				x -= air_adjust;
-				//right = false;
-			}
-			m_Rigidbody.velocity = new Vector3 (m_Rigidbody.velocity.x + x, m_Rigidbody.velocity.y, m_Rigidbody.velocity.z + z);
+			var Movex = CrossPlatformInputManager.GetAxis ("Horizontal");
+			var Movez = CrossPlatformInputManager.GetAxis ("Vertical");
+			print ("movex" +Movex + " movez" +Movez);
+			m_Rigidbody.velocity = new Vector3 (Movex*horizontal_jump_force, m_Rigidbody.velocity.y, Movez*horizontal_jump_force);
+//			int x = 0, z = 0;
+//			int air_adjust = 7;
+//			if (Input.GetKeyDown ("up") && !up) {
+//				z += air_adjust;
+//				//up = true;
+//			}
+//			if (Input.GetKeyDown ("down") && !down) {
+//				z -= air_adjust;
+//				//down = true;
+//			}
+//			if (Input.GetKeyDown ("left") && !left) {
+//				x -= air_adjust;
+//				//left = true;
+//			}
+//			if (Input.GetKeyDown ("right") && !right) {
+//				x += air_adjust;
+//				//right = true;
+//			}
+//			if (Input.GetKeyUp ("up") && up) {
+//				z -= air_adjust;
+//				//up = false;
+//			}
+//			if (Input.GetKeyUp ("down") && down) {
+//				z += air_adjust;
+//				//down = false;
+//			}
+//			if (Input.GetKeyUp ("left") && left) {
+//				x += air_adjust;
+//				//left = false;
+//			}
+//			if (Input.GetKeyUp ("right") && right) {
+//				x -= air_adjust;
+//				//right = false;
+//			}
+//			m_Rigidbody.velocity = new Vector3 (m_Rigidbody.velocity.x + x, m_Rigidbody.velocity.y, m_Rigidbody.velocity.z + z);
 		}
 
 
