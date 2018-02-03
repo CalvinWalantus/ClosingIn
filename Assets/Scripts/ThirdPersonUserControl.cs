@@ -40,11 +40,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
 			dimension = GameObject.Find ("WorldController").GetComponent<World> ().dimension;
 			var m_rigidbody = GetComponent<Rigidbody> ();
-			if (dimension == false) {
+			/*if (dimension == false) {
 				m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
 			} else {
 				m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-			}
+			}*/
            if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
