@@ -10,6 +10,8 @@ public class SphereOfInfluence : MonoBehaviour {
 	public int two_shot;
 	public float shift_time;
 
+	bool startflag = true;
+
 	Transform player;
 	public World world_controller;
 
@@ -50,8 +52,10 @@ public class SphereOfInfluence : MonoBehaviour {
 
 	void ShotChange (int tw_shot, int th_shot) {
 		two_shot = tw_shot;
-		if (!dimension) {
-			StartCoroutine(TwoShotChange (shift_time, true));
+		if (!dimension && !startflag) {
+			StartCoroutine (TwoShotChange (shift_time, true));
+		} else {
+			startflag = false;
 		}
 	}
 
@@ -63,6 +67,7 @@ public class SphereOfInfluence : MonoBehaviour {
 				StartCoroutine(TwoShotChange(shift_time, false));
 			}
 			else {
+				Debug.Log ("decompressing all");
 				foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
 					Decompress (compressable.Key, compressable.Value);
 			} 
