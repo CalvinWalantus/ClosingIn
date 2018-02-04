@@ -37,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4724162160048318}
+  - component: {fileID: 135335957057342744}
   m_Layer: 0
   m_Name: Compressable platform
   m_TagString: Compressable
@@ -176,3 +177,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37958dde3a375e84ab36c1f3f48e6993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &135335957057342744
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380778671443802}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.00001
+  m_Center: {x: 0, y: 0, z: 0}
