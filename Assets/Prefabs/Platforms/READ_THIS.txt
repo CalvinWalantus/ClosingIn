@@ -1,0 +1,33 @@
+REMINDER:
+
+Use the "compressable platform" and "moving platform" objects in this folder to construct parts of the level that can be 
+compressed by switching dimensions.
+
+If you want to change the size of a platform, do not adjust the scale of the "compressable platform" object,
+change the scale of the "platform body" instead. If you click the arrow next to the "compressable platform" object
+in the hierarcy window (the window on the left) you should see this:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> Compressable platform
+	> Platform body           <--- Click on this one, then change the scale
+		Platform magnet
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+And for moving platforms:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> Moving platform
+	...
+	> Platform
+		> Platform body              <--- This one
+			Platmform magnet
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+If you're curious, the "platform magnet" is an invisible object that keeps the player attached to the
+platform while it is moving, which will automatically adjust to the size of the platform body since it
+is its child.
+
+If you're not curious, well, I hope you're happy in your narrow-minded little world.
+

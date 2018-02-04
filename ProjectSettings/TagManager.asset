@@ -6,7 +6,7 @@ TagManager:
   tags:
   - PlayerBody
   - WorldController
-  - Crushable
+  - Compressable
   layers:
   - Default
   - TransparentFX

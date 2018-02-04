@@ -9,7 +9,6 @@ public class MovingPlatform : MonoBehaviour {
 
 	public Transform destination;
 	public Trigger trigger;
-	public GameObject player;
 
 	Vector3 origin, current_destination;
 
