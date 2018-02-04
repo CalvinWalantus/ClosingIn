@@ -31,20 +31,36 @@ public class SphereOfInfluence : MonoBehaviour {
 		world_controller.shotChangeEvent += ShotChange;
 	}
 
+	IEnumerator TwoShotChange(float speed, bool decomp) {
+
+		//Decompress every object in the sphere
+		if (decomp) {
+			foreach (KeyValuePair<GameObject, Vector3> compressable in compressables) 
+				Decompress (compressable.Key, compressable.Value);
+		}
+
+		// Wait for the shift to complete
+		yield return new WaitForSeconds (speed);
+
+
+		// Recompress every object in the sphere
+		foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
+			Compress (compressable.Key);
+	}
+
 	void ShotChange (int tw_shot, int th_shot) {
 		two_shot = tw_shot;
 		if (!dimension) {
-			TwoShotChange (shift_time, true);
+			StartCoroutine(TwoShotChange (shift_time, true));
 		}
 	}
 
 	void Shift (bool dim, float time) {
 		shift_time = time;
 		if (dimension != dim) {
-			Debug.Log("Shift: switching dimensions");
 			dimension = dim;
 			if  (!dimension) {
-				TwoShotChange(shift_time, false);
+				StartCoroutine(TwoShotChange(shift_time, false));
 			}
 			else {
 				foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
@@ -56,30 +72,11 @@ public class SphereOfInfluence : MonoBehaviour {
 
 	// Decompress the objects in the sphere when it is rotating between two different 2D
 	// shots so that the player sees the world as 3D during the shift (decomp = true)
-	IEnumerator TwoShotChange(float speed, bool decomp) {
-		Debug.Log("coroutine start");
 
-		//Decompress every object in the sphere
-		if (decomp) {
-			foreach (KeyValuePair<GameObject, Vector3> compressable in compressables) 
-				Decompress (compressable.Key, compressable.Value);
-		}
-		Debug.Log("waiting");
-
-		// Wait for the shift to complete
-		yield return new WaitForSeconds (speed);
-
-		Debug.Log("wait complete");
-
-		// Recompress every object in the sphere
-		foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
-			Compress (compressable.Key);
-	}
 
 	void OnTriggerEnter (Collider other) {
 
 		if (other.tag.Equals("Compressable")) {
-			Debug.Log("compressable detected");
 			// Add the compressable to the dictionary, with its original transform as the value
 			compressables[other.gameObject] = new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z);
 
