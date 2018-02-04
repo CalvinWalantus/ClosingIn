@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour {
+public class MovingPlatform : ComplexCompressable {
 
 	public bool moving = true;
 	public float velocity = 4.0f;
@@ -49,5 +49,13 @@ public class MovingPlatform : MonoBehaviour {
 
 	public void TriggerHit (int trigger_id) {
 		moving = true;
+	}
+
+	public void ComplexCompress (int two_shot, Vector3 player_position) {
+		Debug.Log("complexCompress");
+		if (two_shot % 2 != 1)
+			transform.position = new Vector3(transform.position.x, transform.position.y, player_position.z);
+		else 
+			transform.position = new Vector3(player_position.x, transform.position.y, transform.position.z);
 	}
 }
