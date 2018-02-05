@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: f4efaf97b44ec7544bd27aa66700b05b
+timeCreated: 1517556312
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: back
+    100002: //RootNode
+    100004: Character2_Head
+    100006: Character2_Hips
+    100008: Character2_LeftFoot
+    100010: Character2_LeftLeg
+    100012: Character2_LeftToeBase
+    100014: Character2_LeftUpLeg
+    100016: Character2_Neck
+    100018: Character2_Reference
+    100020: Character2_RightFoot
+    100022: Character2_RightLeg
+    100024: Character2_RightToeBase
+    100026: Character2_RightUpLeg
+    100028: Character2_Spine
+    100030: Character2_Spine1
+    100032: Character2_Spine2
+    100034: Character2_Spine3
+    100036: Character2_Spine4
+    100038: Character2_Spine5
+    100040: HipHandle
+    100042: LeftLegHandle
+    100044: LeftLegIK
+    100046: main body1
+    100048: RightLegHandle
+    100050: RightLegIK
+    100052: SpineIK
+    100054: TopHandle
+    400000: back
+    400002: //RootNode
+    400004: Character2_Head
+    400006: Character2_Hips
+    400008: Character2_LeftFoot
+    400010: Character2_LeftLeg
+    400012: Character2_LeftToeBase
+    400014: Character2_LeftUpLeg
+    400016: Character2_Neck
+    400018: Character2_Reference
+    400020: Character2_RightFoot
+    400022: Character2_RightLeg
+    400024: Character2_RightToeBase
+    400026: Character2_RightUpLeg
+    400028: Character2_Spine
+    400030: Character2_Spine1
+    400032: Character2_Spine2
+    400034: Character2_Spine3
+    400036: Character2_Spine4
+    400038: Character2_Spine5
+    400040: HipHandle
+    400042: LeftLegHandle
+    400044: LeftLegIK
+    400046: main body1
+    400048: RightLegHandle
+    400050: RightLegIK
+    400052: SpineIK
+    400054: TopHandle
+    2000000: back
+    2100000: phong1
+    2300000: HipHandle
+    2300002: LeftLegHandle
+    2300004: RightLegHandle
+    2300006: TopHandle
+    3300000: HipHandle
+    3300002: LeftLegHandle
+    3300004: RightLegHandle
+    3300006: TopHandle
+    4300000: main body1
+    4300002: HipHandle
+    4300004: LeftLegHandle
+    4300006: RightLegHandle
+    4300008: TopHandle
+    7400000: CandleIdle
+    7400002: CandleWalk
+    7400004: CandlePush
+    9500000: //RootNode
+    13700000: main body1
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CandleIdle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CandleWalk
+      takeName: Take 001
+      firstFrame: 33
+      lastFrame: 77
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CandlePush
+      takeName: Take 001
+      firstFrame: 78
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
