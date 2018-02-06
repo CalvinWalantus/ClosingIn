@@ -217,10 +217,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Know issues:
 
-    - Movement still restricted to a single axis when in the thrid dimension
+    - Jumping does not work properly
 
-    - When moving on one axis in 2D, player still makes U-turns, adjusting thier position
-    on the axis that is meant to be frozen.'
+'
 --- !u!222 &78477086
 CanvasRenderer:
   m_ObjectHideFlags: 0
