@@ -36,9 +36,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		bool up = false, down = false, left = false, right = false;
 		public int horizontal_jump_force=8;
+		private int shots;
+		private bool dimensions;
+
 
 		void Start()
 		{
+			shots = GameObject.Find ("WorldController").GetComponent<World> ().two_shot;
+			dimensions = GameObject.Find ("WorldController").GetComponent<World> ().dimension;
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
@@ -235,80 +240,61 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void AdjustAirborneMovement (Vector3 v) {
 			var Movex = CrossPlatformInputManager.GetAxis ("Horizontal");
 			var Movez = CrossPlatformInputManager.GetAxis ("Vertical");
-			print ("movex" +Movex + " movez" +Movez);
-			m_Rigidbody.velocity = new Vector3 (Movex*horizontal_jump_force, m_Rigidbody.velocity.y, Movez*horizontal_jump_force);
-//			int x = 0, z = 0;
-//			int air_adjust = 7;
-//			if (Input.GetKeyDown ("up") && !up) {
-//				z += air_adjust;
-//				//up = true;
-//			}
-//			if (Input.GetKeyDown ("down") && !down) {
-//				z -= air_adjust;
-//				//down = true;
-//			}
-//			if (Input.GetKeyDown ("left") && !left) {
-//				x -= air_adjust;
-//				//left = true;
-//			}
-//			if (Input.GetKeyDown ("right") && !right) {
-//				x += air_adjust;
-//				//right = true;
-//			}
-//			if (Input.GetKeyUp ("up") && up) {
-//				z -= air_adjust;
-//				//up = false;
-//			}
-//			if (Input.GetKeyUp ("down") && down) {
-//				z += air_adjust;
-//				//down = false;
-//			}
-//			if (Input.GetKeyUp ("left") && left) {
-//				x += air_adjust;
-//				//left = false;
-//			}
-//			if (Input.GetKeyUp ("right") && right) {
-//				x -= air_adjust;
-//				//right = false;
-//			}
-//			m_Rigidbody.velocity = new Vector3 (m_Rigidbody.velocity.x + x, m_Rigidbody.velocity.y, m_Rigidbody.velocity.z + z);
-		}
+			if (dimensions == true) {
+				m_Rigidbody.velocity = new Vector3 (m_Rigidbody.velocity.x,m_Rigidbody.velocity.y,m_Rigidbody.velocity.z);
+			}
+			else if (shots == 1) {
+				m_Rigidbody.velocity = new Vector3 (Movex * horizontal_jump_force, m_Rigidbody.velocity.y, Movez * horizontal_jump_force);//shot1
+			} 
+			else if (shots == 2) {
+				m_Rigidbody.velocity = new Vector3 (Movez * horizontal_jump_force, m_Rigidbody.velocity.y, Movex * horizontal_jump_force);//shot2
+			} 
+			else if (shots == 3) {
+				m_Rigidbody.velocity = new Vector3 ((-Movex) * horizontal_jump_force, m_Rigidbody.velocity.y, (-Movez) * horizontal_jump_force);//shot3
+			} 
+			else if (shots == 4) {
+				m_Rigidbody.velocity = new Vector3 ((-Movez) * horizontal_jump_force, m_Rigidbody.velocity.y, (-Movex) * horizontal_jump_force);//shot4
+			} 
 
+		}
 
 		void CheckGroundStatus()
 		{
 			RaycastHit hitInfo;
-#if UNITY_EDITOR
-			// helper to visualise the ground check ray in the scene view
-			Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
-#endif
 
-            // 0.1f is a small offset to start the ray from inside the character
-            // it is also good to note that the transform position in the sample assets is at the base of the character
-            var charCtrl = GetComponent<CharacterController>();
-            Physics.SphereCast(transform.position + (Vector3.up * 0.1f), 0.35f, Vector3.down, out hitInfo, m_GroundCheckDistance);
-            Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance);
-            Physics.SphereCast(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2, Vector3.down, out hitInfo, m_GroundCheckDistance);
-            if (Physics.SphereCast(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2, Vector3.down, out hitInfo, m_GroundCheckDistance))
-			{
-				m_GroundNormal = hitInfo.normal;
+			#if UNITY_EDITOR
+			// helper to visualise the ground check ray in the scene view
+
+			Debug.DrawLine(
+				m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f),
+				m_Capsule.transform.position + (Vector3.down * m_GroundCheckDistance), 
+				Color.red
+			);
+
+			#endif
+			// 0.1f is a small offset to start the ray from inside the character
+			// it is also good to note that the transform position in the sample assets is at the base of the character
+			bool condition = Physics.SphereCast(
+				m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f),
+				m_Capsule.height / 2,
+				Vector3.down, 
+				out hitInfo,
+				m_GroundCheckDistance
+			);
+
+			if (condition) {
 				m_IsGrounded = true;
+				m_GroundNormal = hitInfo.normal;
 				m_Animator.applyRootMotion = true;
-			}
-			else
-			{
-				if (m_IsGrounded)
-					m_StartOfJump = true;
+
+			} else {
 				m_IsGrounded = false;
 				m_GroundNormal = Vector3.up;
 				m_Animator.applyRootMotion = false;
 			}
 		}
-        private void OnDrawGizmos()
-        {
-           // Gizmos.color = Color.red;
-           // Gizmos.DrawSphere(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2);
-        }
+
+
 
     }
 }
