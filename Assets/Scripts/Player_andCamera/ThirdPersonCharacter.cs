@@ -137,7 +137,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Animator.SetBool("OnGround", m_IsGrounded);
 			if (!m_IsGrounded)
 			{
-				
+
 				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
 			}
 
@@ -201,7 +201,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
 			transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
 		}
-			
+
 
 		public void OnAnimatorMove()
 		{
@@ -296,5 +296,5 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
 
-    }
+	}
 }
