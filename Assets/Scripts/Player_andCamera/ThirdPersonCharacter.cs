@@ -8,12 +8,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 	public class ThirdPersonCharacter : MonoBehaviour
 	{
-		[SerializeField] float m_MovingTurnSpeed = 360;
-		[SerializeField] float m_StationaryTurnSpeed = 180;
-		[SerializeField] float m_JumpPower = 12f;
+		public float m_MovingTurnSpeed = 720;
+		public float m_StationaryTurnSpeed = 180;
+		public float m_JumpPower = 12f;
 		[Range(1f, 4f)][SerializeField] float m_GravityMultiplier = 2f;
 		[SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
-		[SerializeField] float m_MoveSpeedMultiplier = 1f;
+		public float m_MoveSpeedMultiplier = 1f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
@@ -31,13 +31,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		bool m_Crouching;
 
 		//CUSTOM
-		bool m_StartOfJump;
-		float m_InitialJumpX, m_InitialJumpZ;
+		private bool m_StartOfJump;
+		private float m_InitialJumpX, m_InitialJumpZ;
 
-		bool up = false, down = false, left = false, right = false;
-		public int horizontal_jump_force=8;
+		public int twod_jumping_force=8;
+		public int threed_jumping_force = 8;
 		private int shots;
 		private bool dimensions;
+		private Vector3 jumping_direction;
 
 
 		void Start()
@@ -62,13 +63,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
+			jumping_direction = move;
+			Debug.Log (move);
 			if (move.magnitude > 1f) move.Normalize();
 			move = transform.InverseTransformDirection(move);
+
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
-
 			ApplyExtraTurnRotation();
 
 			// control and velocity handling is different when grounded and airborne:
@@ -169,7 +172,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
 		void HandleAirborneMovement()
-		{
+		{	
+			transform.Translate (jumping_direction*(1/threed_jumping_force), Space.World);
 			// apply extra gravity from multiplier:
 			Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
 			m_Rigidbody.AddForce(extraGravityForce);
@@ -241,19 +245,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			var Movex = CrossPlatformInputManager.GetAxis ("Horizontal");
 			var Movez = CrossPlatformInputManager.GetAxis ("Vertical");
 			if (dimensions == true) {
-				m_Rigidbody.velocity = new Vector3 (m_Rigidbody.velocity.x,m_Rigidbody.velocity.y,m_Rigidbody.velocity.z);
 			}
 			else if (shots == 1) {
-				m_Rigidbody.velocity = new Vector3 (Movex * horizontal_jump_force, m_Rigidbody.velocity.y, Movez * horizontal_jump_force);//shot1
+				m_Rigidbody.velocity = new Vector3 (Movex * twod_jumping_force, m_Rigidbody.velocity.y, Movez * twod_jumping_force);//shot1
 			} 
 			else if (shots == 2) {
-				m_Rigidbody.velocity = new Vector3 (Movez * horizontal_jump_force, m_Rigidbody.velocity.y, Movex * horizontal_jump_force);//shot2
+				m_Rigidbody.velocity = new Vector3 (Movez * twod_jumping_force, m_Rigidbody.velocity.y, Movex * twod_jumping_force);//shot2
 			} 
 			else if (shots == 3) {
-				m_Rigidbody.velocity = new Vector3 ((-Movex) * horizontal_jump_force, m_Rigidbody.velocity.y, (-Movez) * horizontal_jump_force);//shot3
+				m_Rigidbody.velocity = new Vector3 ((-Movex) * twod_jumping_force, m_Rigidbody.velocity.y, (-Movez) * twod_jumping_force);//shot3
 			} 
 			else if (shots == 4) {
-				m_Rigidbody.velocity = new Vector3 ((-Movez) * horizontal_jump_force, m_Rigidbody.velocity.y, (-Movex) * horizontal_jump_force);//shot4
+				m_Rigidbody.velocity = new Vector3 ((-Movez) * twod_jumping_force, m_Rigidbody.velocity.y, (-Movex) * twod_jumping_force);//shot4
 			} 
 
 		}
