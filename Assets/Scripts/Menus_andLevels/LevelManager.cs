@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor.SceneManagement;
+#endif
 
 public class LevelManager : MonoBehaviour 
 {
@@ -43,6 +46,9 @@ public class LevelManager : MonoBehaviour
 	public void QuitGame()
 	{
 		Application.Quit();
+
+		#if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
+		#endif
 	}
 }

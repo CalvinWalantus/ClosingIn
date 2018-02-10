@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor.SceneManagement;
+#endif
 
 public class PauseMenu : MonoBehaviour 
 {
@@ -41,7 +44,7 @@ public class PauseMenu : MonoBehaviour
 	void Pause()
 	{
 		pauseMenuUI.SetActive(true);
-		Time.timeScale = 0f;
+		Time.timeScale = 1f;
 		paused_game = true;
 	}
 
@@ -51,7 +54,11 @@ public class PauseMenu : MonoBehaviour
 		Debug.Log("Loading menu...");
 
 		Time.timeScale = 1f;
+
+		Application.LoadLevel("StartMenu_P");
+		#if UNITY_EDITOR
 		EditorSceneManager.LoadScene("StartMenu_P");
+		#endif
 	}
 
 	// For Quit Button
@@ -59,6 +66,9 @@ public class PauseMenu : MonoBehaviour
 	{
 		Debug.Log("Quitting game...");
 		Application.Quit();
+
+		#if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
+		#endif
 	}
 }
