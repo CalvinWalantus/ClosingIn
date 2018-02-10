@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
 	void Pause()
 	{
 		pauseMenuUI.SetActive(true);
-		Time.timeScale = 0git checkout charactf;
+		Time.timeScale = 0f;
 		paused_game = true;
 	}
 
