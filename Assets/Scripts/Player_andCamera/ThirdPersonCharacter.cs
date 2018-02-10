@@ -34,17 +34,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		private bool m_StartOfJump;
 		private float m_InitialJumpX, m_InitialJumpZ;
 
-		public int twod_jumping_force=8;
-		public int threed_jumping_force = 8;
+		public float twod_jumping_force=0.3f;
+		public float threed_jumping_force = 0.3f;
 		private int shots;
-		private bool dimensions;
+		private bool dimension;
 		private Vector3 jumping_direction;
 
 
 		void Start()
 		{
 			shots = GameObject.Find ("WorldController").GetComponent<World> ().two_shot;
-			dimensions = GameObject.Find ("WorldController").GetComponent<World> ().dimension;
+			dimension = GameObject.Find ("WorldController").GetComponent<World> ().dimension;
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
@@ -64,7 +64,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// turn amount and forward amount required to head in the desired
 			// direction.
 			jumping_direction = move;
-			Debug.Log (move);
 			if (move.magnitude > 1f) move.Normalize();
 			move = transform.InverseTransformDirection(move);
 
@@ -173,7 +172,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void HandleAirborneMovement()
 		{	
-			transform.Translate (jumping_direction*(1/threed_jumping_force), Space.World);
+			if (dimension) {
+				transform.Translate (jumping_direction * (threed_jumping_force / 20), Space.World);
+			} 
+			else {
+				transform.Translate (jumping_direction * (twod_jumping_force / 20), Space.World);
+			}
 			// apply extra gravity from multiplier:
 			Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
 			m_Rigidbody.AddForce(extraGravityForce);
@@ -215,51 +219,16 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
-				if (!m_IsGrounded) {
-					Vector3 airMove;
-					// This code causes the player to move exponentially backwards
-					if (m_StartOfJump) {
-						m_InitialJumpX = m_Rigidbody.velocity.x;
-						m_InitialJumpZ = m_Rigidbody.velocity.z;
-						m_StartOfJump = false;
-					} else {
-						airMove = new Vector3 (m_Rigidbody.velocity.x + v.x - m_InitialJumpX, m_Rigidbody.velocity.y, m_Rigidbody.velocity.z + v.z - m_InitialJumpZ);
-						//m_Rigidbody.velocity = airMove;
-						GetComponent<Rigidbody>().AddForce(v.x, 0, v.z, ForceMode.Acceleration);
-					}
-					AdjustAirborneMovement (v);
-					if (m_StartOfJump)
-						m_StartOfJump = false;
-				} else {
-					// we preserve the existing y part of the current velocity.
-					v.y = m_Rigidbody.velocity.y;
-					m_Rigidbody.velocity = v;
-				}
+				// we preserve the existing y part of the current velocity.
+				v.y = m_Rigidbody.velocity.y;
+				m_Rigidbody.velocity = v;
 			}
 		}
 
 		// This function seemingly doesn't affect the player's movement at all
 
 
-		void AdjustAirborneMovement (Vector3 v) {
-			var Movex = CrossPlatformInputManager.GetAxis ("Horizontal");
-			var Movez = CrossPlatformInputManager.GetAxis ("Vertical");
-			if (dimensions == true) {
-			}
-			else if (shots == 1) {
-				m_Rigidbody.velocity = new Vector3 (Movex * twod_jumping_force, m_Rigidbody.velocity.y, Movez * twod_jumping_force);//shot1
-			} 
-			else if (shots == 2) {
-				m_Rigidbody.velocity = new Vector3 (Movez * twod_jumping_force, m_Rigidbody.velocity.y, Movex * twod_jumping_force);//shot2
-			} 
-			else if (shots == 3) {
-				m_Rigidbody.velocity = new Vector3 ((-Movex) * twod_jumping_force, m_Rigidbody.velocity.y, (-Movez) * twod_jumping_force);//shot3
-			} 
-			else if (shots == 4) {
-				m_Rigidbody.velocity = new Vector3 ((-Movez) * twod_jumping_force, m_Rigidbody.velocity.y, (-Movex) * twod_jumping_force);//shot4
-			} 
 
-		}
 
 		void CheckGroundStatus()
 		{
