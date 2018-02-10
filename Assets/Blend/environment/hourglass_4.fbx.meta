@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: b5eb81ec1bb51bd41b2127b68889a6ae
+timeCreated: 1517783328
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: bottom of hourglass
+    100002: Cube
+    100004: Cube.001
+    100006: hourglass
+    100008: hourglass.001
+    100010: //RootNode
+    100012: inner glass
+    100014: leaves
+    100016: leaves 1
+    100018: leaves 1.001
+    100020: leaves 2
+    100022: leaves 2.001
+    100024: leaves 3
+    100026: leaves 3.001
+    100028: leaves 4
+    100030: leaves 4.001
+    100032: leaves 5
+    100034: leaves 5.001
+    100036: leaves.001
+    100038: top of hourglass
+    100040: top tree
+    100042: top tree.001
+    100044: Camera
+    100046: Lamp
+    100048: Point
+    100050: Point.001
+    100052: Sun
+    100054: Sun.002
+    400000: bottom of hourglass
+    400002: Cube
+    400004: Cube.001
+    400006: hourglass
+    400008: hourglass.001
+    400010: //RootNode
+    400012: inner glass
+    400014: leaves
+    400016: leaves 1
+    400018: leaves 1.001
+    400020: leaves 2
+    400022: leaves 2.001
+    400024: leaves 3
+    400026: leaves 3.001
+    400028: leaves 4
+    400030: leaves 4.001
+    400032: leaves 5
+    400034: leaves 5.001
+    400036: leaves.001
+    400038: top of hourglass
+    400040: top tree
+    400042: top tree.001
+    400044: Camera
+    400046: Lamp
+    400048: Point
+    400050: Point.001
+    400052: Sun
+    400054: Sun.002
+    2000000: Camera
+    2100000: Material.007
+    2100002: Material.008
+    2100004: Material.006
+    2100006: Material.004
+    2100008: Material.001
+    2100010: Material.005
+    2100012: Material.003
+    2100014: Material.002
+    2300000: bottom of hourglass
+    2300002: Cube
+    2300004: Cube.001
+    2300006: hourglass
+    2300008: hourglass.001
+    2300010: inner glass
+    2300012: leaves
+    2300014: leaves 1
+    2300016: leaves 1.001
+    2300018: leaves 2
+    2300020: leaves 2.001
+    2300022: leaves 3
+    2300024: leaves 3.001
+    2300026: leaves 4
+    2300028: leaves 4.001
+    2300030: leaves 5
+    2300032: leaves 5.001
+    2300034: leaves.001
+    2300036: top of hourglass
+    2300038: top tree
+    2300040: top tree.001
+    3300000: bottom of hourglass
+    3300002: Cube
+    3300004: Cube.001
+    3300006: hourglass
+    3300008: hourglass.001
+    3300010: inner glass
+    3300012: leaves
+    3300014: leaves 1
+    3300016: leaves 1.001
+    3300018: leaves 2
+    3300020: leaves 2.001
+    3300022: leaves 3
+    3300024: leaves 3.001
+    3300026: leaves 4
+    3300028: leaves 4.001
+    3300030: leaves 5
+    3300032: leaves 5.001
+    3300034: leaves.001
+    3300036: top of hourglass
+    3300038: top tree
+    3300040: top tree.001
+    4300000: top tree.001
+    4300002: leaves.001
+    4300004: leaves 1.001
+    4300006: leaves 2.001
+    4300008: leaves 3.001
+    4300010: leaves 4.001
+    4300012: leaves 5.001
+    4300014: leaves 5
+    4300016: leaves 4
+    4300018: leaves 3
+    4300020: leaves 2
+    4300022: leaves 1
+    4300024: leaves
+    4300026: Cube.001
+    4300028: inner glass
+    4300030: Cube
+    4300032: hourglass.001
+    4300034: top tree
+    4300036: top of hourglass
+    4300038: bottom of hourglass
+    4300040: hourglass
+    10800000: Lamp
+    10800002: Point
+    10800004: Point.001
+    10800006: Sun
+    10800008: Sun.002
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -31,6 +31,8 @@ public class MovingPlatform : ComplexCompressable {
 
 		if (moving) {
 			float step = velocity * Time.deltaTime;
+			if (step == 3)
+				moving = false;
 			transform.position = Vector3.MoveTowards (gameObject.transform.position, current_destination, step);
 			if (V3Equal(current_destination, gameObject.transform.position)) {
 				if (V3Equal(current_destination, destination.position)) {
