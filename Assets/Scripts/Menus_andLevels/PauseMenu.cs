@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
 {
 	public static bool paused_game = false;
 	public GameObject pauseMenuUI;
+	public string level = "StartScreen";
+
 
 	// Use this for initialization
 	void Start () 
@@ -55,9 +57,9 @@ public class PauseMenu : MonoBehaviour
 
 		Time.timeScale = 1f;
 
-		Application.LoadLevel("StartMenu_P");
+		Application.LoadLevel(level);
 		#if UNITY_EDITOR
-		EditorSceneManager.LoadScene("StartMenu_P");
+		EditorSceneManager.LoadScene(level);
 		#endif
 	}
 
