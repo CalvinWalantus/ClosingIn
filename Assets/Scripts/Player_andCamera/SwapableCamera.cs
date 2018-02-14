@@ -5,6 +5,8 @@ using Cinemachine;
 
 public class SwapableCamera : MonoBehaviour {
 
+	public bool switchingOrtho = true;
+
 	public World world_controller;
 
 	Dictionary<int, GameObject> shot_reference;
@@ -46,10 +48,14 @@ public class SwapableCamera : MonoBehaviour {
 		
 		if (dim) {
 			MoveCamera (three_shot + 4);
-			Camera.main.orthographic = false;
+			if (switchingOrtho) {
+				Camera.main.orthographic = false;
+			}
 		} else {
 			MoveCamera (two_shot);
-			Camera.main.orthographic = true;
+			if (switchingOrtho) {
+				Camera.main.orthographic = true;
+			}
 		}
 		dimension = dim;
 		GetComponent<CinemachineBrain> ().m_DefaultBlend.m_Time = time;
