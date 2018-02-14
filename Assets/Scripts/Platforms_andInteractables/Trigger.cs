@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+#if UNITY_EDITOR
+using UnityEditor.SceneManagement;
+#endif
 
 public class Trigger : MonoBehaviour 
 {
-
 	public int id = 0;
 
 	public delegate void Hit(int trigger_id);
@@ -25,11 +26,11 @@ public class Trigger : MonoBehaviour
 	{
 		if (other.tag.Equals("Player")) 
 		{
-			hitEvent (id);
-			/*Application.LoadLevel(name);
+			//hitEvent (id);
+			Application.LoadLevel(name);
 			#if UNITY_EDITOR
 			EditorSceneManager.LoadScene(name);
-			#endif*/
+			#endif
 		}
 	}
 }
