@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 838895274}
   - component: {fileID: 838895273}
   - component: {fileID: 838895272}
+  - component: {fileID: 838895278}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -838,11 +839,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f583d7c797c53524bbc4d9729ba286fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchingOrtho: 1
-  world_controller: {fileID: 890499716}
   two_shot: 0
   three_shot: 0
   current_shot: 0
+  blendingOrtho: 1
   shots:
   - {fileID: 422315777}
   - {fileID: 782887441}
@@ -909,6 +909,17 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &838895278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 838895270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13df1d042acca6043a412feea7fb5d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &890499715
 GameObject:
   m_ObjectHideFlags: 0
