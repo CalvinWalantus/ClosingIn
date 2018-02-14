@@ -44,10 +44,13 @@ public class SwapableCamera : MonoBehaviour {
 
 	void Shift(bool dim, float time) {
 		
-		if (dim)
+		if (dim) {
 			MoveCamera (three_shot + 4);
-		else
+			Camera.main.orthographic = false;
+		} else {
 			MoveCamera (two_shot);
+			Camera.main.orthographic = true;
+		}
 		dimension = dim;
 		GetComponent<CinemachineBrain> ().m_DefaultBlend.m_Time = time;
 	}
@@ -57,5 +60,6 @@ public class SwapableCamera : MonoBehaviour {
 		if (current_shot != 0)
 			shot_reference [current_shot].GetComponent<CinemachineVirtualCamera> ().Priority = 10;
 		current_shot = shot;
+
 	}
 }
