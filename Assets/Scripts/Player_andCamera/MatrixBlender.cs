@@ -9,7 +9,7 @@ public class MatrixBlender : MonoBehaviour
 	Camera camera;
 
 	public void Awake () {
-		camera = Camera.main;
+		camera = gameObject.GetComponent<Camera>();
 	}
 
 	public static Matrix4x4 MatrixLerp(Matrix4x4 src, Matrix4x4 dest, float time)
@@ -20,7 +20,7 @@ public class MatrixBlender : MonoBehaviour
 		return ret;
 	}
 
-	private IEnumerator LerpFromTo(Matrix4x4 src, Matrix4x4 dest, float duration)
+	private IEnumerator LerpCameraFromTo(Matrix4x4 src, Matrix4x4 dest, float duration)
 	{
 		float startTime = Time.time;
 		while (Time.time - startTime < duration)
@@ -34,6 +34,6 @@ public class MatrixBlender : MonoBehaviour
 	public Coroutine BlendToMatrix(Matrix4x4 targetMatrix, float duration)
 	{
 		StopAllCoroutines();
-		return StartCoroutine(LerpFromTo(camera.projectionMatrix, targetMatrix, duration));
+		return StartCoroutine(LerpCameraFromTo(camera.projectionMatrix, targetMatrix, duration));
 	}
 }
