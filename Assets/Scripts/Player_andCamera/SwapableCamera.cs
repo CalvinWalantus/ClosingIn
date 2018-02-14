@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class SwapableCamera : MonoBehaviour {
 
-	public bool switchingOrtho = true;
+	public bool blendingOrtho = true;
 
 	public World world_controller;
 
@@ -19,8 +19,14 @@ public class SwapableCamera : MonoBehaviour {
 
 	public List<GameObject> shots;
 
+	MatrixBlender blender;
+	Matrix4x4 pers, ortho;
+
+
 	// Use this for initialization
 	void Start () {
+
+		blender = gameObject.GetComponent<MatrixBlender> ();
 		world_controller.shiftEvent += Shift;
 		world_controller.shotChangeEvent += ShotChange;
 
@@ -30,6 +36,13 @@ public class SwapableCamera : MonoBehaviour {
 			shot_reference.Add (i, shot);
 			i++;
 		}
+
+		// ortho BLENDING //////////////////////////
+		pers = Matrix4x4.Perspective (Camera.main.fieldOfView, Camera.main.aspect, Camera.main.nearClipPlane, Camera.main.farClipPlane);
+		float orthographicSize = Camera.main.orthographicSize;
+		float aspect = Camera.main.aspect;
+		ortho = Matrix4x4.Ortho (-orthographicSize * aspect, orthographicSize * aspect, -orthographicSize, orthographicSize, Camera.main.nearClipPlane, Camera.main.farClipPlane);
+	
 
 	}
 
@@ -45,16 +58,17 @@ public class SwapableCamera : MonoBehaviour {
 	}
 
 	void Shift(bool dim, float time) {
-		
 		if (dim) {
 			MoveCamera (three_shot + 4);
-			if (switchingOrtho) {
-				Camera.main.orthographic = false;
+			if (blendingOrtho) {
+				//Camera.main.orthographic = false;
+				blender.BlendToMatrix(pers, time);
 			}
 		} else {
 			MoveCamera (two_shot);
-			if (switchingOrtho) {
-				Camera.main.orthographic = true;
+			if (blendingOrtho) {
+				//Camera.main.orthographic = true;
+				blender.BlendToMatrix(ortho, time);
 			}
 		}
 		dimension = dim;

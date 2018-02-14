@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: 131023590}
   - component: {fileID: 131023595}
   - component: {fileID: 131023596}
+  - component: {fileID: 131023597}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -798,7 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f583d7c797c53524bbc4d9729ba286fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchingOrtho: 1
+  blendingOrtho: 1
   world_controller: {fileID: 1242736095}
   two_shot: 0
   three_shot: 0
@@ -842,6 +843,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &131023597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 131023589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13df1d042acca6043a412feea7fb5d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &164351458
 GameObject:
   m_ObjectHideFlags: 0
