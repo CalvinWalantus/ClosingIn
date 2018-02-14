@@ -20,7 +20,7 @@ public class Trigger : MonoBehaviour
 	{
 
 	}
-	
+
 	// Update is called once per frame
 	void OnTriggerEnter (Collider other) 
 	{
