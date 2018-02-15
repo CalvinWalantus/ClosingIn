@@ -82,6 +82,7 @@ public class SphereOfInfluence : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 
 		if (other.tag.Equals("Compressable")) {
+			Debug.Log ("compressable found");
 			// Add the compressable to the dictionary, with its original transform as the value
 			compressables[other.gameObject] = new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z);
 

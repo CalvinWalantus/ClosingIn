@@ -17,7 +17,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		bool dimension;
 		int two_shot;
 
-		public World world_controller;
+		private World world_controller;
 
 		void Awake () {
 			world_controller = FindObjectOfType<World> ();

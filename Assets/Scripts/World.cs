@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Considering changing the name of this to "DimensionController"
+
 public class World : MonoBehaviour {
 
 	// True = 3D
@@ -28,6 +30,10 @@ public class World : MonoBehaviour {
 		timer = shift_time;
 		shotChangeEvent (two_shot, three_shot);
 		shiftEvent (dimension, shift_time);
+
+		foreach (Teleport boundary in FindObjectsOfType<Teleport>()) {
+			boundary.RespawnEvent += HandleRespawnEvent;
+		}
 	}
 	
 	// Update is called once per frame
@@ -54,6 +60,17 @@ public class World : MonoBehaviour {
 		}
 
 
+	}
+
+	void HandleRespawnEvent(bool dim, int tw_shot, int thr_shot) {
+		dimension = dim;
+		two_shot = tw_shot;
+		three_shot = thr_shot;
+		float temp = shift_time;
+		shift_time = 0;
+		shiftEvent (dimension, shift_time);
+		shotChangeEvent (two_shot, three_shot);
+		shift_time = temp;
 	}
 
 }
