@@ -741,10 +741,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f583d7c797c53524bbc4d9729ba286fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world_controller: {fileID: 890499716}
   two_shot: 0
   three_shot: 0
   current_shot: 0
+  blendingOrtho: 1
   shots:
   - {fileID: 422315777}
   - {fileID: 782887441}
@@ -1635,15 +1635,11 @@ Prefab:
     - target: {fileID: 114721344061289848, guid: 17d989149f0de724380fce96af400711,
         type: 2}
       propertyPath: m_Text
-      value: 'Build, week 6:
+      value: 'Movement - WASD
 
-        - Change 2D shot: 1, 2, 3 and 4 keys
+        Shot Change - Left, Right, Up (Across shots)
 
-        - Change 3D shot: 5, 6, 7 and 8 keys
-
-        - Change dimension: Shift key
-
-        Shot changes will not be controlled by numeric keys in final build.'
+        Shift - Dimension Change'
       objectReference: {fileID: 0}
     - target: {fileID: 1672045958142038, guid: 17d989149f0de724380fce96af400711, type: 2}
       propertyPath: m_IsActive

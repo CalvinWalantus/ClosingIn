@@ -237,8 +237,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 131023589}
-  m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: -8.2, y: 12.55, z: -8.2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 175347468}
@@ -255,10 +255,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f583d7c797c53524bbc4d9729ba286fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world_controller: {fileID: 1242736095}
   two_shot: 0
   three_shot: 0
   current_shot: 0
+  blendingOrtho: 1
   shots:
   - {fileID: 1491908007}
   - {fileID: 719911991}
@@ -2903,15 +2903,11 @@ Prefab:
     - target: {fileID: 114721344061289848, guid: 17d989149f0de724380fce96af400711,
         type: 2}
       propertyPath: m_Text
-      value: 'Build, week 6:
+      value: 'Movement - WASD
 
-        - Change 2D shot: 1, 2, 3 and 4 keys
+        Shot Change - Left, Right, Up (Across shots)
 
-        - Change 3D shot: 5, 6, 7 and 8 keys
-
-        - Change dimension: Shift key
-
-        Shot changes will not be controlled by numeric keys in final build.'
+        Shift - Dimension Change'
       objectReference: {fileID: 0}
     - target: {fileID: 1672045958142038, guid: 17d989149f0de724380fce96af400711, type: 2}
       propertyPath: m_IsActive
