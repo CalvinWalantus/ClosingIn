@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Considering changing the name of this to "DimensionController"
-
 public class World : MonoBehaviour {
-
+	
 	// True = 3D
 	// False = 2D
 	public bool dimension = false;
@@ -31,24 +30,68 @@ public class World : MonoBehaviour {
 		shotChangeEvent (two_shot, three_shot);
 		shiftEvent (dimension, shift_time);
 
-		foreach (Teleport boundary in FindObjectsOfType<Teleport>()) {
+		foreach (Teleport boundary in FindObjectsOfType<Teleport>())
+		{
 			boundary.RespawnEvent += HandleRespawnEvent;
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 		// Check if user has pressed shift to bring about a dimension shift
-		if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && timer > shift_time) {
+		if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && timer > shift_time)
+		{
 			dimension = !dimension;
 			shiftEvent(dimension, shift_time);
 			timer = 0;
 		}
 		timer += Time.deltaTime;
 
-		// Check if user has pressed the 1-8 keys to bring about a shot change.
-		for (int shot = 1; shot < 9; shot++) {
-			if (Input.GetKeyDown((KeyCode)shot+48)) {
+		// If in 2D, then check between arrow input keys (up, left, right) for shot changes. 
+		// Up - Across shots
+		// Left / Right - Move shots left and right
+		if (dimension == false) {
+
+			// Tracks Current 2D shot.
+			Debug.Log ("2D Shot: " + two_shot);
+			if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+				two_shot -= 1;				// Move shot left from Shot 2 to Shot 2 = Shot 2 - 1.
+			
+				if (two_shot < 1) {
+					two_shot = 4;
+				}
+
+			} else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+				two_shot += 1;				// Move shot right from Shot 2 to Shot 2 = Shot 2 + 1.
+
+				if (two_shot > 4) {
+					two_shot = 1;
+				}
+			}
+			else if(Input.GetKeyDown(KeyCode.UpArrow))
+			{
+				Debug.Log ("We are in 2D, moving camera to across");
+
+				// If it's Shot 1 or 2, then add 2.
+				if (two_shot == 2 || two_shot == 1) {
+					two_shot += 2;
+				} 
+				else  {            // They were Shots 3 or 4, then subtract 2.
+					two_shot -= 2;
+				}
+			}
+
+			if (two_shot > 0 && two_shot < 5) {
+				shotChangeEvent (two_shot, three_shot);
+			}
+		}
+
+		// Check if user has pressed the 1 - 8 keys to bring about a shot change.
+		for (int shot = 1; shot < 9; shot++) 
+		{
+			if (Input.GetKeyDown((KeyCode)shot + 48)) 
+			{
 				if (shot < 5) {
 					two_shot = shot;
 				} else {
@@ -58,8 +101,6 @@ public class World : MonoBehaviour {
 				break;
 			}
 		}
-
-
 	}
 
 	void HandleRespawnEvent(bool dim, int tw_shot, int thr_shot) {
