@@ -11,6 +11,7 @@ public class World : MonoBehaviour {
 
 	public int two_shot = 1;
 	public int three_shot = 1;
+	public int current_shot;		// Keeps track of state of current_shot. 
 
 	public float shift_time = 5;
 	public float timer = 0;
@@ -40,7 +41,7 @@ public class World : MonoBehaviour {
 	void Update () {
 		
 		// Check if user has pressed shift to bring about a dimension shift
-		if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && timer > shift_time)
+		if (Input.GetKeyDown(KeyCode.DownArrow) && timer > shift_time)
 		{
 			dimension = !dimension;
 			shiftEvent(dimension, shift_time);
@@ -55,6 +56,8 @@ public class World : MonoBehaviour {
 
 			// Tracks Current 2D shot.
 			Debug.Log ("2D Shot: " + two_shot);
+			current_shot = two_shot;
+
 			if (Input.GetKeyDown(KeyCode.LeftArrow)) {
 				two_shot -= 1;				// Move shot left from Shot 2 to Shot 2 = Shot 2 - 1.
 			
