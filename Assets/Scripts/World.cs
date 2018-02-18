@@ -11,7 +11,7 @@ public class World : MonoBehaviour {
 
 	public int two_shot = 1;
 	public int three_shot = 1;
-	public int current_shot;		// Keeps track of state of current_shot. 
+	public int current_shot;		// Keeps track of current shot.
 
 	public float shift_time = 5;
 	public float timer = 0;
@@ -49,74 +49,20 @@ public class World : MonoBehaviour {
 		}
 		timer += Time.deltaTime;
 
+
+
+
 		// If in 2D, then check between arrow input keys (up, left, right) for shot changes. 
 		// Up - Across shots
 		// Left / Right - Move shots left and right
-		if (dimension == false && (two_shot > 0 && two_shot < 5)) {
+		if (dimension == false && (two_shot > 0 && two_shot < 5))
+		{
+			ShotChangeOnInput(ref two_shot);
 
-			// Keeps Track of Current 2D Shot
-			current_shot = two_shot;
-			
-			// Tracks Current 2D shot.
-			Debug.Log ("2D Shot: " + two_shot);
-
-			if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-				current_shot -= 1;				// Move shot left from Shot 2 to Shot 2 = Shot 2 - 1.
-			
-				if (current_shot < 1) {
-					current_shot = 4;
-				}
-
-			} else if (Input.GetKeyDown (KeyCode.RightArrow)) {
-				current_shot += 1;				// Move shot right from Shot 2 to Shot 2 = Shot 2 + 1.
-
-				if (current_shot > 4) {
-					current_shot = 1;
-				}
-			} else if (Input.GetKeyDown (KeyCode.UpArrow)) {
-				
-				// If it's Shot 1 or 2, then add 2.
-				if (current_shot == 2 || current_shot == 1) {
-					current_shot += 2;
-				} else {            // They were Shots 3 or 4, then subtract 2.
-					current_shot -= 2;
-				}
-			}
-			two_shot = current_shot;
-			shotChangeEvent (two_shot, three_shot);
-
-		} else if(dimension == true && (three_shot > 0 && three_shot < 5)) {
-
-			// Keeps Track of Current 2D Shot
-			current_shot = three_shot;
-			
-			// Tracks Current 3D shot.
-			Debug.Log ("3D Shot: " + three_shot);
-
-			if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-				current_shot -= 1;				// Move shot left from Shot 2 to Shot 2 = Shot 2 - 1.
-
-				if (current_shot < 1) {
-					current_shot = 4;
-				}
-
-			} else if (Input.GetKeyDown (KeyCode.RightArrow)) {
-				current_shot += 1;				// Move shot right from Shot 2 to Shot 2 = Shot 2 + 1.
-
-				if (current_shot > 4) {
-					current_shot = 1;
-				}
-			} else if (Input.GetKeyDown (KeyCode.UpArrow)) {
-
-				// If it's Shot 1 or 2, then add 2.
-				if (current_shot == 1 || current_shot == 2) {
-					current_shot += 2;
-				} else {            // They were Shots 3 or 4, then subtract 2.
-					current_shot -= 2;
-				}
-			}
-			three_shot = current_shot;
-			shotChangeEvent(two_shot, three_shot);
+		} 
+		else
+		{
+			ShotChangeOnInput(ref three_shot);
 		}
 
 		// Check if user has pressed the 1 - 8 keys to bring about a shot change.
@@ -146,8 +92,50 @@ public class World : MonoBehaviour {
 		shift_time = temp;
 	}
 
-	void ShotChangeOnInput(bool dimension)
+
+
+	void ShotChangeOnInput(ref int current_shot)
 	{
-		
+		// Tracks Current Shot
+
+		int compare = current_shot;
+
+		if (Input.GetKeyDown (KeyCode.LeftArrow)) 
+		{
+			current_shot -= 1;				// Move shot left from Shot 2 to Shot 2 = Shot 2 - 1.
+
+			if (current_shot < 1)
+			{
+				current_shot = 4;
+			}
+		} 
+		else if(Input.GetKeyDown (KeyCode.RightArrow))
+		{
+			current_shot += 1;				// Move shot right from Shot 2 to Shot 2 = Shot 2 + 1.
+
+			if (current_shot > 4)
+			{
+				current_shot = 1;
+			}
+		} 
+		else if (Input.GetKeyDown (KeyCode.UpArrow))
+		{
+			// If it's Shot 1 or 2, then add 2.
+			if (current_shot < 3)
+			{
+				current_shot += 2;
+			} 
+			else 
+			{ 	// They were Shots 3 or 4, then subtract 2.
+					current_shot -= 2;
+			}
+		}
+
+
+		if (current_shot != compare) {
+			Debug.Log (current_shot + " " + two_shot + " " + three_shot);
+			shotChangeEvent (two_shot, three_shot);
+		}
 	}
 }
+
