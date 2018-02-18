@@ -5,7 +5,6 @@ using UnityEditor;
 using Cinemachine; 
 
 public class SwapableCamera : MonoBehaviour {
-
 	World world_controller;
 
 	Dictionary<int, GameObject> shot_reference;
@@ -45,8 +44,6 @@ public class SwapableCamera : MonoBehaviour {
 		Camera cam = Camera.main;
 		pers = Matrix4x4.Perspective (cam.fieldOfView, cam.aspect, cam.nearClipPlane, cam.farClipPlane);
 		ortho = Matrix4x4.Ortho (-cam.orthographicSize * cam.aspect, cam.orthographicSize * cam.aspect, -cam.orthographicSize, cam.orthographicSize, cam.nearClipPlane, cam.farClipPlane);
-	
-
 	}
 
 	void ShotChange (int tw_shot, int th_shot) {
