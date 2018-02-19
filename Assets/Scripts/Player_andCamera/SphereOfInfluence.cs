@@ -16,7 +16,7 @@ public class SphereOfInfluence : MonoBehaviour {
 	public World world_controller;
 
 	// The sphere of influence constantly maintains a roster of the compressables inside of it,
-	// so that they can easily be compressed/decompressed. The gameobject's collider is the key,
+	// so that they can quickly be compressed/decompressed. The gameobject's collider is the key,
 	// and the value is the object's original transform.
 	Dictionary<GameObject, Vector3> compressables = new Dictionary<GameObject, Vector3>();
 
@@ -44,10 +44,12 @@ public class SphereOfInfluence : MonoBehaviour {
 		// Wait for the shift to complete
 		yield return new WaitForSeconds (speed);
 
-
-		// Recompress every object in the sphere
-		foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
-			Compress (compressable.Key);
+		// Check if dimension has changed during coroutine
+		if (!dimension) {
+			// Recompress every object in the sphere
+			foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
+				Compress (compressable.Key);
+		}
 	}
 
 	void ShotChange (int tw_shot, int th_shot) {

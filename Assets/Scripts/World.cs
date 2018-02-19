@@ -86,10 +86,8 @@ public class World : MonoBehaviour {
 		two_shot = tw_shot;
 		three_shot = thr_shot;
 		float temp = shift_time;
-		shift_time = 0;
-		shiftEvent (dimension, shift_time);
 		shotChangeEvent (two_shot, three_shot);
-		shift_time = temp;
+		shiftEvent (dimension, shift_time);
 	}
 
 

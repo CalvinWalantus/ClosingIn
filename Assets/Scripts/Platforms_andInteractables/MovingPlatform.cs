@@ -5,7 +5,14 @@ using UnityEngine;
 public class MovingPlatform : ComplexCompressable {
 
 	public bool moving = true;
-	public float velocity = 4.0f;
+	public bool debug = false;
+
+	// Determines how long it takes the moving platform to make one trip.
+	// We choose this method over setting velocity directly to help time 
+	// multiple moving platforms
+
+	public float moveTime = 4.0f;
+	float velocity;
 
 	public Transform destination;
 	public Trigger trigger;
@@ -22,6 +29,8 @@ public class MovingPlatform : ComplexCompressable {
 			trigger.hitEvent += TriggerHit;
 			moving = false;
 		}
+
+		velocity = Vector3.Distance (destination.position, transform.position) / moveTime;
 	}
 	
 	// Update is called once per frame
@@ -46,7 +55,11 @@ public class MovingPlatform : ComplexCompressable {
 
 	// Possibly should be put in a header file?
 	bool V3Equal(Vector3 a, Vector3 b) {
-		return Vector3.SqrMagnitude(a - b) < 0.01;
+		if (Vector3.SqrMagnitude (a - b) < 0.00000001) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public void TriggerHit (int trigger_id) {

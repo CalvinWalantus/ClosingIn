@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using Cinemachine; 
 
 public class SwapableCamera : MonoBehaviour {
@@ -40,23 +39,28 @@ public class SwapableCamera : MonoBehaviour {
 			i++;
 		}
 
-		// Prepare the projection matrices based on the camera's data.
+		// Prepare the projection matrices based on the camera's settings.
 		Camera cam = Camera.main;
 		pers = Matrix4x4.Perspective (cam.fieldOfView, cam.aspect, cam.nearClipPlane, cam.farClipPlane);
 		ortho = Matrix4x4.Ortho (-cam.orthographicSize * cam.aspect, cam.orthographicSize * cam.aspect, -cam.orthographicSize, cam.orthographicSize, cam.nearClipPlane, cam.farClipPlane);
 	}
 
-	void ShotChange (int tw_shot, int th_shot) {
+	// Moves the camera within the same dimension
 
-		if (dimension)
-			MoveCamera (th_shot + 4);
-		else
-			MoveCamera (tw_shot);
+	void ShotChange (int tw_shot, int th_shot) {
 
 		two_shot = tw_shot;
 		three_shot = th_shot;
+
+		if (dimension)
+			MoveCamera (three_shot + 4);
+		else
+			MoveCamera (two_shot);
 	}
 
+
+	// This function handles movement of the camera between 2D and 3D shots,
+	// and the changing of projection mode
 	void Shift(bool dim, float time) {
 		if (dim) {
 			
@@ -79,6 +83,7 @@ public class SwapableCamera : MonoBehaviour {
 		GetComponent<CinemachineBrain> ().m_DefaultBlend.m_Time = time;
 	}
 
+	// Cinemachine handles all camera movement
 	void MoveCamera(int shot) {
 		shot_reference [shot].GetComponent<CinemachineVirtualCamera> ().Priority = 20;
 		if (current_shot != 0)
