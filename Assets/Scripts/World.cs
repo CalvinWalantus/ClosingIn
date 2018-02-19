@@ -133,7 +133,6 @@ public class World : MonoBehaviour {
 
 
 		if (current_shot != compare) {
-			Debug.Log (current_shot + " " + two_shot + " " + three_shot);
 			shotChangeEvent (two_shot, three_shot);
 		}
 	}
