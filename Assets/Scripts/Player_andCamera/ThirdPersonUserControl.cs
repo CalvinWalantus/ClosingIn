@@ -12,10 +12,47 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
+		private bool m_VerticalMovement = false;
+		public bool allow_jump = false;
+		bool dimension;
+		int two_shot;
 
-        
-        private void Start()
+		private World world_controller;
+
+		void Awake () {
+			world_controller = FindObjectOfType<World> ();
+			world_controller.shotChangeEvent += ShotChange;
+			world_controller.shiftEvent += Shift;
+		}
+
+		void Shift (bool dim, float time) {
+			dimension = dim;
+			if (!dimension) {
+
+				if (two_shot % 2 == 1) {
+					GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionZ;
+				} else {
+					GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionX;
+				}
+			} else {
+				GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
+			}
+			GetComponent<Rigidbody> ().freezeRotation = true;
+		}
+
+		void ShotChange (int tw_shot, int th_shot) {
+			two_shot = tw_shot;
+
+			// Calvin: we might run into problems here regarding player movement during the 
+			// shift since time is 0, but as of yet it doesnt seem to be a problem
+			if (!dimension) {
+				Shift (dimension, 0);
+			}
+		}
+
+		private void Start()
         {
+			
             // get the transform of the main camera
             if (Camera.main != null)
             {
@@ -35,10 +72,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
-            if (!m_Jump)
-            {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
+			/*dimension = GameObject.Find ("WorldController").GetComponent<World> ().dimension;
+			var m_rigidbody = GetComponent<Rigidbody> ();
+			if (dimension == false) {
+				m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+			} else {
+				m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+			}*/
+			if (allow_jump) {
+				if (!m_Jump) {
+					m_Jump = CrossPlatformInputManager.GetButtonDown ("Jump");
+				}
+			}
+
         }
 
 
@@ -46,8 +92,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void FixedUpdate()
         {
             // read inputs
+			float v;
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
+			if (dimension == true) {
+				v = CrossPlatformInputManager.GetAxis ("Vertical");
+			} else {
+				v = 0;
+			}
+
+			//CUSTOM - disables horizontal movement, for 2D
+			//if (m_VerticalMovement) v = CrossPlatformInputManager.GetAxis("Vertical");
+			//else v = 0;
+
+
             bool crouch = Input.GetKey(KeyCode.C);
 
             // calculate move direction to pass to character
@@ -56,6 +113,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // calculate camera relative direction to move:
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
                 m_Move = v*m_CamForward + h*m_Cam.right;
+
             }
             else
             {
@@ -71,5 +129,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Character.Move(m_Move, crouch, m_Jump);
             m_Jump = false;
         }
+	
     }
+
 }
