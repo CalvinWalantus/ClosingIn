@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
+
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
 	[RequireComponent(typeof(Animator))]
-
 	public class ThirdPersonCharacter : MonoBehaviour
 	{
 		[SerializeField] float m_MovingTurnSpeed = 360;
@@ -30,12 +29,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
 
-		//CUSTOM
-		bool m_StartOfJump;
-		float m_InitialJumpX, m_InitialJumpZ;
-
-		bool up = false, down = false, left = false, right = false;
-		public int horizontal_jump_force=8;
 
 		void Start()
 		{
@@ -45,14 +38,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_CapsuleHeight = m_Capsule.height;
 			m_CapsuleCenter = m_Capsule.center;
 
-			//m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 		}
 
 
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
-
 
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
@@ -132,10 +124,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Animator.SetBool("OnGround", m_IsGrounded);
 			if (!m_IsGrounded)
 			{
-				
 				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
 			}
-
 
 			// calculate which leg is behind, so as to leave that leg trailing in the jump animation
 			// (This code is reliant on the specific run cycle offset in our animations,
@@ -176,7 +166,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void HandleGroundedMovement(bool crouch, bool jump)
 		{
 			// check whether conditions are right to allow a jump:
-
 			if (jump && !crouch && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
 			{
 				// jump!
@@ -184,9 +173,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_IsGrounded = false;
 				m_Animator.applyRootMotion = false;
 				m_GroundCheckDistance = 0.1f;
-
-
-				m_StartOfJump = true;
 			}
 		}
 
@@ -196,82 +182,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
 			transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
 		}
-			
+
 
 		public void OnAnimatorMove()
 		{
 			// we implement this function to override the default root motion.
 			// this allows us to modify the positional speed before it's applied.
-			if ( Time.deltaTime > 0)
+			if (m_IsGrounded && Time.deltaTime > 0)
 			{
 				Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
-				if (!m_IsGrounded) {
-					Vector3 airMove;
-					// This code causes the player to move exponentially backwards
-					if (m_StartOfJump) {
-						m_InitialJumpX = m_Rigidbody.velocity.x;
-						m_InitialJumpZ = m_Rigidbody.velocity.z;
-						m_StartOfJump = false;
-					} else {
-						airMove = new Vector3 (m_Rigidbody.velocity.x + v.x - m_InitialJumpX, m_Rigidbody.velocity.y, m_Rigidbody.velocity.z + v.z - m_InitialJumpZ);
-						//m_Rigidbody.velocity = airMove;
-						GetComponent<Rigidbody>().AddForce(v.x, 0, v.z, ForceMode.Acceleration);
-					}
-					AdjustAirborneMovement (v);
-					if (m_StartOfJump)
-						m_StartOfJump = false;
-				} else {
-					// we preserve the existing y part of the current velocity.
-					v.y = m_Rigidbody.velocity.y;
-					m_Rigidbody.velocity = v;
-				}
+				// we preserve the existing y part of the current velocity.
+				v.y = m_Rigidbody.velocity.y;
+				m_Rigidbody.velocity = v;
 			}
-		}
-
-		// This function seemingly doesn't affect the player's movement at all
-
-
-		void AdjustAirborneMovement (Vector3 v) {
-			var Movex = CrossPlatformInputManager.GetAxis ("Horizontal");
-			var Movez = CrossPlatformInputManager.GetAxis ("Vertical");
-			print ("movex" +Movex + " movez" +Movez);
-			m_Rigidbody.velocity = new Vector3 (Movex*horizontal_jump_force, m_Rigidbody.velocity.y, Movez*horizontal_jump_force);
-//			int x = 0, z = 0;
-//			int air_adjust = 7;
-//			if (Input.GetKeyDown ("up") && !up) {
-//				z += air_adjust;
-//				//up = true;
-//			}
-//			if (Input.GetKeyDown ("down") && !down) {
-//				z -= air_adjust;
-//				//down = true;
-//			}
-//			if (Input.GetKeyDown ("left") && !left) {
-//				x -= air_adjust;
-//				//left = true;
-//			}
-//			if (Input.GetKeyDown ("right") && !right) {
-//				x += air_adjust;
-//				//right = true;
-//			}
-//			if (Input.GetKeyUp ("up") && up) {
-//				z -= air_adjust;
-//				//up = false;
-//			}
-//			if (Input.GetKeyUp ("down") && down) {
-//				z += air_adjust;
-//				//down = false;
-//			}
-//			if (Input.GetKeyUp ("left") && left) {
-//				x += air_adjust;
-//				//left = false;
-//			}
-//			if (Input.GetKeyUp ("right") && right) {
-//				x -= air_adjust;
-//				//right = false;
-//			}
-//			m_Rigidbody.velocity = new Vector3 (m_Rigidbody.velocity.x + x, m_Rigidbody.velocity.y, m_Rigidbody.velocity.z + z);
 		}
 
 
@@ -282,14 +206,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// helper to visualise the ground check ray in the scene view
 			Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
 #endif
-
-            // 0.1f is a small offset to start the ray from inside the character
-            // it is also good to note that the transform position in the sample assets is at the base of the character
-            var charCtrl = GetComponent<CharacterController>();
-            Physics.SphereCast(transform.position + (Vector3.up * 0.1f), 0.35f, Vector3.down, out hitInfo, m_GroundCheckDistance);
-            Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance);
-            Physics.SphereCast(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2, Vector3.down, out hitInfo, m_GroundCheckDistance);
-            if (Physics.SphereCast(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2, Vector3.down, out hitInfo, m_GroundCheckDistance))
+			// 0.1f is a small offset to start the ray from inside the character
+			// it is also good to note that the transform position in the sample assets is at the base of the character
+			if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
 			{
 				m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
@@ -297,18 +216,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 			else
 			{
-				if (m_IsGrounded)
-					m_StartOfJump = true;
 				m_IsGrounded = false;
 				m_GroundNormal = Vector3.up;
 				m_Animator.applyRootMotion = false;
 			}
 		}
-        private void OnDrawGizmos()
-        {
-           // Gizmos.color = Color.red;
-           // Gizmos.DrawSphere(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2);
-        }
-
-    }
+	}
 }

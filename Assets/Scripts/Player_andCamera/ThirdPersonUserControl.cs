@@ -13,11 +13,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 		private bool m_VerticalMovement = false;
-
+		public bool allow_jump = false;
 		bool dimension;
 		int two_shot;
 
-		public World world_controller;
+		private World world_controller;
 
 		void Awake () {
 			world_controller = FindObjectOfType<World> ();
@@ -79,10 +79,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			} else {
 				m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 			}*/
-           if (!m_Jump)
-            {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
+			if (allow_jump) {
+				if (!m_Jump) {
+					m_Jump = CrossPlatformInputManager.GetButtonDown ("Jump");
+				}
+			}
 
         }
 

@@ -4,4 +4,25 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: 210005c1d3df29c4e979b55c790e1fa5
+  - enabled: 0
+    path: Assets/Scenes/BuildWk6.unity
+    guid: 133523b4495fc8848ad0c0f8f79a52ba
+  - enabled: 0
+    path: Assets/Scenes/Wk6_playtest_1.unity
+    guid: d72749753d8696c44903fd741bfa35a9
+  - enabled: 0
+    path: Assets/Scenes/Wk6_playtest_2.unity
+    guid: b546a3ddff4c5584cbb20a25d5eb7f6c
+  - enabled: 0
+    path: Assets/Scenes/Wk6_playtest_3.unity
+    guid: a22c8185ececfcf4080de1b942c309af
+  - enabled: 0
+    path: Assets/Scenes/Wk6_playtest_Finish.unity
+    guid: d9e37b259406b8a4d89b48da0651bae7
+  - enabled: 1
+    path: Assets/Scenes/VS_final.unity
+    guid: e6e075f419a5d5e44935d4282ff2367a
