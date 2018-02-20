@@ -66,11 +66,16 @@ public class MovingPlatform : ComplexCompressable {
 		moving = true;
 	}
 
-	public void ComplexCompress (int two_shot, Vector3 player_position) {
-		Debug.Log("complexCompress");
+	public override void ComplexCompress (int two_shot, Vector3 player_position) {
+
 		if (two_shot % 2 != 1)
 			transform.position = new Vector3(transform.position.x, transform.position.y, player_position.z);
 		else 
 			transform.position = new Vector3(player_position.x, transform.position.y, transform.position.z);
+	}
+
+	public override void ComplexDecompress (Vector3 original) {
+		// TO DO: Return switch, platform and destination to their relevant position,
+		// depending on whether or not they are tagged as compressable.
 	}
 }

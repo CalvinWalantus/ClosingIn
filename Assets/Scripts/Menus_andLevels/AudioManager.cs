@@ -8,9 +8,5 @@ public class AudioManager : MonoBehaviour
 	{
 		DontDestroyOnLoad(transform.gameObject);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

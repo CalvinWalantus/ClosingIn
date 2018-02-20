@@ -16,7 +16,7 @@ public class SphereOfInfluence : MonoBehaviour {
 	public World world_controller;
 
 	// The sphere of influence constantly maintains a roster of the compressables inside of it,
-	// so that they can quickly be compressed/decompressed. The gameobject's collider is the key,
+	// so that they can quickly be compressed/decompressed. The gameobject is the key,
 	// and the value is the object's original transform.
 	Dictionary<GameObject, Vector3> compressables = new Dictionary<GameObject, Vector3>();
 
@@ -69,7 +69,6 @@ public class SphereOfInfluence : MonoBehaviour {
 				StartCoroutine(TwoShotChange(shift_time, false));
 			}
 			else {
-				Debug.Log ("decompressing all");
 				foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
 					Decompress (compressable.Key, compressable.Value);
 			} 
@@ -84,7 +83,6 @@ public class SphereOfInfluence : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 
 		if (other.tag.Equals("Compressable")) {
-			Debug.Log ("compressable found");
 			// Add the compressable to the dictionary, with its original transform as the value
 			compressables[other.gameObject] = new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z);
 
@@ -104,8 +102,8 @@ public class SphereOfInfluence : MonoBehaviour {
 	}
 
 	void Compress(GameObject compressable) {
-		if (compressable.GetComponent<ComplexCompressable>() != null) {
-			compressable.GetComponent<ComplexCompressable>().ComplexCompress(two_shot, player.transform.position);
+		if (compressable.GetComponent<ComplexCompressableController>() != null) {
+			compressable.GetComponent<ComplexCompressableController>().ComplexCompress(two_shot, player.transform.position);
 		}
 		else {
 			if (two_shot % 2 != 1) {
@@ -118,8 +116,8 @@ public class SphereOfInfluence : MonoBehaviour {
 	}
 
 	void Decompress(GameObject compressable, Vector3 original) {
-		if (compressable.GetComponent<ComplexCompressable>() != null) {
-			compressable.GetComponent<ComplexCompressable>().ComplexDecompress();
+		if (compressable.GetComponent<ComplexCompressableController>() != null) {
+			compressable.GetComponent<ComplexCompressableController>().ComplexDecompress(original);
 		}
 		else {
 			compressable.transform.position = original;
