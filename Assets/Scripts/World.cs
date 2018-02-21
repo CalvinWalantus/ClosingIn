@@ -41,7 +41,7 @@ public class World : MonoBehaviour {
 	void Update () {
 		
 		// Check if user has pressed shift to bring about a dimension shift
-		if (Input.GetKeyDown(KeyCode.DownArrow) && timer > shift_time)
+		if (Input.GetKeyDown(KeyCode.LeftShift) && timer > shift_time)
 		{
 			dimension = !dimension;
 			shiftEvent(dimension, shift_time);
