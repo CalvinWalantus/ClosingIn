@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -13,7 +14,7 @@ public class LevelManager : MonoBehaviour
 	// Loads a scene when a player clicks Play button. 
 	public void LoadScene(string name)
 	{
-		Application.LoadLevel(name);
+		SceneManager.LoadScene(name);
 	}
 
 	// Opens Option menu when player clicks Options button.
