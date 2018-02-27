@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class test : MonoBehaviour {
+public class testings : MonoBehaviour {
+
 	public GameObject player;
 	private RaycastHit[] hits;
 	private int layermask;
@@ -19,7 +20,7 @@ public class test : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float distance = Vector3.Distance (player.transform.position, Camera.main.transform.position);
-		hits = Physics.RaycastAll (Camera.main.transform.position, (player.transform.position - Camera.main.transform.position)+ new Vector3(0,1,0), distance, layermask);
+		hits = Physics.SphereCastAll (Camera.main.transform.position, 0.5f,(player.transform.position - Camera.main.transform.position)+ new Vector3(0,1,0), distance, layermask);
 		for (int i = 0; i < hits.Length; i++) {
 			RaycastHit hit = hits [i];
 			if (hit.collider.tag != "Player") {
@@ -51,7 +52,7 @@ public class test : MonoBehaviour {
 		second = new List<Transform> (first);
 		first.Clear ();
 
-			
+
 
 		Debug.DrawRay (Camera.main.transform.position, player.transform.position - Camera.main.transform.position+ new Vector3(0,1,0), Color.red);
 	}
@@ -60,5 +61,3 @@ public class test : MonoBehaviour {
 		Gizmos.DrawWireSphere(player.transform.position+new Vector3(0,1.0f,0),1);
 	}
 }
-
-
