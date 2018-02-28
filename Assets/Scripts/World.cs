@@ -49,16 +49,12 @@ public class World : MonoBehaviour {
 		}
 		timer += Time.deltaTime;
 
-
-
-
 		// If in 2D, then check between arrow input keys (up, left, right) for shot changes. 
 		// Up - Across shots
 		// Left / Right - Move shots left and right
 		if (dimension == false && (two_shot > 0 && two_shot < 5))
 		{
 			ShotChangeOnInput(ref two_shot);
-
 		} 
 		else
 		{
@@ -95,7 +91,6 @@ public class World : MonoBehaviour {
 	void ShotChangeOnInput(ref int current_shot)
 	{
 		// Tracks Current Shot
-
 		int compare = current_shot;
 
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) 
@@ -124,13 +119,14 @@ public class World : MonoBehaviour {
 				current_shot += 2;
 			} 
 			else 
-			{ 	// They were Shots 3 or 4, then subtract 2.
-					current_shot -= 2;
+			{
+				// They were Shots 3 or 4, then subtract 2.
+				current_shot -= 2;
 			}
 		}
 
-
-		if (current_shot != compare) {
+		if (current_shot != compare) 
+		{
 			shotChangeEvent (two_shot, three_shot);
 		}
 	}
