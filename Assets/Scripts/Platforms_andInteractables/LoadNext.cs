@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -20,7 +21,7 @@ public class LoadNext : MonoBehaviour
 	{
 		if (other.tag.Equals("Player"))
 		{
-			Application.LoadLevel(level);
+			SceneManager.LoadScene(level);
 			#if UNITY_EDITOR
 			EditorSceneManager.LoadScene(level);
 			#endif
