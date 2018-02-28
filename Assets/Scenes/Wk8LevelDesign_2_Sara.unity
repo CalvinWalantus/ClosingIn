@@ -8018,22 +8018,27 @@ Prefab:
     - target: {fileID: 224168793053577194, guid: 17d989149f0de724380fce96af400711,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -295
+      value: -153.85138
       objectReference: {fileID: 0}
     - target: {fileID: 114721344061289848, guid: 17d989149f0de724380fce96af400711,
         type: 2}
       propertyPath: m_Text
-      value: 'Vertical Slice:
+      value: 'Build 8:
 
         - Change Camera Angle: left, right and up arrows
 
-        - Change dimension: down arrow
+        - Change dimension: Shift Key
 
         - Move: WASD
 
         - Pause: Esc
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 224168793053577194, guid: 17d989149f0de724380fce96af400711,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 97
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 17d989149f0de724380fce96af400711, type: 2}
