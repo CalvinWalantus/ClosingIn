@@ -8018,16 +8018,16 @@ Prefab:
     - target: {fileID: 224168793053577194, guid: 17d989149f0de724380fce96af400711,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -147
+      value: -386
       objectReference: {fileID: 0}
     - target: {fileID: 114721344061289848, guid: 17d989149f0de724380fce96af400711,
         type: 2}
       propertyPath: m_Text
       value: 'Build 8:
 
-        - Change Camera Angle: left, right and up arrows
+        - Change Camera Angle: Left, Right & Up Arrows
 
-        - Change dimension: Shift Key
+        - Change dimension: Shift
 
         - Move: WASD
 
@@ -8038,7 +8038,22 @@ Prefab:
     - target: {fileID: 224168793053577194, guid: 17d989149f0de724380fce96af400711,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 99
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 114721344061289848, guid: 17d989149f0de724380fce96af400711,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114721344061289848, guid: 17d989149f0de724380fce96af400711,
+        type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 114721344061289848, guid: 17d989149f0de724380fce96af400711,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 17d989149f0de724380fce96af400711, type: 2}
