@@ -1,0 +1,498 @@
+fileFormatVersion: 2
+guid: c2e682fc9b799164bb0df66e728776a4
+timeCreated: 1519685324
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ''' key'
+    100002: ', key'
+    100004: '- key'
+    100006: . key
+    100008: / key
+    100010: 0 key
+    100012: 1 key
+    100014: 2 key
+    100016: 3 key
+    100018: 4 key
+    100020: 5 key
+    100022: 6 key
+    100024: 7 key
+    100026: 8 key
+    100028: 9 key
+    100030: ; key
+    100032: = key
+    100034: '[ key'
+    100036: \ key
+    100038: '] key'
+    100040: A key
+    100042: A key.001
+    100044: B key
+    100046: C key
+    100048: Camera
+    100050: capslock key
+    100052: command key (L)
+    100054: command key (R)
+    100056: control key
+    100058: D key
+    100060: delete key
+    100062: E key
+    100064: Empty
+    100066: enter key
+    100068: esc key
+    100070: F key
+    100072: fast backward key
+    100074: fast forward key
+    100076: fn key
+    100078: G key
+    100080: H key
+    100082: I key
+    100084: J key
+    100086: K key
+    100088: keyboard base
+    100090: L key
+    100092: Lamp
+    100094: //RootNode
+    100096: lower brightness key
+    100098: lower something key
+    100100: lower volume key
+    100102: M key
+    100104: menu? key
+    100106: mute key
+    100108: N key
+    100110: O key
+    100112: option key
+    100114: option key.001
+    100116: P key
+    100118: pause key
+    100120: power key
+    100122: Q key
+    100124: R key
+    100126: raise brightness key
+    100128: raise something key
+    100130: raise volume key
+    100132: row 1
+    100134: row 2
+    100136: row 3
+    100138: row 4
+    100140: row 5
+    100142: row 6
+    100144: S key
+    100146: S key.001
+    100148: screen
+    100150: shift key
+    100152: space key
+    100154: support (L)
+    100156: support (R)
+    100158: T key
+    100160: tab key
+    100162: tabs key
+    100164: U key
+    100166: V key
+    100168: W key
+    100170: Y key
+    100172: ~ key
+    400000: ''' key'
+    400002: ', key'
+    400004: '- key'
+    400006: . key
+    400008: / key
+    400010: 0 key
+    400012: 1 key
+    400014: 2 key
+    400016: 3 key
+    400018: 4 key
+    400020: 5 key
+    400022: 6 key
+    400024: 7 key
+    400026: 8 key
+    400028: 9 key
+    400030: ; key
+    400032: = key
+    400034: '[ key'
+    400036: \ key
+    400038: '] key'
+    400040: A key
+    400042: A key.001
+    400044: B key
+    400046: C key
+    400048: Camera
+    400050: capslock key
+    400052: command key (L)
+    400054: command key (R)
+    400056: control key
+    400058: D key
+    400060: delete key
+    400062: E key
+    400064: Empty
+    400066: enter key
+    400068: esc key
+    400070: F key
+    400072: fast backward key
+    400074: fast forward key
+    400076: fn key
+    400078: G key
+    400080: H key
+    400082: I key
+    400084: J key
+    400086: K key
+    400088: keyboard base
+    400090: L key
+    400092: Lamp
+    400094: //RootNode
+    400096: lower brightness key
+    400098: lower something key
+    400100: lower volume key
+    400102: M key
+    400104: menu? key
+    400106: mute key
+    400108: N key
+    400110: O key
+    400112: option key
+    400114: option key.001
+    400116: P key
+    400118: pause key
+    400120: power key
+    400122: Q key
+    400124: R key
+    400126: raise brightness key
+    400128: raise something key
+    400130: raise volume key
+    400132: row 1
+    400134: row 2
+    400136: row 3
+    400138: row 4
+    400140: row 5
+    400142: row 6
+    400144: S key
+    400146: S key.001
+    400148: screen
+    400150: shift key
+    400152: space key
+    400154: support (L)
+    400156: support (R)
+    400158: T key
+    400160: tab key
+    400162: tabs key
+    400164: U key
+    400166: V key
+    400168: W key
+    400170: Y key
+    400172: ~ key
+    2000000: Camera
+    2100000: No Name
+    2100002: keys
+    2100004: Material.001
+    2100006: Material
+    2300000: ''' key'
+    2300002: ', key'
+    2300004: '- key'
+    2300006: . key
+    2300008: / key
+    2300010: 0 key
+    2300012: 1 key
+    2300014: 2 key
+    2300016: 3 key
+    2300018: 4 key
+    2300020: 5 key
+    2300022: 6 key
+    2300024: 7 key
+    2300026: 8 key
+    2300028: 9 key
+    2300030: ; key
+    2300032: = key
+    2300034: '[ key'
+    2300036: \ key
+    2300038: '] key'
+    2300040: A key
+    2300042: A key.001
+    2300044: B key
+    2300046: C key
+    2300048: capslock key
+    2300050: command key (L)
+    2300052: command key (R)
+    2300054: control key
+    2300056: D key
+    2300058: delete key
+    2300060: E key
+    2300062: enter key
+    2300064: esc key
+    2300066: F key
+    2300068: fast backward key
+    2300070: fast forward key
+    2300072: fn key
+    2300074: G key
+    2300076: H key
+    2300078: I key
+    2300080: J key
+    2300082: K key
+    2300084: keyboard base
+    2300086: L key
+    2300088: lower brightness key
+    2300090: lower something key
+    2300092: lower volume key
+    2300094: M key
+    2300096: menu? key
+    2300098: mute key
+    2300100: N key
+    2300102: O key
+    2300104: option key
+    2300106: option key.001
+    2300108: P key
+    2300110: pause key
+    2300112: power key
+    2300114: Q key
+    2300116: R key
+    2300118: raise brightness key
+    2300120: raise something key
+    2300122: raise volume key
+    2300124: S key
+    2300126: S key.001
+    2300128: screen
+    2300130: shift key
+    2300132: space key
+    2300134: support (L)
+    2300136: support (R)
+    2300138: T key
+    2300140: tab key
+    2300142: tabs key
+    2300144: U key
+    2300146: V key
+    2300148: W key
+    2300150: Y key
+    2300152: ~ key
+    3300000: ''' key'
+    3300002: ', key'
+    3300004: '- key'
+    3300006: . key
+    3300008: / key
+    3300010: 0 key
+    3300012: 1 key
+    3300014: 2 key
+    3300016: 3 key
+    3300018: 4 key
+    3300020: 5 key
+    3300022: 6 key
+    3300024: 7 key
+    3300026: 8 key
+    3300028: 9 key
+    3300030: ; key
+    3300032: = key
+    3300034: '[ key'
+    3300036: \ key
+    3300038: '] key'
+    3300040: A key
+    3300042: A key.001
+    3300044: B key
+    3300046: C key
+    3300048: capslock key
+    3300050: command key (L)
+    3300052: command key (R)
+    3300054: control key
+    3300056: D key
+    3300058: delete key
+    3300060: E key
+    3300062: enter key
+    3300064: esc key
+    3300066: F key
+    3300068: fast backward key
+    3300070: fast forward key
+    3300072: fn key
+    3300074: G key
+    3300076: H key
+    3300078: I key
+    3300080: J key
+    3300082: K key
+    3300084: keyboard base
+    3300086: L key
+    3300088: lower brightness key
+    3300090: lower something key
+    3300092: lower volume key
+    3300094: M key
+    3300096: menu? key
+    3300098: mute key
+    3300100: N key
+    3300102: O key
+    3300104: option key
+    3300106: option key.001
+    3300108: P key
+    3300110: pause key
+    3300112: power key
+    3300114: Q key
+    3300116: R key
+    3300118: raise brightness key
+    3300120: raise something key
+    3300122: raise volume key
+    3300124: S key
+    3300126: S key.001
+    3300128: screen
+    3300130: shift key
+    3300132: space key
+    3300134: support (L)
+    3300136: support (R)
+    3300138: T key
+    3300140: tab key
+    3300142: tabs key
+    3300144: U key
+    3300146: V key
+    3300148: W key
+    3300150: Y key
+    3300152: ~ key
+    4300000: support (R)
+    4300002: support (L)
+    4300004: option key.001
+    4300006: command key (R)
+    4300008: command key (L)
+    4300010: option key
+    4300012: control key
+    4300014: space key
+    4300016: fn key
+    4300018: / key
+    4300020: . key
+    4300022: ', key'
+    4300024: M key
+    4300026: N key
+    4300028: B key
+    4300030: V key
+    4300032: C key
+    4300034: S key
+    4300036: shift key
+    4300038: A key
+    4300040: enter key
+    4300042: ''' key'
+    4300044: ; key
+    4300046: L key
+    4300048: K key
+    4300050: J key
+    4300052: H key
+    4300054: G key
+    4300056: F key
+    4300058: D key
+    4300060: S key.001
+    4300062: capslock key
+    4300064: A key.001
+    4300066: \ key
+    4300068: '] key'
+    4300070: '[ key'
+    4300072: P key
+    4300074: O key
+    4300076: I key
+    4300078: U key
+    4300080: Y key
+    4300082: T key
+    4300084: R key
+    4300086: E key
+    4300088: W key
+    4300090: tab key
+    4300092: Q key
+    4300094: delete key
+    4300096: = key
+    4300098: '- key'
+    4300100: 0 key
+    4300102: 9 key
+    4300104: 8 key
+    4300106: 7 key
+    4300108: 6 key
+    4300110: 5 key
+    4300112: 4 key
+    4300114: 3 key
+    4300116: 2 key
+    4300118: 1 key
+    4300120: ~ key
+    4300122: esc key
+    4300124: fast backward key
+    4300126: fast forward key
+    4300128: lower brightness key
+    4300130: lower something key
+    4300132: lower volume key
+    4300134: menu? key
+    4300136: mute key
+    4300138: pause key
+    4300140: power key
+    4300142: raise brightness key
+    4300144: raise something key
+    4300146: raise volume key
+    4300148: tabs key
+    4300150: keyboard base
+    4300152: screen
+    10800000: Lamp
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
