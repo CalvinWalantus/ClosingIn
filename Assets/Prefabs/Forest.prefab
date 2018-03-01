@@ -82,6 +82,7 @@ MeshRenderer:
   m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -97,6 +98,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -138,7 +140,7 @@ MonoBehaviour:
   create: 0
   destroy: 0
   number: 5
-  tree: {fileID: 0}
+  tree: {fileID: 1033831052455748, guid: edce2017fab4ed848b051998af913384, type: 2}
   sizePlane: {fileID: 1755893747051454}
 --- !u!114 &114386145526036690
 MonoBehaviour:
