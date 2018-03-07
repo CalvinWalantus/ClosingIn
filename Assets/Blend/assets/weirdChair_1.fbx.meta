@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: 2539fb1660bed1b42ad342ec35bc58e6
+timeCreated: 1520359295
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Camera
+    100002: chair top
+    100004: column 1
+    100006: column 2
+    100008: column head 1
+    100010: column head 2
+    100012: Cylinder
+    100014: giant display
+    100016: Lamp
+    100018: podium
+    100020: stage
+    100022: //RootNode
+    400000: Camera
+    400002: chair top
+    400004: column 1
+    400006: column 2
+    400008: column head 1
+    400010: column head 2
+    400012: Cylinder
+    400014: giant display
+    400016: Lamp
+    400018: podium
+    400020: stage
+    400022: //RootNode
+    2000000: Camera
+    2100000: No Name
+    2100002: Material.005
+    2100004: Material.006
+    2100006: Material.004
+    2100008: Material.003
+    2100010: Material.001
+    2100012: Material.002
+    2100014: Material
+    2100016: Material.007
+    2300000: chair top
+    2300002: column 1
+    2300004: column 2
+    2300006: column head 1
+    2300008: column head 2
+    2300010: Cylinder
+    2300012: giant display
+    2300014: podium
+    2300016: stage
+    3300000: chair top
+    3300002: column 1
+    3300004: column 2
+    3300006: column head 1
+    3300008: column head 2
+    3300010: Cylinder
+    3300012: giant display
+    3300014: podium
+    3300016: stage
+    4300000: Cylinder
+    4300002: giant display
+    4300004: podium
+    4300006: stage
+    4300008: column head 1
+    4300010: column head 2
+    4300012: column 2
+    4300014: column 1
+    4300016: chair top
+    10800000: Lamp
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
