@@ -1,72 +1,78 @@
 fileFormatVersion: 2
-guid: 2539fb1660bed1b42ad342ec35bc58e6
-timeCreated: 1520388431
+guid: 83dcc4847df1e344d8d2c0db0710b6f6
+timeCreated: 1520387730
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Camera
-    100002: chair top
-    100004: column 1
-    100006: column 2
-    100008: column head 1
-    100010: column head 2
-    100012: Cylinder
-    100014: giant display
-    100016: Lamp
-    100018: podium
-    100020: stage
-    100022: //RootNode
-    400000: Camera
-    400002: chair top
-    400004: column 1
-    400006: column 2
-    400008: column head 1
-    400010: column head 2
-    400012: Cylinder
-    400014: giant display
-    400016: Lamp
-    400018: podium
-    400020: stage
-    400022: //RootNode
-    2000000: Camera
+    100000: bottom 1
+    100002: bottom 2
+    100004: bottom 3
+    100006: bottom 4
+    100008: bottom 5
+    100010: brace 1
+    100012: brace 2
+    100014: //RootNode
+    100016: leg
+    100018: leg.001
+    100020: leg.002
+    100022: leg.003
+    100024: Point
+    100026: table top
+    400000: bottom 1
+    400002: bottom 2
+    400004: bottom 3
+    400006: bottom 4
+    400008: bottom 5
+    400010: brace 1
+    400012: brace 2
+    400014: //RootNode
+    400016: leg
+    400018: leg.001
+    400020: leg.002
+    400022: leg.003
+    400024: Point
+    400026: table top
     2100000: No Name
-    2100002: Material.005
-    2100004: Material.006
-    2100006: Material.004
-    2100008: Material.003
-    2100010: Material.001
-    2100012: Material.002
-    2100014: Material
-    2100016: Material.007
-    2300000: chair top
-    2300002: column 1
-    2300004: column 2
-    2300006: column head 1
-    2300008: column head 2
-    2300010: Cylinder
-    2300012: giant display
-    2300014: podium
-    2300016: stage
-    3300000: chair top
-    3300002: column 1
-    3300004: column 2
-    3300006: column head 1
-    3300008: column head 2
-    3300010: Cylinder
-    3300012: giant display
-    3300014: podium
-    3300016: stage
-    4300000: Cylinder
-    4300002: giant display
-    4300004: podium
-    4300006: stage
-    4300008: column head 1
-    4300010: column head 2
-    4300012: column 2
-    4300014: column 1
-    4300016: chair top
-    10800000: Lamp
+    2100002: Material
+    2100004: Material.001
+    2300000: bottom 1
+    2300002: bottom 2
+    2300004: bottom 3
+    2300006: bottom 4
+    2300008: bottom 5
+    2300010: brace 1
+    2300012: brace 2
+    2300014: leg
+    2300016: leg.001
+    2300018: leg.002
+    2300020: leg.003
+    2300022: table top
+    3300000: bottom 1
+    3300002: bottom 2
+    3300004: bottom 3
+    3300006: bottom 4
+    3300008: bottom 5
+    3300010: brace 1
+    3300012: brace 2
+    3300014: leg
+    3300016: leg.001
+    3300018: leg.002
+    3300020: leg.003
+    3300022: table top
+    4300000: brace 2
+    4300002: brace 1
+    4300004: bottom 5
+    4300006: bottom 4
+    4300008: bottom 3
+    4300010: bottom 2
+    4300012: bottom 1
+    4300014: leg.003
+    4300016: leg.002
+    4300018: leg.001
+    4300020: leg
+    4300022: table top
+    10800000: Point
   externalObjects: {}
   materials:
     importMaterials: 1
