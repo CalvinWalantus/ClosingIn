@@ -4,7 +4,7 @@ using UnityEngine;
 
 // Considering changing the name of this to "DimensionController"
 public class World : MonoBehaviour {
-	
+
 	// True = 3D
 	// False = 2D
 	public bool dimension = false;
@@ -36,10 +36,10 @@ public class World : MonoBehaviour {
 			boundary.RespawnEvent += HandleRespawnEvent;
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 		// Check if user has pressed shift to bring about a dimension shift
 		if (Input.GetKeyDown(KeyCode.LeftShift) && timer > shift_time)
 		{
@@ -131,4 +131,3 @@ public class World : MonoBehaviour {
 		}
 	}
 }
-

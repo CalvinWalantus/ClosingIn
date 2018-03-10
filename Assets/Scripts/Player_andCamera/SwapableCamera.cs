@@ -25,7 +25,7 @@ public class SwapableCamera : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 		world_controller = FindObjectOfType<World> ();
 		blender = gameObject.GetComponent<MatrixBlender> ();
 
@@ -52,9 +52,9 @@ public class SwapableCamera : MonoBehaviour {
 		two_shot = tw_shot;
 		three_shot = th_shot;
 
-		if (dimension)
+		if (dimension) {
 			MoveCamera (three_shot + 4);
-		else
+		}else
 			MoveCamera (two_shot);
 	}
 
@@ -63,7 +63,7 @@ public class SwapableCamera : MonoBehaviour {
 	// and the changing of projection mode
 	void Shift(bool dim, float time) {
 		if (dim) {
-			
+
 			MoveCamera (three_shot + 4);
 
 			// Refers to the Matrixblender script to change perspective
@@ -71,8 +71,22 @@ public class SwapableCamera : MonoBehaviour {
 				blender.BlendToMatrix(pers, time);
 			}
 		} else {
-			
-			MoveCamera (two_shot);
+			List<GameObject> temp = shots.GetRange (0, 4);
+
+			ICinemachineCamera locationtemp = GetComponent<CinemachineBrain> ().ActiveVirtualCamera;
+			GameObject location = locationtemp.VirtualCameraGameObject;
+			float shortest = Mathf.Infinity;
+			float distance = 0;
+			int index = 0;
+			foreach (GameObject camera in temp) {
+				distance = Vector3.Distance (location.transform.position, camera.transform.position);
+				if (distance < shortest) {
+					shortest = distance;
+					index = temp.IndexOf (camera);
+				}
+			}
+			Debug.Log (index);
+			MoveCamera (index+1);
 
 			// Refers to the Matrixblender script to change perspective
 			if (blendingOrtho) {
@@ -85,8 +99,12 @@ public class SwapableCamera : MonoBehaviour {
 
 	// Cinemachine handles all camera movement
 	void MoveCamera(int shot) {
-		shot_reference [shot].GetComponent<CinemachineVirtualCamera> ().Priority = 20;
-		if (current_shot != 0)
+		CinemachineVirtualCamera temp = shot_reference [shot].GetComponent<CinemachineVirtualCamera>();
+		if (temp)
+			shot_reference [shot].GetComponent<CinemachineVirtualCamera> ().Priority = 20;
+		else
+			shot_reference [shot].GetComponent<CinemachineFreeLook> ().Priority = 20;
+		if (current_shot != 0 && current_shot < 5)
 			shot_reference [current_shot].GetComponent<CinemachineVirtualCamera> ().Priority = 10;
 		current_shot = shot;
 

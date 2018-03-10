@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class SphereOfInfluence : MonoBehaviour {
 
@@ -72,7 +75,7 @@ public class SphereOfInfluence : MonoBehaviour {
 				foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
 					Decompress (compressable.Key, compressable.Value);
 			} 
-				
+
 		}
 	}
 
@@ -92,7 +95,7 @@ public class SphereOfInfluence : MonoBehaviour {
 	}
 
 	void OnTriggerExit (Collider other) {
-		
+
 		if (other.tag.Equals ("Compressable")) {
 			// Decompress the object
 			Decompress (other.gameObject, compressables[other.gameObject]);
