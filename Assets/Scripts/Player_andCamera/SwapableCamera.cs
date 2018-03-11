@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Playables;
 using UnityEngine;
 using Cinemachine; 
 
@@ -7,6 +8,7 @@ public class SwapableCamera : MonoBehaviour {
 	World world_controller;
 
 	Dictionary<int, GameObject> shot_reference;
+	public CinemachineVirtualCamera dolly;
 
 	MatrixBlender blender;
 	Matrix4x4 pers, ortho;
@@ -43,6 +45,8 @@ public class SwapableCamera : MonoBehaviour {
 		Camera cam = Camera.main;
 		pers = Matrix4x4.Perspective (cam.fieldOfView, cam.aspect, cam.nearClipPlane, cam.farClipPlane);
 		ortho = Matrix4x4.Ortho (-cam.orthographicSize * cam.aspect, cam.orthographicSize * cam.aspect, -cam.orthographicSize, cam.orthographicSize, cam.nearClipPlane, cam.farClipPlane);
+
+		StartCoroutine(FollowDollyTrack());
 	}
 
 	// Moves the camera within the same dimension
@@ -89,6 +93,20 @@ public class SwapableCamera : MonoBehaviour {
 		if (current_shot != 0)
 			shot_reference [current_shot].GetComponent<CinemachineVirtualCamera> ().Priority = 10;
 		current_shot = shot;
+	}
 
+	private IEnumerator FollowDollyTrack()
+	{
+		dolly.m_Priority = 30;
+
+		while (true) 
+		{
+			if (GetComponent<PlayableDirector>().state != PlayState.Playing)
+			{
+				dolly.m_Priority = 5; 	// Set priority to 5
+				yield break;
+			}
+			yield return 1;
+		}
 	}
 }
