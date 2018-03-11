@@ -130,4 +130,11 @@ public class World : MonoBehaviour {
 			shotChangeEvent (two_shot, three_shot);
 		}
 	}
+
+
+	// allow other objects to trigger a shotchagne event
+	public void ShotChangeOnExternalCall (int tw_shot) {
+		two_shot = tw_shot;
+		shotChangeEvent (two_shot, three_shot);
+	}
 }

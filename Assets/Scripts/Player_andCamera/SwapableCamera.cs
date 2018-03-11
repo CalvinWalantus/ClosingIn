@@ -29,8 +29,10 @@ public class SwapableCamera : MonoBehaviour {
 		world_controller = FindObjectOfType<World> ();
 		blender = gameObject.GetComponent<MatrixBlender> ();
 
-		world_controller.shiftEvent += Shift;
-		world_controller.shotChangeEvent += ShotChange;
+		if (world_controller) {
+			world_controller.shiftEvent += Shift;
+			world_controller.shotChangeEvent += ShotChange;
+		}
 
 		shot_reference = new Dictionary<int, GameObject> ();
 		int i = 1;
@@ -54,7 +56,7 @@ public class SwapableCamera : MonoBehaviour {
 
 		if (dimension) {
 			MoveCamera (three_shot + 4);
-		}else
+		} else
 			MoveCamera (two_shot);
 	}
 
@@ -85,15 +87,18 @@ public class SwapableCamera : MonoBehaviour {
 					index = temp.IndexOf (camera);
 				}
 			}
-			Debug.Log (index);
-			MoveCamera (index+1);
+
+			dimension = dim;
+			if (world_controller) {
+				world_controller.ShotChangeOnExternalCall (index + 1);
+			}
+
 
 			// Refers to the Matrixblender script to change perspective
 			if (blendingOrtho) {
 				blender.BlendToMatrix(ortho, time);
 			}
 		}
-		dimension = dim;
 		GetComponent<CinemachineBrain> ().m_DefaultBlend.m_Time = time;
 	}
 
