@@ -536,7 +536,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1017010806376178}
   m_LocalRotation: {x: 0.19996412, y: 0.3736123, z: -0.08282785, w: 0.90198}
-  m_LocalPosition: {x: 115.71484, y: 94.06525, z: 147.14474}
+  m_LocalPosition: {x: -7.8200073, y: 8.729996, z: -8.580002}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000002}
   m_Children:
   - {fileID: 4372141897939572}
@@ -603,7 +603,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641839126947106}
   m_LocalRotation: {x: 0.19996412, y: 0.3736123, z: -0.08282785, w: 0.90198}
-  m_LocalPosition: {x: 115.71484, y: 94.06525, z: 147.14474}
+  m_LocalPosition: {x: -7.8200073, y: 8.729996, z: -8.580002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4784514130809204}
@@ -630,7 +630,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1724506854664728}
   m_LocalRotation: {x: 0.19996412, y: 0.3736123, z: -0.08282785, w: 0.90198}
-  m_LocalPosition: {x: 115.71484, y: 94.06525, z: 147.14474}
+  m_LocalPosition: {x: -7.8200073, y: 8.729996, z: -8.580002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4527649497302160}
@@ -873,7 +873,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1251687699618934}
   m_LocalRotation: {x: 0.19996412, y: 0.3736123, z: -0.08282785, w: 0.90198}
-  m_LocalPosition: {x: 115.71484, y: 94.06525, z: 147.14474}
+  m_LocalPosition: {x: -7.8200073, y: 8.729996, z: -8.580002}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Children:
   - {fileID: 4035631811751536}
@@ -928,7 +928,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2030,7 +2030,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 932755041
+  randomSeed: 565264485
   InitialModule:
     serializedVersion: 3
     enabled: 1
