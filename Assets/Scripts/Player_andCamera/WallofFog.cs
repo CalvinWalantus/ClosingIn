@@ -23,9 +23,9 @@ public class WallofFog : MonoBehaviour {
 		worldController = FindObjectOfType<World> ();
 		worldController.shiftEvent += HandleShift;
 
-		fog = gameObject.GetComponent<Renderer>().material;
-		startColor = fog.color;
-	}
+		fog = gameObject.GetComponent<ParticleSystemRenderer>().material;
+		startColor = fog.GetColor ("_TintColor");
+	}															
 
 	void HandleShift (bool dim, float time) {
 		if (!startFlag) {
@@ -36,10 +36,10 @@ public class WallofFog : MonoBehaviour {
 			}
 		} else {
 			if (dim) {
-				fog.color = Color.clear;
+				fog.SetColor("_TintColor", Color.clear);
 			} else {
-				fog.color = startColor;
-				GetComponent<MeshRenderer> ().enabled = true;
+				fog.SetColor("_TintColor", startColor);
+				GetComponent<Renderer> ().enabled = true;
 			}
 			startFlag = false;
 		}
@@ -50,17 +50,17 @@ public class WallofFog : MonoBehaviour {
 		float startTime = Time.time;
 
 		if (!disappearing) {
-			GetComponent<MeshRenderer> ().enabled = true;
+			GetComponent<Renderer> ().enabled = true;
 		}
 
 		while (Time.time - startTime < duration)
 		{
-			fog.color = Color.Lerp (src, dest, (Time.time - startTime) / duration);
+			fog.SetColor("_TintColor", Color.Lerp (src, dest, (Time.time - startTime) / duration));
 			yield return 1;
 		}
 
 		if (disappearing) {
-			GetComponent<MeshRenderer> ().enabled = false;
+			GetComponent<Renderer> ().enabled = false;
 		}
 	}
 }
