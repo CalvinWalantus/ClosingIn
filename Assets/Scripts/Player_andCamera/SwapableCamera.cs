@@ -46,7 +46,7 @@ public class SwapableCamera : MonoBehaviour {
 		pers = Matrix4x4.Perspective (cam.fieldOfView, cam.aspect, cam.nearClipPlane, cam.farClipPlane);
 		ortho = Matrix4x4.Ortho (-cam.orthographicSize * cam.aspect, cam.orthographicSize * cam.aspect, -cam.orthographicSize, cam.orthographicSize, cam.nearClipPlane, cam.farClipPlane);
 
-		StartCoroutine(FollowDollyTrack());
+		//StartCoroutine(FollowDollyTrack());
 	}
 
 	// Moves the camera within the same dimension
@@ -95,7 +95,7 @@ public class SwapableCamera : MonoBehaviour {
 		current_shot = shot;
 	}
 
-	private IEnumerator FollowDollyTrack()
+	/*private IEnumerator FollowDollyTrack()
 	{
 		//dolly.m_Priority = 30;
 
@@ -108,5 +108,5 @@ public class SwapableCamera : MonoBehaviour {
 			}
 			yield return 1;
 		}
-	}
+	}*/
 }
