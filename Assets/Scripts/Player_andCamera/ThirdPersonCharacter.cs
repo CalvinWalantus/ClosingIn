@@ -202,13 +202,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void CheckGroundStatus()
 		{
 			RaycastHit hitInfo;
-#if UNITY_EDITOR
+			#if UNITY_EDITOR
 			// helper to visualise the ground check ray in the scene view
 			Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
-#endif
+			#endif
+
 			// 0.1f is a small offset to start the ray from inside the character
 			// it is also good to note that the transform position in the sample assets is at the base of the character
-			if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+			var charCtrl = GetComponent<CharacterController>();
+			Physics.SphereCast(transform.position + (Vector3.up * 0.1f), 0.35f, Vector3.down, out hitInfo, m_GroundCheckDistance);
+			Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance);
+			Physics.SphereCast(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2, Vector3.down, out hitInfo, m_GroundCheckDistance);
+			if (Physics.SphereCast(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2, Vector3.down, out hitInfo, m_GroundCheckDistance))
 			{
 				m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
@@ -216,10 +221,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 			else
 			{
+				if (m_IsGrounded)
+					//m_StartOfJump = true;
 				m_IsGrounded = false;
 				m_GroundNormal = Vector3.up;
 				m_Animator.applyRootMotion = false;
 			}
 		}
+		private void OnDrawGizmos()
+		{
+			// Gizmos.color = Color.red;
+			// Gizmos.DrawSphere(m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f), m_Capsule.height / 2);
+		}
+
 	}
 }
