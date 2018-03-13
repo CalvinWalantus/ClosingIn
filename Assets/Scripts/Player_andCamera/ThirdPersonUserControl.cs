@@ -40,7 +40,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			GetComponent<Rigidbody> ().freezeRotation = true;
 		}
 
-		void ShotChange (int tw_shot, int th_shot) {
+		void ShotChange (int tw_shot) {
 			two_shot = tw_shot;
 
 			// Calvin: we might run into problems here regarding player movement during the 

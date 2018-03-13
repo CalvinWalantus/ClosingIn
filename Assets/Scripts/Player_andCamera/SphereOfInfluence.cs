@@ -55,7 +55,7 @@ public class SphereOfInfluence : MonoBehaviour {
 		}
 	}
 
-	void ShotChange (int tw_shot, int th_shot) {
+	void ShotChange (int tw_shot) {
 		two_shot = tw_shot;
 		if (!dimension && !startflag) {
 			StartCoroutine (TwoShotChange (shift_time, true));
