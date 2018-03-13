@@ -125,8 +125,6 @@ public class SwapableCamera : MonoBehaviour {
 	// Cinemachine handles all camera movement
 	void MoveCamera(int shot) {
 
-		Debug.Log (shot);
-
 		// the freelook camera, used for 3D, statically has a priority of 15. When we want to switch to
 		// 2D, we set one of the 2D cameras' priority to 20
 		if (shot < 5) {
