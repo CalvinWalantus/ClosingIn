@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Playables;
 using UnityEngine;
 
 // Considering changing the name of this to "DimensionController"
@@ -26,6 +27,10 @@ public class World : MonoBehaviour {
 	public delegate void ShotChange (int tw_shot, int th_shot);
 	public event ShotChange shotChangeEvent;
 
+
+	public CameraContainer cam_box;
+	Transform main_cam;
+
 	void Start() {
 		timer = shift_time;
 		shotChangeEvent (two_shot, three_shot);
@@ -35,6 +40,10 @@ public class World : MonoBehaviour {
 		{
 			boundary.RespawnEvent += HandleRespawnEvent;
 		}
+
+		main_cam = cam_box.transform.GetChild(8);
+		PlayStartAnimation();
+
 	}
 	
 	// Update is called once per frame
@@ -86,8 +95,6 @@ public class World : MonoBehaviour {
 		shiftEvent (dimension, shift_time);
 	}
 
-
-
 	void ShotChangeOnInput(ref int current_shot)
 	{
 		// Tracks Current Shot
@@ -129,6 +136,14 @@ public class World : MonoBehaviour {
 		{
 			shotChangeEvent (two_shot, three_shot);
 		}
+	}
+
+	void PlayStartAnimation () 
+	{
+		Debug.Log (main_cam.GetComponent<PlayableDirector>().duration);
+		// Get a reference to Playable Director and play the animation
+		// Trigger an "animationStart" event
+		// When animation is over, trigger an "animationEnd" event
 	}
 }
 

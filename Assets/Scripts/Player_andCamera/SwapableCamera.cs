@@ -97,13 +97,13 @@ public class SwapableCamera : MonoBehaviour {
 
 	private IEnumerator FollowDollyTrack()
 	{
-		dolly.m_Priority = 30;
+		//dolly.m_Priority = 30;
 
 		while (true) 
 		{
 			if (GetComponent<PlayableDirector>().state != PlayState.Playing)
 			{
-				dolly.m_Priority = 5; 	// Set priority to 5
+				//dolly.m_Priority = 5; 	// Set priority to 5
 				yield break;
 			}
 			yield return 1;

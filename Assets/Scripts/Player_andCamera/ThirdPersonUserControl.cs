@@ -23,6 +23,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			world_controller = FindObjectOfType<World> ();
 			world_controller.shotChangeEvent += ShotChange;
 			world_controller.shiftEvent += Shift;
+
+			// world_controller.animationStart = HandleStart;
+			// world_controller.animationEnd = handleEnd;
 		}
 
 		void Shift (bool dim, float time) {

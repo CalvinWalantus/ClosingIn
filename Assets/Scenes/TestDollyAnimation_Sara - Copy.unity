@@ -826,7 +826,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 63658515}
-  m_LocalRotation: {x: 0.0166349, y: 0.93780077, z: 0.34379354, w: -0.045376718}
+  m_LocalRotation: {x: -0.001523269, y: 0.99627835, z: -0.08427869, w: -0.018006923}
   m_LocalPosition: {x: -12.99, y: -31.122149, z: -91.4471}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -894,7 +894,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 0.5
   m_CustomBlends: {fileID: 0}
   m_CameraCutEvent:
     m_PersistentCalls:
@@ -1004,7 +1004,6 @@ GameObject:
   m_Component:
   - component: {fileID: 77086289}
   - component: {fileID: 77086288}
-  - component: {fileID: 77086287}
   - component: {fileID: 77086286}
   m_Layer: 0
   m_Name: DollyTrack1
@@ -1030,26 +1029,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!320 &77086287
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 77086285}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: ef2ff254b0ea15440833fd3e34e01214, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 0}
-    value: {fileID: 77086285}
-  - key: {fileID: 114308642535772964, guid: ef2ff254b0ea15440833fd3e34e01214, type: 2}
-    value: {fileID: 0}
-  m_ExposedReferences:
-    m_References: []
 --- !u!114 &77086288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,6 +1368,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 169424229}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &179993729 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114972565292419052, guid: 8bc0d7aa35b18ba4d8543274dc6d131e,
+    type: 2}
+  m_PrefabInternal: {fileID: 286680797}
+  m_Script: {fileID: 11500000, guid: d66fff35430d26748a68c353ad63cc74, type: 3}
 --- !u!1 &181598114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,19 +1920,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.0166349
+      value: -0.001523269
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.93780077
+      value: 0.99627835
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.34379354
+      value: -0.08427869
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.045376718
+      value: -0.018006923
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2101,13 +2086,18 @@ Prefab:
     - target: {fileID: 114531067923183512, guid: 8bc0d7aa35b18ba4d8543274dc6d131e,
         type: 2}
       propertyPath: m_DefaultBlend.m_Time
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114036112037800048, guid: 8bc0d7aa35b18ba4d8543274dc6d131e,
         type: 2}
       propertyPath: dolly
       value: 
       objectReference: {fileID: 63658517}
+    - target: {fileID: 114972565292419052, guid: 8bc0d7aa35b18ba4d8543274dc6d131e,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
   m_IsPrefabParent: 0
@@ -3040,6 +3030,7 @@ GameObject:
   - component: {fileID: 514648362}
   - component: {fileID: 514648365}
   - component: {fileID: 514648363}
+  - component: {fileID: 514648364}
   m_Layer: 0
   m_Name: Dolly Camera4
   m_TagString: Untagged
@@ -3053,8 +3044,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 514648361}
-  m_LocalRotation: {x: 0.009691069, y: 0.9591976, z: 0.033125132, w: -0.28062224}
-  m_LocalPosition: {x: -17.714123, y: -30.244522, z: -112.63207}
+  m_LocalRotation: {x: -0.001523269, y: 0.99627835, z: -0.08427869, w: -0.018006923}
+  m_LocalPosition: {x: -12.99, y: -31.122149, z: -91.4471}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000006}
   m_Children:
   - {fileID: 1730367926}
@@ -3078,6 +3069,36 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &514648364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 514648361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 0.5
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &514648365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3093,7 +3114,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 5
   m_LookAt: {fileID: 1894382373}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -4647,9 +4668,9 @@ MonoBehaviour:
   m_PathPosition: 0
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
-  m_XDamping: 0
-  m_YDamping: 0
-  m_ZDamping: 1
+  m_XDamping: 3
+  m_YDamping: 3
+  m_ZDamping: 3
   m_CameraUp: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -5966,9 +5987,9 @@ MonoBehaviour:
   m_PathPosition: 0
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
-  m_XDamping: 0
-  m_YDamping: 0
-  m_ZDamping: 1
+  m_XDamping: 3
+  m_YDamping: 3
+  m_ZDamping: 3
   m_CameraUp: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -7549,6 +7570,7 @@ GameObject:
   - component: {fileID: 1229475082}
   - component: {fileID: 1229475085}
   - component: {fileID: 1229475083}
+  - component: {fileID: 1229475084}
   m_Layer: 0
   m_Name: Dolly Camera5
   m_TagString: Untagged
@@ -7562,8 +7584,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1229475081}
-  m_LocalRotation: {x: 0.000022101865, y: 0.99992895, z: 0.011772638, w: -0.0018772592}
-  m_LocalPosition: {x: -17.714123, y: -30.244522, z: -112.63207}
+  m_LocalRotation: {x: -0.001523269, y: 0.99627835, z: -0.08427869, w: -0.018006923}
+  m_LocalPosition: {x: -12.99, y: -31.122149, z: -91.4471}
   m_LocalScale: {x: 1.0000007, y: 1, z: 1.0000007}
   m_Children:
   - {fileID: 1644490231}
@@ -7587,6 +7609,36 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1229475084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229475081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 0.5
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1229475085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7602,7 +7654,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 5
   m_LookAt: {fileID: 1530478451}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -7658,6 +7710,7 @@ MonoBehaviour:
   current_shot: 0
   shift_time: 1
   timer: 0
+  cam_box: {fileID: 179993729}
 --- !u!1001 &1261534710
 Prefab:
   m_ObjectHideFlags: 0
@@ -7982,7 +8035,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1353314859}
-  m_LocalRotation: {x: 0.0166349, y: 0.93780077, z: 0.34379354, w: -0.045376718}
+  m_LocalRotation: {x: -0.001523269, y: 0.99627835, z: -0.08427869, w: -0.018006923}
   m_LocalPosition: {x: -12.99, y: -31.122149, z: -91.4471}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Children:
@@ -8025,7 +8078,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 0.5
   m_CustomBlends: {fileID: 0}
   m_CameraCutEvent:
     m_PersistentCalls:
@@ -8052,7 +8105,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 5
   m_LookAt: {fileID: 510321439}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -8373,7 +8426,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1416031829}
-  m_LocalRotation: {x: 0.0166349, y: 0.93780077, z: 0.34379354, w: -0.045376718}
+  m_LocalRotation: {x: -0.001523269, y: 0.99627835, z: -0.08427869, w: -0.018006923}
   m_LocalPosition: {x: -12.99, y: -31.122149, z: -91.4471}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000002}
   m_Children:
@@ -8416,7 +8469,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 0.5
   m_CustomBlends: {fileID: 0}
   m_CameraCutEvent:
     m_PersistentCalls:
@@ -8443,7 +8496,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 6
   m_LookAt: {fileID: 26075917}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -8853,9 +8906,9 @@ MonoBehaviour:
   m_PathPosition: 0
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
-  m_XDamping: 0
-  m_YDamping: 0
-  m_ZDamping: 1
+  m_XDamping: 3
+  m_YDamping: 3
+  m_ZDamping: 3
   m_CameraUp: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -9495,9 +9548,9 @@ MonoBehaviour:
   m_PathPosition: 0
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
-  m_XDamping: 0
-  m_YDamping: 0
-  m_ZDamping: 1
+  m_XDamping: 3
+  m_YDamping: 3
+  m_ZDamping: 3
   m_CameraUp: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -10002,9 +10055,9 @@ MonoBehaviour:
   m_PathPosition: 0
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
-  m_XDamping: 0
-  m_YDamping: 0
-  m_ZDamping: 1
+  m_XDamping: 3
+  m_YDamping: 3
+  m_ZDamping: 3
   m_CameraUp: 0
   m_PitchDamping: 0
   m_YawDamping: 0
