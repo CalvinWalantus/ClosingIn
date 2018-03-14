@@ -812,7 +812,6 @@ GameObject:
   - component: {fileID: 63658516}
   - component: {fileID: 63658517}
   - component: {fileID: 63658518}
-  - component: {fileID: 63658519}
   m_Layer: 0
   m_Name: Dolly Camera1
   m_TagString: Untagged
@@ -826,7 +825,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 63658515}
-  m_LocalRotation: {x: -0.001523269, y: 0.99627835, z: -0.08427869, w: -0.018006923}
+  m_LocalRotation: {x: -0.0015232167, y: 0.99627835, z: -0.084279045, w: -0.01800623}
   m_LocalPosition: {x: -12.99, y: -31.122149, z: -91.4471}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -876,36 +875,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &63658519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 63658515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 0.5
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &66686851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,15 +1040,15 @@ MonoBehaviour:
     roll: 0
   - position: {x: -17.52946, y: 77.54952, z: -85.37374}
     roll: 0
-  - position: {x: -15.059751, y: 75.465454, z: -91.9998}
+  - position: {x: -15.059751, y: 74.90947, z: -95.32508}
     roll: 0
-  - position: {x: -8.9089575, y: 75.000046, z: -92.811386}
+  - position: {x: -8.9089575, y: 74.46219, z: -96.382355}
     roll: 0
-  - position: {x: -2.7581644, y: 75.122406, z: -92.568855}
+  - position: {x: -2.7581644, y: 73.90297, z: -95.03378}
     roll: 0
-  - position: {x: 3.3926287, y: 71.21884, z: -92.326324}
+  - position: {x: 3.9009757, y: 70.56972, z: -97.27879}
     roll: 0
-  - position: {x: 9.543422, y: 63.788425, z: -101.93964}
+  - position: {x: 10.289732, y: 64.83267, z: -107.011505}
     roll: 0
   - position: {x: 19.338886, y: 59.110645, z: -108.510254}
     roll: 0
@@ -1095,9 +1064,9 @@ MonoBehaviour:
     roll: 0
   - position: {x: -29.75941, y: 18.677046, z: -122.62248}
     roll: 0
-  - position: {x: -17.865036, y: 17.492634, z: -133.34258}
+  - position: {x: -17.865036, y: 15.156151, z: -133.34258}
     roll: 0
-  - position: {x: -11.6446295, y: 14.281685, z: -138.24142}
+  - position: {x: -10.395812, y: 12.205397, z: -138.24142}
     roll: 0
   - position: {x: -1.9321184, y: 9.012669, z: -135.3678}
     roll: 0
@@ -1896,7 +1865,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4448100357539228, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 164
+      value: 1338.3
       objectReference: {fileID: 0}
     - target: {fileID: 4448100357539228, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1920,7 +1889,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.001523269
+      value: -0.0015232167
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalRotation.y
@@ -1928,11 +1897,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.08427869
+      value: -0.084279045
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.018006923
+      value: -0.01800623
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1944,7 +1913,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4363921466371026, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -91.4471
+      value: -1265.7472
       objectReference: {fileID: 0}
     - target: {fileID: 4962850051858964, guid: 8bc0d7aa35b18ba4d8543274dc6d131e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3030,7 +2999,6 @@ GameObject:
   - component: {fileID: 514648362}
   - component: {fileID: 514648365}
   - component: {fileID: 514648363}
-  - component: {fileID: 514648364}
   m_Layer: 0
   m_Name: Dolly Camera4
   m_TagString: Untagged
@@ -3044,7 +3012,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 514648361}
-  m_LocalRotation: {x: -0.001523269, y: 0.99627835, z: -0.08427869, w: -0.018006923}
+  m_LocalRotation: {x: 0.009689722, y: 0.9591979, z: 0.03312059, w: -0.2806219}
   m_LocalPosition: {x: -12.99, y: -31.122149, z: -91.4471}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000006}
   m_Children:
@@ -3069,36 +3037,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &514648364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 514648361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 0.5
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &514648365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6354,7 +6292,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: ec825012de9589c40aeaeb8977b9032e, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -6362,9 +6300,9 @@ PlayableDirector:
   - key: {fileID: 0}
     value: {fileID: 1105384626}
   - key: {fileID: 0}
-    value: {fileID: 63658519}
+    value: {fileID: 0}
   - key: {fileID: 0}
-    value: {fileID: 1416031832}
+    value: {fileID: 0}
   - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: 114609038501595522, guid: ec825012de9589c40aeaeb8977b9032e, type: 2}
@@ -7570,7 +7508,6 @@ GameObject:
   - component: {fileID: 1229475082}
   - component: {fileID: 1229475085}
   - component: {fileID: 1229475083}
-  - component: {fileID: 1229475084}
   m_Layer: 0
   m_Name: Dolly Camera5
   m_TagString: Untagged
@@ -7584,7 +7521,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1229475081}
-  m_LocalRotation: {x: -0.001523269, y: 0.99627835, z: -0.08427869, w: -0.018006923}
+  m_LocalRotation: {x: 0.000022063792, y: 0.9999289, z: 0.011780376, w: -0.0018727947}
   m_LocalPosition: {x: -12.99, y: -31.122149, z: -91.4471}
   m_LocalScale: {x: 1.0000007, y: 1, z: 1.0000007}
   m_Children:
@@ -7609,36 +7546,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1229475084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1229475081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 0.5
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1229475085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7710,6 +7617,8 @@ MonoBehaviour:
   current_shot: 0
   shift_time: 1
   timer: 0
+  playAnimationOnStart: 1
+  startAnimationSpeed: 10
   cam_box: {fileID: 179993729}
 --- !u!1001 &1261534710
 Prefab:
@@ -8021,7 +7930,6 @@ GameObject:
   - component: {fileID: 1353314860}
   - component: {fileID: 1353314863}
   - component: {fileID: 1353314861}
-  - component: {fileID: 1353314862}
   m_Layer: 0
   m_Name: Dolly Camera3
   m_TagString: Untagged
@@ -8035,7 +7943,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1353314859}
-  m_LocalRotation: {x: -0.001523269, y: 0.99627835, z: -0.08427869, w: -0.018006923}
+  m_LocalRotation: {x: -0.013398301, y: 0.9832927, z: 0.16240516, w: 0.0811209}
   m_LocalPosition: {x: -12.99, y: -31.122149, z: -91.4471}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Children:
@@ -8060,36 +7968,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1353314862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1353314859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 0.5
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1353314863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8106,7 +7984,7 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 5
-  m_LookAt: {fileID: 510321439}
+  m_LookAt: {fileID: 1496299397}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
@@ -8412,7 +8290,6 @@ GameObject:
   - component: {fileID: 1416031830}
   - component: {fileID: 1416031833}
   - component: {fileID: 1416031831}
-  - component: {fileID: 1416031832}
   m_Layer: 0
   m_Name: Dolly Camera2
   m_TagString: Untagged
@@ -8426,7 +8303,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1416031829}
-  m_LocalRotation: {x: -0.001523269, y: 0.99627835, z: -0.08427869, w: -0.018006923}
+  m_LocalRotation: {x: 0.01663463, y: 0.9378009, z: 0.34379327, w: -0.04537603}
   m_LocalPosition: {x: -12.99, y: -31.122149, z: -91.4471}
   m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000002}
   m_Children:
@@ -8451,36 +8328,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1416031832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1416031829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 0.5
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1416031833
 MonoBehaviour:
   m_ObjectHideFlags: 0
