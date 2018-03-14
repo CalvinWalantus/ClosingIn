@@ -17,9 +17,7 @@ public class Trigger : MonoBehaviour {
 	void Start () 
 	{
 		trigger_switch = gameObject.GetComponent<MeshRenderer>().material;
-		start_color = trigger_switch.GetColor("_Color");
-
-		Debug.Log(start_color.ToString());
+		start_color = trigger_switch.GetColor("_EmissionColor");
 	}
 	
 	// Update is called once per frame
@@ -28,7 +26,10 @@ public class Trigger : MonoBehaviour {
 		if (other.tag.Equals("Player") && once_only) 
 		{
 			hitEvent (id);
-			StartCoroutine(FeedbackLerp(start_color, Color.gray, 3));
+			StartCoroutine(FeedbackLerp(start_color, Color.grey, 3));
+
+			trigger_switch.SetColor ("_EmissionColor", Color.gray);
+			once_only = false;
 		}
 	}
 
@@ -38,8 +39,8 @@ public class Trigger : MonoBehaviour {
 
 		while (Time.time - startTime < duration) 
 		{
-			trigger_switch.SetColor("_Color", Color.Lerp (src, dst, (Time.time - startTime) / duration));
+			trigger_switch.SetColor("_EmissionColor", Color.Lerp(src, dst, (Time.time - startTime) / duration));
+			yield return 1;
 		}
-		yield return 1;
 	}
 }
