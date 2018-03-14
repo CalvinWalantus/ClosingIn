@@ -28,12 +28,12 @@ public class World : MonoBehaviour {
 	public delegate void ShotChange (int tw_shot, int th_shot);
 	public event ShotChange shotChangeEvent;
 
+	// Event signaling an animation play
+	//public delegate void AnimationPlay();
+	//public event PlayableDirector animationPlayEvent;
+
 	public bool playAnimationOnStart;
 	public float startAnimationSpeed = 2;
-
-
-	public CameraContainer cam_box;
-	Transform main_cam;
 
 	void Start() {
 		timer = shift_time;
@@ -44,12 +44,11 @@ public class World : MonoBehaviour {
 		{
 			boundary.RespawnEvent += HandleRespawnEvent;
 		}
-
-		main_cam = cam_box.transform.GetChild(8);
-		if (playAnimationOnStart) {
-			PlayStartAnimation ();
+			
+		if (playAnimationOnStart)
+		{
+			StartCoroutine(PlayStartAnimation());
 		}
-
 	}
 	
 	// Update is called once per frame
@@ -86,7 +85,7 @@ public class World : MonoBehaviour {
 				} else {
 					three_shot = shot - 4;
 				}
-				shotChangeEvent (two_shot, three_shot);
+				shotChangeEvent(two_shot, three_shot);
 				break;
 			}
 		}
@@ -144,17 +143,26 @@ public class World : MonoBehaviour {
 		}
 	}
 
-	void PlayStartAnimation () 
+	private IEnumerator PlayStartAnimation()
 	{
-		Camera.main.gameObject.GetComponent<PlayableDirector> ().Play();
+		Camera.main.gameObject.GetComponent<PlayableDirector>().Play();
 
-		// trying to change aniumation speed, not working
+		// Trying to change aniumation speed, not working
 		AnimationMixerPlayable mixer = AnimationMixerPlayable.Create (Camera.main.gameObject.GetComponent<PlayableDirector> ().playableGraph, 1);
-		mixer.SetSpeed (startAnimationSpeed);
+		mixer.SetSpeed(startAnimationSpeed);
 
 		// Trigger an "animationStart" event
 
 		// When animation is over, trigger an "animationEnd" event
+		while (true) 
+		{
+			if (Camera.main.gameObject.GetComponent<PlayableDirector>().state != PlayState.Playing)
+			{
+				Debug.Log("Animation is Done.");
+				yield break;
+			}
+			yield return 1;
+		}
 	}
 }
 
