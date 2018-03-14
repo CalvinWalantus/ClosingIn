@@ -146,18 +146,14 @@ public class World : MonoBehaviour {
 
 	void PlayStartAnimation () 
 	{
+		Camera.main.gameObject.GetComponent<PlayableDirector> ().Play();
 
 		// trying to change aniumation speed, not working
-		Camera.main.gameObject.GetComponent<PlayableDirector> ().Play();
 		AnimationMixerPlayable mixer = AnimationMixerPlayable.Create (Camera.main.gameObject.GetComponent<PlayableDirector> ().playableGraph, 1);
 		mixer.SetSpeed (startAnimationSpeed);
 
-
-
-
-
-		// Get a reference to Playable Director and play the animation
 		// Trigger an "animationStart" event
+
 		// When animation is over, trigger an "animationEnd" event
 	}
 }
