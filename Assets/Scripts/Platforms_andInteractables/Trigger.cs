@@ -27,8 +27,9 @@ public class Trigger : MonoBehaviour {
 		{
 			hitEvent (id);
 			StartCoroutine(FeedbackLerp(start_color, Color.grey, 3));
-
 			trigger_switch.SetColor ("_EmissionColor", Color.gray);
+
+			GetComponent<AudioSource>().PlayDelayed(0.5f);
 			once_only = false;
 		}
 	}
