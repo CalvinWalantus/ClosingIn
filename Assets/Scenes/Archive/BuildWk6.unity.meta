@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/Archive/BuildWk6.unity.meta
 guid: 2b3952d51653f3c44a3838cdda2896c4
 timeCreated: 1518302903
+=======
+guid: 1638e663931e5e34d93f497d7e9d1b50
+timeCreated: 1520730166
+>>>>>>> dev:Assets/Scenes/Archive/BuildWk6.unity.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
