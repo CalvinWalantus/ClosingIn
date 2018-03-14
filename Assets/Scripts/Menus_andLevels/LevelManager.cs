@@ -9,7 +9,7 @@ using UnityEditor.SceneManagement;
 
 public class LevelManager : MonoBehaviour 
 {
-	public Transform main_menu, options_menu;
+	public Transform main_menu, options_menu, hourglass;
 
 	// Loads a scene when a player clicks Play button. 
 	public void LoadScene(string name)
@@ -23,11 +23,13 @@ public class LevelManager : MonoBehaviour
 		if (clicked == true) 
 		{
 			options_menu.gameObject.SetActive (clicked);
-			main_menu.gameObject.SetActive (false);
+			hourglass.gameObject.SetActive(false);
+			main_menu.gameObject.SetActive(false);
 		} 
 		else 
 		{
 			options_menu.gameObject.SetActive(clicked);
+			hourglass.gameObject.SetActive(true);
 			main_menu.gameObject.SetActive(true);
 		}
 	}

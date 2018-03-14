@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: cec388de7838ba34ab3d84af72622946
+timeCreated: 1519773958
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: book 3
+    100002: book 4
+    100004: book 5
+    100006: book 6
+    100008: //RootNode
+    100010: Camera
+    100012: Cube.013
+    100014: Cube.014
+    100016: Cube.015
+    100018: Cube.016
+    100020: Cube.017
+    100022: Cube.018
+    100024: Cube.019
+    100026: Cube.020
+    100028: Cube.021
+    100030: Cube.022
+    100032: Cube.025
+    100034: Cube.026
+    100036: Cube.027
+    100038: Cube.028
+    100040: Cube.029
+    100042: Cube.030
+    100044: Cube.031
+    100046: Cube.032
+    100048: Cube.033
+    100050: Cube.034
+    100052: Lamp
+    400000: book 3
+    400002: book 4
+    400004: book 5
+    400006: book 6
+    400008: //RootNode
+    400010: Camera
+    400012: Cube.013
+    400014: Cube.014
+    400016: Cube.015
+    400018: Cube.016
+    400020: Cube.017
+    400022: Cube.018
+    400024: Cube.019
+    400026: Cube.020
+    400028: Cube.021
+    400030: Cube.022
+    400032: Cube.025
+    400034: Cube.026
+    400036: Cube.027
+    400038: Cube.028
+    400040: Cube.029
+    400042: Cube.030
+    400044: Cube.031
+    400046: Cube.032
+    400048: Cube.033
+    400050: Cube.034
+    400052: Lamp
+    2000000: Camera
+    2100000: Material.002
+    2100002: No Name
+    2100004: Material.001
+    2100006: Material.015
+    2100008: Material.014
+    2100010: Material.013
+    2100012: Material.009
+    2100014: Material.016
+    2100016: Material.005
+    2100018: Material.021
+    2100020: Material.019
+    2100022: Material.020
+    2100024: Material.018
+    2100026: Material.017
+    2100028: Material.004
+    2300000: book 3
+    2300002: book 4
+    2300004: book 5
+    2300006: book 6
+    2300008: Cube.013
+    2300010: Cube.014
+    2300012: Cube.015
+    2300014: Cube.016
+    2300016: Cube.017
+    2300018: Cube.018
+    2300020: Cube.019
+    2300022: Cube.020
+    2300024: Cube.021
+    2300026: Cube.022
+    2300028: Cube.025
+    2300030: Cube.026
+    2300032: Cube.027
+    2300034: Cube.028
+    2300036: Cube.029
+    2300038: Cube.030
+    2300040: Cube.031
+    2300042: Cube.032
+    2300044: Cube.033
+    2300046: Cube.034
+    3300000: book 3
+    3300002: book 4
+    3300004: book 5
+    3300006: book 6
+    3300008: Cube.013
+    3300010: Cube.014
+    3300012: Cube.015
+    3300014: Cube.016
+    3300016: Cube.017
+    3300018: Cube.018
+    3300020: Cube.019
+    3300022: Cube.020
+    3300024: Cube.021
+    3300026: Cube.022
+    3300028: Cube.025
+    3300030: Cube.026
+    3300032: Cube.027
+    3300034: Cube.028
+    3300036: Cube.029
+    3300038: Cube.030
+    3300040: Cube.031
+    3300042: Cube.032
+    3300044: Cube.033
+    3300046: Cube.034
+    4300000: book 5
+    4300002: Cube.030
+    4300004: Cube.031
+    4300006: Cube.032
+    4300008: Cube.033
+    4300010: Cube.034
+    4300012: book 6
+    4300014: Cube.028
+    4300016: Cube.027
+    4300018: Cube.026
+    4300020: Cube.025
+    4300022: Cube.029
+    4300024: book 4
+    4300026: Cube.018
+    4300028: Cube.019
+    4300030: Cube.020
+    4300032: Cube.021
+    4300034: Cube.022
+    4300036: book 3
+    4300038: Cube.013
+    4300040: Cube.014
+    4300042: Cube.015
+    4300044: Cube.016
+    4300046: Cube.017
+    10800000: Lamp
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
