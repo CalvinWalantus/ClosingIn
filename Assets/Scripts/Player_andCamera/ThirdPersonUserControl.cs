@@ -2,8 +2,8 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnityStandardAssets.Characters.ThirdPerson
-{
+/*namespace UnityStandardAssets.Characters.ThirdPerson
+{*/
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class ThirdPersonUserControl : MonoBehaviour
     {
@@ -57,7 +57,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			GetComponent<Rigidbody>().freezeRotation = true;
 		}
 
-		void ShotChange (int tw_shot, int th_shot)
+		void ShotChange (int tw_shot)
 		{
 			two_shot = tw_shot;
 
@@ -168,4 +168,4 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Jump = false;
         }
     }
-}
+//}
