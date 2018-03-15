@@ -52,7 +52,7 @@ public class SphereOfInfluence : MonoBehaviour {
 		}
 	}
 
-	void ShotChange (int tw_shot, int th_shot) {
+	void ShotChange (int tw_shot) {
 		two_shot = tw_shot;
 		if (!dimension && !startflag) {
 			StartCoroutine (TwoShotChange (shift_time, true));
@@ -72,7 +72,7 @@ public class SphereOfInfluence : MonoBehaviour {
 				foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
 					Decompress (compressable.Key, compressable.Value);
 			} 
-				
+
 		}
 	}
 
@@ -92,7 +92,7 @@ public class SphereOfInfluence : MonoBehaviour {
 	}
 
 	void OnTriggerExit (Collider other) {
-		
+
 		if (other.tag.Equals ("Compressable")) {
 			// Decompress the object
 			Decompress (other.gameObject, compressables[other.gameObject]);
