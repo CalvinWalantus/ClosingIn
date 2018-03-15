@@ -5,8 +5,8 @@ using UnityEngine.Animations;
 using UnityEngine;
 
 // Considering changing the name of this to "DimensionController"
-public class World : MonoBehaviour {
-	
+public class World : MonoBehaviour
+{
 	// True = 3D
 	// False = 2D
 	public bool dimension = false;
@@ -29,16 +29,17 @@ public class World : MonoBehaviour {
 	public event ShotChange shotChangeEvent;
 
 	// Event signaling an animation play
-	//public delegate void AnimationPlay();
-	//public event PlayableDirector animationPlayEvent;
+	public delegate void AnimationPlay();
+	public event AnimationPlay animationPlayEvent;
 
 	public bool playAnimationOnStart;
 	public float startAnimationSpeed = 2;
 
-	void Start() {
+	void Start()
+	{
 		timer = shift_time;
-		shotChangeEvent (two_shot, three_shot);
-		shiftEvent (dimension, shift_time);
+		shotChangeEvent(two_shot, three_shot);
+		shiftEvent(dimension, shift_time);
 
 		foreach (Teleport boundary in FindObjectsOfType<Teleport>())
 		{
@@ -52,8 +53,8 @@ public class World : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+	{
 		// Check if user has pressed shift to bring about a dimension shift
 		if (Input.GetKeyDown(KeyCode.LeftShift) && timer > shift_time)
 		{

@@ -4,7 +4,8 @@ using UnityEngine.Playables;
 using UnityEngine;
 using Cinemachine; 
 
-public class SwapableCamera : MonoBehaviour {
+public class SwapableCamera : MonoBehaviour
+{
 	World world_controller;
 
 	Dictionary<int, GameObject> shot_reference;
@@ -50,9 +51,8 @@ public class SwapableCamera : MonoBehaviour {
 	}
 
 	// Moves the camera within the same dimension
-
-	void ShotChange (int tw_shot, int th_shot) {
-
+	void ShotChange (int tw_shot, int th_shot)
+	{
 		two_shot = tw_shot;
 		three_shot = th_shot;
 
@@ -65,21 +65,25 @@ public class SwapableCamera : MonoBehaviour {
 
 	// This function handles movement of the camera between 2D and 3D shots,
 	// and the changing of projection mode
-	void Shift(bool dim, float time) {
-		if (dim) {
-			
+	void Shift(bool dim, float time)
+	{
+		if (dim)
+		{
 			MoveCamera (three_shot + 4);
 
 			// Refers to the Matrixblender script to change perspective
-			if (blendingOrtho) {
+			if (blendingOrtho)
+			{
 				blender.BlendToMatrix(pers, time);
 			}
-		} else {
-			
+		}
+		else
+		{
 			MoveCamera (two_shot);
 
 			// Refers to the Matrixblender script to change perspective
-			if (blendingOrtho) {
+			if (blendingOrtho)
+			{
 				blender.BlendToMatrix(ortho, time);
 			}
 		}
@@ -88,7 +92,8 @@ public class SwapableCamera : MonoBehaviour {
 	}
 
 	// Cinemachine handles all camera movement
-	void MoveCamera(int shot) {
+	void MoveCamera(int shot) 
+	{
 		shot_reference [shot].GetComponent<CinemachineVirtualCamera> ().Priority = 20;
 		if (current_shot != 0)
 			shot_reference [current_shot].GetComponent<CinemachineVirtualCamera> ().Priority = 10;

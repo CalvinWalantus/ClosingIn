@@ -19,38 +19,54 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		private World world_controller;
 
-		void Awake () {
+		void Awake ()
+		{
 			world_controller = FindObjectOfType<World> ();
 			world_controller.shotChangeEvent += ShotChange;
 			world_controller.shiftEvent += Shift;
 
+			world_controller.animationPlayEvent += HandleDisable;
 			// world_controller.animationStart = HandleStart;
 			// world_controller.animationEnd = handleEnd;
 		}
 
-		void Shift (bool dim, float time) {
+		void Shift (bool dim, float time)
+		{
 			dimension = dim;
-			if (!dimension) {
-
-				if (two_shot % 2 == 1) {
+			if (!dimension)
+			{
+				if (two_shot % 2 == 1)
+				{
 					GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionZ;
-				} else {
+				}
+				else
+				{
 					GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionX;
 				}
-			} else {
+			} 
+			else
+			{
 				GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
 			}
 			GetComponent<Rigidbody> ().freezeRotation = true;
 		}
 
-		void ShotChange (int tw_shot, int th_shot) {
+		void ShotChange (int tw_shot, int th_shot)
+		{
 			two_shot = tw_shot;
 
 			// Calvin: we might run into problems here regarding player movement during the 
-			// shift since time is 0, but as of yet it doesnt seem to be a problem
-			if (!dimension) {
-				Shift (dimension, 0);
+			// shift since time is 0, but as of yet it doesnt seem to be a problem.
+			if (!dimension)
+			{
+				Shift(dimension, 0);
 			}
+		}
+
+		void HandleDisable()
+		{
+			CrossPlatformInputManager.SetAxisZero("Horizontal");
+			CrossPlatformInputManager.SetAxisZero("Vertical");
 		}
 
 		private void Start()
@@ -63,72 +79,79 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
             else
             {
-                Debug.LogWarning(
-                    "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
-                // we use self-relative controls in this case, which probably isn't what the user wants, but hey, we warned them!
+                Debug.LogWarning("Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
+                // We use self-relative controls in this case, which probably isn't what the user wants, but hey, we warned them!
             }
 
-            // get the third person character ( this should never be null due to require component )
+            // Get the third person character (this should never be null due to require component)
             m_Character = GetComponent<ThirdPersonCharacter>();
         }
 
 
         private void Update()
         {
-			/*dimension = GameObject.Find ("WorldController").GetComponent<World> ().dimension;
+			/*****************************************************************************************************
+			dimension = GameObject.Find("WorldController").GetComponent<World>().dimension;
 			var m_rigidbody = GetComponent<Rigidbody> ();
-			if (dimension == false) {
+			if(dimension == false)
+			{
 				m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
-			} else {
+			}
+			else
+			{
 				m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-			}*/
-			if (allow_jump) {
-				if (!m_Jump) {
-					m_Jump = CrossPlatformInputManager.GetButtonDown ("Jump");
+			}
+			************************************************************************************************************/
+			if (allow_jump)
+			{
+				if (!m_Jump)
+				{
+					m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
 				}
 			}
-
         }
-
 
         // Fixed update is called in sync with physics
         private void FixedUpdate()
         {
-            // read inputs
+            // Read inputs
 			float v;
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
-			if (dimension == true) {
+
+			if (dimension == true)
+			{
 				v = CrossPlatformInputManager.GetAxis ("Vertical");
-			} else {
+			}
+			else
+			{
 				v = 0;
 			}
 
-			//CUSTOM - disables horizontal movement, for 2D
-			//if (m_VerticalMovement) v = CrossPlatformInputManager.GetAxis("Vertical");
-			//else v = 0;
-
+			// CUSTOM - disables horizontal movement, for 2D
+			// if (m_VerticalMovement) v = CrossPlatformInputManager.GetAxis("Vertical");
+			// else v = 0;
 
             bool crouch = Input.GetKey(KeyCode.C);
 
-            // calculate move direction to pass to character
+            // Calculate move direction to pass to character
             if (m_Cam != null)
             {
-                // calculate camera relative direction to move:
+                // Calculate camera relative direction to move:
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
                 m_Move = v*m_CamForward + h*m_Cam.right;
 
             }
             else
             {
-                // we use world-relative directions in the case of no main camera
-                m_Move = v*Vector3.forward + h*Vector3.right;
+                // We use world-relative directions in the case of no main camera
+                m_Move = v * Vector3.forward + h * Vector3.right;
             }
 #if !MOBILE_INPUT
-			// walk speed multiplier
+			// Walk speed multiplier
 	        if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
 #endif
 
-            // pass all parameters to the character control script
+            // Pass all parameters to the character control script
             m_Character.Move(m_Move, crouch, m_Jump);
             m_Jump = false;
         }
