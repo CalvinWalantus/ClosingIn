@@ -7,17 +7,24 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class ThirdPersonUserControl : MonoBehaviour
     {
+		// Third-Person Chararacter & Transform Vector-3
         private ThirdPersonCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
+
+		// Movement 
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 		private bool m_VerticalMovement = false;
+
+		// Boolean Allow flags
 		public bool allow_jump = false;
+		public bool allow_movement = true;
+
+		// World Controller & related Dimension-Change variables
+		private World world_controller;
 		bool dimension;
 		int two_shot;
-
-		private World world_controller;
 
 		void Awake ()
 		{
@@ -25,8 +32,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			world_controller.shotChangeEvent += ShotChange;
 			world_controller.shiftEvent += Shift;
 
-			world_controller.animationPlayEvent += HandleDisable;
-			// world_controller.animationStart = HandleStart;
+			world_controller.animationPlayEvent += HandleStart;
 			// world_controller.animationEnd = handleEnd;
 		}
 
@@ -63,10 +69,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
-		void HandleDisable()
+		void HandleStart()
 		{
-			CrossPlatformInputManager.SetAxisZero("Horizontal");
-			CrossPlatformInputManager.SetAxisZero("Vertical");
 		}
 
 		private void Start()
@@ -114,9 +118,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         // Fixed update is called in sync with physics
         private void FixedUpdate()
         {
-            // Read inputs
+			// Read inputs
 			float v;
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
+			float h = CrossPlatformInputManager.GetAxis("Horizontal");
 
 			if (dimension == true)
 			{
@@ -126,11 +130,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				v = 0;
 			}
-
+				
 			// CUSTOM - disables horizontal movement, for 2D
 			// if (m_VerticalMovement) v = CrossPlatformInputManager.GetAxis("Vertical");
 			// else v = 0;
-
             bool crouch = Input.GetKey(KeyCode.C);
 
             // Calculate move direction to pass to character
@@ -138,7 +141,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 // Calculate camera relative direction to move:
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
-                m_Move = v*m_CamForward + h*m_Cam.right;
+                m_Move = v * m_CamForward + h * m_Cam.right;
 
             }
             else
@@ -151,11 +154,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	        if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
 #endif
 
-            // Pass all parameters to the character control script
-            m_Character.Move(m_Move, crouch, m_Jump);
-            m_Jump = false;
+			// Regular gameplay allow movement
+			if (allow_movement) 
+			{
+				// Pass all parameters to the character control script
+				m_Character.Move(m_Move, crouch, m_Jump);
+			}
+			m_Jump = false;
         }
-	
     }
-
 }
