@@ -39,6 +39,8 @@ public class World : MonoBehaviour
 	public bool playAnimationOnStart;
 	public float startAnimationSpeed = 2;
 
+	public bool allow_input = true;
+
 	void Start()
 	{
 		timer = shift_time;
@@ -51,7 +53,7 @@ public class World : MonoBehaviour
 		{
 			boundary.RespawnEvent += HandleRespawnEvent;
 		}
-			
+
 		if (playAnimationOnStart)
 		{
 			StartCoroutine(PlayStartAnimation());
@@ -61,33 +63,32 @@ public class World : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-
-		// Check if user has pressed shift to bring about a dimension shift
-		if (Input.GetKeyDown(KeyCode.LeftShift) && timer > shift_time)
+		if (allow_input)
 		{
-			dimension = !dimension;
-			shiftEvent(dimension, shift_time);
-			timer = 0;
-		}
-
-		// If in 2D, then check between arrow input keys (up, left, right) for shot changes. 
-		// Up - Across shots
-		// Left / Right - Move shots left and right
-		if (dimension == false && (two_shot > 0 && two_shot < 5))
-		{
-			ShotChangeOnInput(ref two_shot);
-		} 
-
-		// Check if user has pressed the 1 - 4 keys to bring about a shot change.
-		for (int shot = 1; shot < 5; shot++) 
-		{
-			if (Input.GetKeyDown((KeyCode)shot + 48)) 
+			// Check if user has pressed shift to bring about a dimension shift
+			if (Input.GetKeyDown (KeyCode.LeftShift) && timer > shift_time)
 			{
-				two_shot = shot;
-				shotChangeEvent (two_shot);
-				break;
+				dimension = !dimension;
+				shiftEvent (dimension, shift_time);
+				timer = 0;
 			}
-		}
+
+			// If in 2D, then check between arrow input keys (up, left, right) for shot changes. 
+			// Up - Across shots
+			// Left / Right - Move shots left and right
+			if (dimension == false && (two_shot > 0 && two_shot < 5)) {
+				ShotChangeOnInput (ref two_shot);
+			} 
+
+			// Check if user has pressed the 1 - 4 keys to bring about a shot change.
+			for (int shot = 1; shot < 5; shot++) {
+				if (Input.GetKeyDown ((KeyCode)shot + 48)) {
+					two_shot = shot;
+					shotChangeEvent (two_shot);
+					break;
+				}
+			}
+		} 
 
 		timer += Time.deltaTime;
 	}
@@ -148,6 +149,7 @@ public class World : MonoBehaviour
 	{
 		// Trigger an "animationStart" event
 		Camera.main.gameObject.GetComponent<PlayableDirector>().Play();
+		allow_input = false;
 		animationStartEvent();
 
 		// Trying to change aniumation speed, not working
@@ -159,7 +161,9 @@ public class World : MonoBehaviour
 		{
 			if (Camera.main.gameObject.GetComponent<PlayableDirector>().state != PlayState.Playing)
 			{
+				allow_input = true;
 				animationEndEvent();
+
 				Debug.Log("Animation is Done.");
 				yield break;
 			}
@@ -167,9 +171,9 @@ public class World : MonoBehaviour
 		}
 	}
 
-
-	// allow other objects to trigger a shotchagne event
-	public void ShotChangeOnExternalCall (int tw_shot) {
+	// Allow other objects to trigger a shotchagne event
+	public void ShotChangeOnExternalCall (int tw_shot)
+	{
 		two_shot = tw_shot;
 		shotChangeEvent (two_shot);
 	}
