@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4448100357539228}
   - component: {fileID: 114972565292419052}
   m_Layer: 0
-  m_Name: CameraContainer
+  m_Name: CCCopy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -664,15 +664,7 @@ MonoBehaviour:
   three_shot: 0
   current_shot: 0
   blendingOrtho: 1
-  shots:
-  - {fileID: 1655693849040954}
-  - {fileID: 1425185743649616}
-  - {fileID: 1626707180525140}
-  - {fileID: 1433084743876038}
-  - {fileID: 1748696276173948}
-  - {fileID: 1092215544145638}
-  - {fileID: 1720172357407220}
-  - {fileID: 1503393492174068}
+  shots: []
 --- !u!114 &114039407974944334
 MonoBehaviour:
   m_ObjectHideFlags: 1
