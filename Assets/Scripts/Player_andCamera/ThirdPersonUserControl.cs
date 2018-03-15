@@ -32,8 +32,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			world_controller.shotChangeEvent += ShotChange;
 			world_controller.shiftEvent += Shift;
 
-			world_controller.animationPlayEvent += HandleStart;
-			// world_controller.animationEnd = handleEnd;
+			world_controller.animationStartEvent += HandleAnimationStart;
+			world_controller.animationEndEvent += HandleAnimationEnd;
 		}
 
 		void Shift (bool dim, float time)
@@ -43,18 +43,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				if (two_shot % 2 == 1)
 				{
-					GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionZ;
+					GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
 				}
 				else
 				{
-					GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePositionX;
+					GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
 				}
 			} 
 			else
 			{
-				GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.None;
+				GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 			}
-			GetComponent<Rigidbody> ().freezeRotation = true;
+			GetComponent<Rigidbody>().freezeRotation = true;
 		}
 
 		void ShotChange (int tw_shot, int th_shot)
@@ -69,14 +69,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
-		void HandleStart()
+		void HandleAnimationStart()
 		{
+			allow_movement = false;
+		}
+
+		void HandleAnimationEnd()
+		{
+			allow_movement = true;
 		}
 
 		private void Start()
         {
-			
-            // get the transform of the main camera
+            // Get the transform of the main camera
             if (Camera.main != null)
             {
                 m_Cam = Camera.main.transform;
@@ -94,7 +99,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
-			/*****************************************************************************************************
+			/********* We think we can delete dis ********************************************************************************************
 			dimension = GameObject.Find("WorldController").GetComponent<World>().dimension;
 			var m_rigidbody = GetComponent<Rigidbody> ();
 			if(dimension == false)

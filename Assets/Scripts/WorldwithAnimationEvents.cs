@@ -5,7 +5,7 @@ using UnityEngine.Animations;
 using UnityEngine;
 
 // Considering changing the name of this to "DimensionController"
-public class World : MonoBehaviour
+public class WorldwithAnimationEvents : MonoBehaviour
 {
 	// True = 3D
 	// False = 2D
