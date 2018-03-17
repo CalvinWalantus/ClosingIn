@@ -661,10 +661,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   two_shot: 0
-  three_shot: 0
   current_shot: 0
   blendingOrtho: 1
-  shots: []
+  shot_reference: []
 --- !u!114 &114039407974944334
 MonoBehaviour:
   m_ObjectHideFlags: 1

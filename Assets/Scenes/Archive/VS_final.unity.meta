@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/Archive/VS_final.unity.meta
+guid: 45f4d158031989245a5c271e17623765
+timeCreated: 1519025403
+=======
 guid: 33152e4939af66d419dadd5cca61fe36
 timeCreated: 1520730166
+>>>>>>> dev:Assets/Scenes/Archive/VS_final.unity.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

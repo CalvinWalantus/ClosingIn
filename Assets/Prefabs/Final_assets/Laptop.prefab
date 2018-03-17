@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 4116820562638736}
   - component: {fileID: 33931100769994188}
   - component: {fileID: 23269110654447420}
+  - component: {fileID: 64953410424046604}
   m_Layer: 0
   m_Name: screen
   m_TagString: Untagged
@@ -1084,6 +1085,7 @@ GameObject:
   - component: {fileID: 4570807513348576}
   - component: {fileID: 33539621685894956}
   - component: {fileID: 23639456066755258}
+  - component: {fileID: 64576406493048032}
   m_Layer: 0
   m_Name: keyboard base
   m_TagString: Untagged
@@ -5772,3 +5774,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1487965108277400}
   m_Mesh: {fileID: 4300020, guid: c2e682fc9b799164bb0df66e728776a4, type: 3}
+--- !u!64 &64576406493048032
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1767527943036090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300150, guid: c2e682fc9b799164bb0df66e728776a4, type: 3}
+--- !u!64 &64953410424046604
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126099165523462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300152, guid: c2e682fc9b799164bb0df66e728776a4, type: 3}
