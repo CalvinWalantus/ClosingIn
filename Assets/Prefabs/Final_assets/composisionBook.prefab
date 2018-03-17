@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 4754200280949972}
   - component: {fileID: 33491116461633962}
   - component: {fileID: 23952578008364992}
+  - component: {fileID: 64188829289236472}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -87,6 +88,7 @@ GameObject:
   - component: {fileID: 4903878834104370}
   - component: {fileID: 33169904118039194}
   - component: {fileID: 23983923972955634}
+  - component: {fileID: 64591282275011628}
   m_Layer: 0
   m_Name: bottom of notebook
   m_TagString: Untagged
@@ -327,3 +329,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714822258605208}
   m_Mesh: {fileID: 4300002, guid: 849a3a9c20dc58549b0e95af9a344b22, type: 3}
+--- !u!64 &64188829289236472
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619744488609444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 849a3a9c20dc58549b0e95af9a344b22, type: 3}
+--- !u!64 &64591282275011628
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1938850504305056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 849a3a9c20dc58549b0e95af9a344b22, type: 3}

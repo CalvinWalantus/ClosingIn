@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4085100039660828}
   - component: {fileID: 33507741027809864}
   - component: {fileID: 23436440900187562}
+  - component: {fileID: 64631282861053264}
   m_Layer: 0
   m_Name: bookCover
   m_TagString: Untagged
@@ -81,4 +82,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1482265858805204}
+  m_Mesh: {fileID: 4300000, guid: c874c57855affd549b9d5c6b8de11507, type: 3}
+--- !u!64 &64631282861053264
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1482265858805204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: c874c57855affd549b9d5c6b8de11507, type: 3}

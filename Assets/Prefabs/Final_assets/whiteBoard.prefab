@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 4269219520739404}
   - component: {fileID: 33818090073085694}
   - component: {fileID: 23869895676677956}
+  - component: {fileID: 64631607233869950}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -208,6 +209,7 @@ GameObject:
   - component: {fileID: 4948280471552450}
   - component: {fileID: 33507804183674616}
   - component: {fileID: 23949935589418346}
+  - component: {fileID: 64158169743222112}
   m_Layer: 0
   m_Name: whiteboard base
   m_TagString: Untagged
@@ -910,6 +912,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142761899786408}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &64158169743222112
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1763947776003670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300018, guid: 177d8267af554ac43a872a9342963c36, type: 3}
+--- !u!64 &64631607233869950
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733936805812700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 177d8267af554ac43a872a9342963c36, type: 3}
 --- !u!136 &136253160028179432
 CapsuleCollider:
   m_ObjectHideFlags: 1
