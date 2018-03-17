@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4620140678012060}
   - component: {fileID: 33236896476990758}
   - component: {fileID: 23528699391725212}
+  - component: {fileID: 64086498773496574}
   m_Layer: 0
   m_Name: bottle
   m_TagString: Untagged
@@ -170,8 +171,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1147874121133222}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 61.655174, y: 37.28876, z: 97.42955}
-  m_LocalScale: {x: 100, y: 99.99997, z: 99.99997}
+  m_LocalPosition: {x: -7.881342, y: -1.5585537, z: -23.966265}
+  m_LocalScale: {x: 100, y: 99.99994, z: 99.99994}
   m_Children:
   - {fileID: 4620140678012060}
   - {fileID: 4899209725244040}
@@ -403,3 +404,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1213677423927856}
   m_Mesh: {fileID: 4300000, guid: 57f6bc5510f824d4689f883c0a784cee, type: 3}
+--- !u!64 &64086498773496574
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146406354182146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300008, guid: 57f6bc5510f824d4689f883c0a784cee, type: 3}

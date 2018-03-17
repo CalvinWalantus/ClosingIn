@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class PlatformMagnet : MonoBehaviour 
 {
+
+	public bool useGrandparent = true;
+
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag ("Player") || other.CompareTag ("SticksToPlatform")) {
-			other.transform.parent = gameObject.transform.parent.parent;
+			if (useGrandparent) {
+				other.transform.parent = gameObject.transform.parent.parent;
+			} else {
+				other.transform.parent = gameObject.transform.parent;
+			}
 		}
 	}
 
