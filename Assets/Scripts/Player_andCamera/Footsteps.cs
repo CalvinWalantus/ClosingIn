@@ -7,21 +7,37 @@ public class Footsteps : MonoBehaviour
 	ThirdPersonCharacter tpc;
 	Animator anim;
 	AudioSource audio_source;
-
+	float animationlength;
+	float timer;
+	float animationspeed;
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
-		tpc = GetComponentInParent<ThirdPersonCharacter>();
-		anim = GetComponent<Animator>();
-		audio_source = GetComponent<AudioSource>();
+		tpc = GetComponentInParent<ThirdPersonCharacter> ();
+		anim = GetComponent<Animator> ();
+		audio_source = GetComponent<AudioSource> ();
+		audio_source.pitch = 0.65f;
+		foreach (AnimationClip i in anim.runtimeAnimatorController.animationClips) {
+			//Debug.Log ("apprentspeed " + i.apparentSpeed + i.name);
+			//Debug.Log ("averagespeed " + i.averageSpeed + i.);
+			if (i.name == "CandleWalk") {
+				animationlength = i.length;
+			}
+		}
+		//foreach(AnimationState i in anim.runtimeAnimatorController
+
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if(tpc.GetGroundStatus() == true && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking") && audio_source.isPlaying == false)
+		Debug.Log (animationlength);
+		if(tpc.GetGroundStatus() == true && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking") && timer > animationlength/anim.GetCurrentAnimatorStateInfo(0).speed)
 		{
-			audio_source.PlayDelayed(1f);
+			audio_source.Play();
+			timer = 0f;
 		}
+		timer += Time.deltaTime;
+
 	}
 }
