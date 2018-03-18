@@ -1,34 +1,30 @@
 fileFormatVersion: 2
-guid: b1e85c8d693099646a6330c2d396860d
-timeCreated: 1521281433
+guid: 7210846c90f15934798e84ace1daf410
+timeCreated: 1521331205
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: Camera
     100002: Cube
-    100004: Lamp
+    100004: Cube.001
     100006: //RootNode
-    100008: stage
-    100010: support
+    100008: Lamp
     400000: Camera
     400002: Cube
-    400004: Lamp
+    400004: Cube.001
     400006: //RootNode
-    400008: stage
-    400010: support
+    400008: Lamp
     2000000: Camera
-    2100000: Material.001
-    2100002: No Name
+    2100000: No Name
+    2100002: Material
+    2100004: screen
     2300000: Cube
-    2300002: stage
-    2300004: support
+    2300002: Cube.001
     3300000: Cube
-    3300002: stage
-    3300004: support
-    4300000: Cube
-    4300002: stage
-    4300004: support
+    3300002: Cube.001
+    4300000: Cube.001
+    4300002: Cube
     10800000: Lamp
   externalObjects: {}
   materials:

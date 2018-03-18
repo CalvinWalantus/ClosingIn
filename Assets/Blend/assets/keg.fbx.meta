@@ -1,35 +1,25 @@
 fileFormatVersion: 2
-guid: b1e85c8d693099646a6330c2d396860d
-timeCreated: 1521281433
+guid: 0aaaf9c5f3e41a54abcfc7f03904a23d
+timeCreated: 1521341055
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Camera
-    100002: Cube
-    100004: Lamp
-    100006: //RootNode
-    100008: stage
-    100010: support
-    400000: Camera
-    400002: Cube
-    400004: Lamp
-    400006: //RootNode
-    400008: stage
-    400010: support
-    2000000: Camera
+    100000: //RootNode
+    100002: keg
+    100004: nozzle
+    400000: //RootNode
+    400002: keg
+    400004: nozzle
     2100000: Material.001
-    2100002: No Name
-    2300000: Cube
-    2300002: stage
-    2300004: support
-    3300000: Cube
-    3300002: stage
-    3300004: support
-    4300000: Cube
-    4300002: stage
-    4300004: support
-    10800000: Lamp
+    2100002: Material.002
+    2100004: No Name
+    2300000: keg
+    2300002: nozzle
+    3300000: keg
+    3300002: nozzle
+    4300000: nozzle
+    4300002: keg
   externalObjects: {}
   materials:
     importMaterials: 1
