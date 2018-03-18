@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Cinemachine;
 
 #if UNITY_EDITOR
 using UnityEditor.SceneManagement;
@@ -10,11 +11,30 @@ using UnityEditor.SceneManagement;
 public class LevelManager : MonoBehaviour 
 {
 	public Transform main_menu, options_menu, hourglass;
-
+	public CinemachineVirtualCamera look;
+	public GameObject music;
+	public bool fade;
+	public GameObject mainobject;
+	void Start (){
+		fade = false;
+	}
+	void Awake()
+	{
+		look.Priority = 40;
+	}
+	void Update (){
+		if (fade) {
+			StartCoroutine (fadeout (music));
+		}
+	}
 	// Loads a scene when a player clicks Play button. 
 	public void LoadScene(string name)
 	{
-		SceneManager.LoadScene(name);
+		Canvas canvas = mainobject.GetComponent<Canvas> ();
+		canvas.enabled = false;
+		fade = true;
+		look.Priority = -100;
+		//this.gameObject.SetActive (false);
 	}
 
 	// Opens Option menu when player clicks Options button.
@@ -43,4 +63,18 @@ public class LevelManager : MonoBehaviour
 		UnityEditor.EditorApplication.isPlaying = false;
 		#endif
 	}
+	IEnumerator fadeout(GameObject temp){
+		float original = temp.GetComponent<AudioSource> ().volume;
+		for (float i = 0.0f; i < 1.0f; i += Time.deltaTime / 22.0f) {
+			temp.GetComponent<AudioSource> ().volume = Mathf.Lerp (original, 0, i);
+			yield return 1;
+		}
+		if (temp.GetComponent<AudioSource> ().volume < 0.02f) {
+			temp.GetComponent<AudioSource> ().Stop ();
+			yield break;
+		}
+	}
+			
+		
+
 }
