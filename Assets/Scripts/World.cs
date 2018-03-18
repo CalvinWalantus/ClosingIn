@@ -36,7 +36,8 @@ public class World : MonoBehaviour
 	public delegate void AnimationEnd();
 	public event AnimationEnd animationEndEvent;
 
-	public bool playAnimationOnStart;
+	public bool playAnimationOnStart = true;
+
 	public float startAnimationSpeed = 2;
 
 	public bool allow_input = true;
@@ -54,10 +55,6 @@ public class World : MonoBehaviour
 			boundary.RespawnEvent += HandleRespawnEvent;
 		}
 
-		if (playAnimationOnStart)
-		{
-			StartCoroutine(PlayStartAnimation());
-		}
 	}
 
 	// Update is called once per frame
@@ -145,9 +142,17 @@ public class World : MonoBehaviour
 		}
 	}
 
+	public void StartAnimation() {
+		if (playAnimationOnStart)
+		{
+			StartCoroutine(PlayStartAnimation());
+		}
+	}
+
 	private IEnumerator PlayStartAnimation()
 	{
 		// Trigger an "animationStart" event
+		Camera.main.gameObject.GetComponent<PlayableDirector>().enabled = true;
 		Camera.main.gameObject.GetComponent<PlayableDirector>().Play();
 		allow_input = false;
 		animationStartEvent();
