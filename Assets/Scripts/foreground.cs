@@ -64,7 +64,7 @@ public class foreground : MonoBehaviour {
 				}
 			}
 			if (world_controller.two_shot == 4) {
-				if (i.gameObject.transform.position.x + i.gameObject.transform.lossyScale.z / 2 < player.transform.position.z && !disables.Contains(i)) {
+				if (i.gameObject.transform.position.x + i.gameObject.transform.lossyScale.z / 2 < player.transform.position.x && !disables.Contains(i)) {
 					if (i.GetComponent<Renderer> ()) {
 						i.GetComponent<Renderer> ().enabled = false;
 						disables.Add (i);
@@ -72,7 +72,7 @@ public class foreground : MonoBehaviour {
 				}
 			}
 			if (world_controller.two_shot == 2) {
-				if (i.gameObject.transform.position.z - i.gameObject.transform.lossyScale.z / 2 > player.transform.position.z && !disables.Contains(i)) {
+				if (i.gameObject.transform.position.x - i.gameObject.transform.lossyScale.x / 2 > player.transform.position.x && !disables.Contains(i)) {
 					if (i.GetComponent<Renderer> ()) {
 						i.GetComponent<Renderer> ().enabled = false;
 						disables.Add (i);
