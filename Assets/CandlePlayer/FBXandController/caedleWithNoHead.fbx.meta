@@ -1,0 +1,583 @@
+fileFormatVersion: 2
+guid: 2dae44c9caa0fad4b88446dfd4cff110
+timeCreated: 1521398585
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: back
+    100002: //RootNode
+    100004: Character2_Head
+    100006: Character2_Head_end
+    100008: Character2_Head_end_end
+    100010: Character2_Hips
+    100012: Character2_LeftFoot
+    100014: Character2_LeftLeg
+    100016: Character2_LeftToeBase
+    100018: Character2_LeftToeBase_end
+    100020: Character2_LeftToeBase_end_end
+    100022: Character2_LeftUpLeg
+    100024: Character2_Neck
+    100026: Character2_Reference
+    100028: Character2_RightFoot
+    100030: Character2_RightLeg
+    100032: Character2_RightToeBase
+    100034: Character2_RightToeBase_end
+    100036: Character2_RightToeBase_end_end
+    100038: Character2_RightUpLeg
+    100040: Character2_Spine
+    100042: Character2_Spine1
+    100044: Character2_Spine2
+    100046: Character2_Spine3
+    100048: Character2_Spine4
+    100050: Character2_Spine5
+    100052: HipHandle
+    100054: LeftLegHandle
+    100056: LeftLegIK
+    100058: main body1
+    100060: RightLegHandle
+    100062: RightLegIK
+    100064: SpineIK
+    100066: TopHandle
+    400000: back
+    400002: //RootNode
+    400004: Character2_Head
+    400006: Character2_Head_end
+    400008: Character2_Head_end_end
+    400010: Character2_Hips
+    400012: Character2_LeftFoot
+    400014: Character2_LeftLeg
+    400016: Character2_LeftToeBase
+    400018: Character2_LeftToeBase_end
+    400020: Character2_LeftToeBase_end_end
+    400022: Character2_LeftUpLeg
+    400024: Character2_Neck
+    400026: Character2_Reference
+    400028: Character2_RightFoot
+    400030: Character2_RightLeg
+    400032: Character2_RightToeBase
+    400034: Character2_RightToeBase_end
+    400036: Character2_RightToeBase_end_end
+    400038: Character2_RightUpLeg
+    400040: Character2_Spine
+    400042: Character2_Spine1
+    400044: Character2_Spine2
+    400046: Character2_Spine3
+    400048: Character2_Spine4
+    400050: Character2_Spine5
+    400052: HipHandle
+    400054: LeftLegHandle
+    400056: LeftLegIK
+    400058: main body1
+    400060: RightLegHandle
+    400062: RightLegIK
+    400064: SpineIK
+    400066: TopHandle
+    2000000: back
+    2100000: phong1
+    2100002: Material.001
+    2300000: HipHandle
+    2300002: LeftLegHandle
+    2300004: RightLegHandle
+    2300006: TopHandle
+    3300000: HipHandle
+    3300002: LeftLegHandle
+    3300004: RightLegHandle
+    3300006: TopHandle
+    4300000: main body1
+    4300002: HipHandle
+    4300004: LeftLegHandle
+    4300006: RightLegHandle
+    4300008: TopHandle
+    7400000: Character2_Reference|Character2_Reference|Character2_Reference|Character2_Reference|
+    7400002: Character2_Reference|Character2_Reference|Character2_Reference|HipHandle|Take
+      001|Ba
+    7400004: Character2_Reference|Character2_Reference|Character2_Reference|LeftLegHandle|Take
+      00
+    7400006: Character2_Reference|Character2_Reference|Character2_Reference|LeftLegIK|Take
+      001|Ba
+    7400008: Character2_Reference|Character2_Reference|Character2_Reference|RightLegHandle|Take
+      0
+    7400010: Character2_Reference|Character2_Reference|Character2_Reference|RightLegIK|Take
+      001|B
+    7400012: Character2_Reference|Character2_Reference|Character2_Reference|SpineIK|Take
+      001|Base
+    7400014: Character2_Reference|Character2_Reference|Character2_Reference|TopHandle|Take
+      001|Ba
+    7400016: Character2_Reference|HipHandle|HipHandle|HipHandle|Take 001|BaseLayer|HipHandle|HipH
+    7400018: Character2_Reference|HipHandle|HipHandle|LeftLegHandle|Take 001|BaseLayer|HipHandle|
+    7400020: Character2_Reference|HipHandle|HipHandle|LeftLegIK|Take 001|BaseLayer|HipHandle|Left
+    7400022: Character2_Reference|HipHandle|HipHandle|RightLegHandle|Take 001|BaseLayer|HipHandle
+    7400024: Character2_Reference|HipHandle|HipHandle|RightLegIK|Take 001|BaseLayer|HipHandle|Rig
+    7400026: Character2_Reference|HipHandle|HipHandle|SpineIK|Take 001|BaseLayer|HipHandle|SpineI
+    7400028: Character2_Reference|HipHandle|HipHandle|TopHandle|Take 001|BaseLayer|HipHandle|TopH
+    7400030: Character2_Reference|LeftLegHandle|LeftLegHandle|HipHandle|Take 001|BaseLayer|LeftLe
+    7400032: Character2_Reference|LeftLegHandle|LeftLegHandle|LeftLegHandle|Take 001|BaseLayer|Le
+    7400034: Character2_Reference|LeftLegHandle|LeftLegHandle|LeftLegIK|Take 001|BaseLayer|LeftLe
+    7400036: Character2_Reference|LeftLegHandle|LeftLegHandle|RightLegHandle|Take
+      001|BaseLayer|L
+    7400038: Character2_Reference|LeftLegHandle|LeftLegHandle|RightLegIK|Take 001|BaseLayer|LeftL
+    7400040: Character2_Reference|LeftLegHandle|LeftLegHandle|SpineIK|Take 001|BaseLayer|LeftLegH
+    7400042: Character2_Reference|LeftLegHandle|LeftLegHandle|TopHandle|Take 001|BaseLayer|LeftLe
+    7400044: Character2_Reference|LeftLegIK|LeftLegIK|HipHandle|Take 001|BaseLayer|LeftLegIK|HipH
+    7400046: Character2_Reference|LeftLegIK|LeftLegIK|LeftLegHandle|Take 001|BaseLayer|LeftLegIK|
+    7400048: Character2_Reference|LeftLegIK|LeftLegIK|LeftLegIK|Take 001|BaseLayer|LeftLegIK|Left
+    7400050: Character2_Reference|LeftLegIK|LeftLegIK|RightLegHandle|Take 001|BaseLayer|LeftLegIK
+    7400052: Character2_Reference|LeftLegIK|LeftLegIK|RightLegIK|Take 001|BaseLayer|LeftLegIK|Rig
+    7400054: Character2_Reference|LeftLegIK|LeftLegIK|SpineIK|Take 001|BaseLayer|LeftLegIK|SpineI
+    7400056: Character2_Reference|LeftLegIK|LeftLegIK|TopHandle|Take 001|BaseLayer|LeftLegIK|TopH
+    7400058: Character2_Reference|RightLegHandle|RightLegHandle|HipHandle|Take 001|BaseLayer|Righ
+    7400060: Character2_Reference|RightLegHandle|RightLegHandle|LeftLegHandle|Take
+      001|BaseLayer|
+    7400062: Character2_Reference|RightLegHandle|RightLegHandle|LeftLegIK|Take 001|BaseLayer|Righ
+    7400064: Character2_Reference|RightLegHandle|RightLegHandle|RightLegHandle|Take
+      001|BaseLayer
+    7400066: Character2_Reference|RightLegHandle|RightLegHandle|RightLegIK|Take 001|BaseLayer|Rig
+    7400068: Character2_Reference|RightLegHandle|RightLegHandle|SpineIK|Take 001|BaseLayer|RightL
+    7400070: Character2_Reference|RightLegHandle|RightLegHandle|TopHandle|Take 001|BaseLayer|Righ
+    7400072: Character2_Reference|RightLegIK|RightLegIK|HipHandle|Take 001|BaseLayer|RightLegIK|H
+    7400074: Character2_Reference|RightLegIK|RightLegIK|LeftLegHandle|Take 001|BaseLayer|RightLeg
+    7400076: Character2_Reference|RightLegIK|RightLegIK|LeftLegIK|Take 001|BaseLayer|RightLegIK|L
+    7400078: Character2_Reference|RightLegIK|RightLegIK|RightLegHandle|Take 001|BaseLayer|RightLe
+    7400080: Character2_Reference|RightLegIK|RightLegIK|RightLegIK|Take 001|BaseLayer|RightLegIK|
+    7400082: Character2_Reference|RightLegIK|RightLegIK|SpineIK|Take 001|BaseLayer|RightLegIK|Spi
+    7400084: Character2_Reference|RightLegIK|RightLegIK|TopHandle|Take 001|BaseLayer|RightLegIK|T
+    7400086: Character2_Reference|SpineIK|SpineIK|HipHandle|Take 001|BaseLayer|SpineIK|HipHandle|
+    7400088: Character2_Reference|SpineIK|SpineIK|LeftLegHandle|Take 001|BaseLayer|SpineIK|LeftLe
+    7400090: Character2_Reference|SpineIK|SpineIK|LeftLegIK|Take 001|BaseLayer|SpineIK|LeftLegIK|
+    7400092: Character2_Reference|SpineIK|SpineIK|RightLegHandle|Take 001|BaseLayer|SpineIK|Right
+    7400094: Character2_Reference|SpineIK|SpineIK|RightLegIK|Take 001|BaseLayer|SpineIK|RightLegI
+    7400096: Character2_Reference|SpineIK|SpineIK|SpineIK|Take 001|BaseLayer|SpineIK|SpineIK|Take
+    7400098: Character2_Reference|SpineIK|SpineIK|TopHandle|Take 001|BaseLayer|SpineIK|TopHandle|
+    7400100: Character2_Reference|TopHandle|TopHandle|HipHandle|Take 001|BaseLayer|TopHandle|HipH
+    7400102: Character2_Reference|TopHandle|TopHandle|LeftLegHandle|Take 001|BaseLayer|TopHandle|
+    7400104: Character2_Reference|TopHandle|TopHandle|LeftLegIK|Take 001|BaseLayer|TopHandle|Left
+    7400106: Character2_Reference|TopHandle|TopHandle|RightLegHandle|Take 001|BaseLayer|TopHandle
+    7400108: Character2_Reference|TopHandle|TopHandle|RightLegIK|Take 001|BaseLayer|TopHandle|Rig
+    7400110: Character2_Reference|TopHandle|TopHandle|SpineIK|Take 001|BaseLayer|TopHandle|SpineI
+    7400112: Character2_Reference|TopHandle|TopHandle|TopHandle|Take 001|BaseLayer|TopHandle|TopH
+    7400114: LeftLegIK|HipHandle|HipHandle|HipHandle|Take 001|BaseLayer|HipHandle|HipH
+    7400116: LeftLegIK|HipHandle|HipHandle|LeftLegHandle|Take 001|BaseLayer|HipHandle|
+    7400118: LeftLegIK|HipHandle|HipHandle|LeftLegIK|Take 001|BaseLayer|HipHandle|Left
+    7400120: LeftLegIK|HipHandle|HipHandle|RightLegHandle|Take 001|BaseLayer|HipHandle
+    7400122: LeftLegIK|HipHandle|HipHandle|RightLegIK|Take 001|BaseLayer|HipHandle|Rig
+    7400124: LeftLegIK|HipHandle|HipHandle|SpineIK|Take 001|BaseLayer|HipHandle|SpineI
+    7400126: LeftLegIK|HipHandle|HipHandle|TopHandle|Take 001|BaseLayer|HipHandle|TopH
+    7400128: LeftLegIK|LeftLegHandle|LeftLegHandle|HipHandle|Take 001|BaseLayer|LeftLe
+    7400130: LeftLegIK|LeftLegHandle|LeftLegHandle|LeftLegHandle|Take 001|BaseLayer|Le
+    7400132: LeftLegIK|LeftLegHandle|LeftLegHandle|LeftLegIK|Take 001|BaseLayer|LeftLe
+    7400134: LeftLegIK|LeftLegHandle|LeftLegHandle|RightLegHandle|Take 001|BaseLayer|L
+    7400136: LeftLegIK|LeftLegHandle|LeftLegHandle|RightLegIK|Take 001|BaseLayer|LeftL
+    7400138: LeftLegIK|LeftLegHandle|LeftLegHandle|SpineIK|Take 001|BaseLayer|LeftLegH
+    7400140: LeftLegIK|LeftLegHandle|LeftLegHandle|TopHandle|Take 001|BaseLayer|LeftLe
+    7400142: LeftLegIK|LeftLegIK|LeftLegIK|HipHandle|Take 001|BaseLayer|LeftLegIK|HipH
+    7400144: LeftLegIK|LeftLegIK|LeftLegIK|LeftLegHandle|Take 001|BaseLayer|LeftLegIK|
+    7400146: LeftLegIK|LeftLegIK|LeftLegIK|LeftLegIK|Take 001|BaseLayer|LeftLegIK|Left
+    7400148: LeftLegIK|LeftLegIK|LeftLegIK|RightLegHandle|Take 001|BaseLayer|LeftLegIK
+    7400150: LeftLegIK|LeftLegIK|LeftLegIK|RightLegIK|Take 001|BaseLayer|LeftLegIK|Rig
+    7400152: LeftLegIK|LeftLegIK|LeftLegIK|SpineIK|Take 001|BaseLayer|LeftLegIK|SpineI
+    7400154: LeftLegIK|LeftLegIK|LeftLegIK|TopHandle|Take 001|BaseLayer|LeftLegIK|TopH
+    7400156: LeftLegIK|RightLegHandle|RightLegHandle|HipHandle|Take 001|BaseLayer|Righ
+    7400158: LeftLegIK|RightLegHandle|RightLegHandle|LeftLegHandle|Take 001|BaseLayer|
+    7400160: LeftLegIK|RightLegHandle|RightLegHandle|LeftLegIK|Take 001|BaseLayer|Righ
+    7400162: LeftLegIK|RightLegHandle|RightLegHandle|RightLegHandle|Take 001|BaseLayer
+    7400164: LeftLegIK|RightLegHandle|RightLegHandle|RightLegIK|Take 001|BaseLayer|Rig
+    7400166: LeftLegIK|RightLegHandle|RightLegHandle|SpineIK|Take 001|BaseLayer|RightL
+    7400168: LeftLegIK|RightLegHandle|RightLegHandle|TopHandle|Take 001|BaseLayer|Righ
+    7400170: LeftLegIK|RightLegIK|RightLegIK|HipHandle|Take 001|BaseLayer|RightLegIK|H
+    7400172: LeftLegIK|RightLegIK|RightLegIK|LeftLegHandle|Take 001|BaseLayer|RightLeg
+    7400174: LeftLegIK|RightLegIK|RightLegIK|LeftLegIK|Take 001|BaseLayer|RightLegIK|L
+    7400176: LeftLegIK|RightLegIK|RightLegIK|RightLegHandle|Take 001|BaseLayer|RightLe
+    7400178: LeftLegIK|RightLegIK|RightLegIK|RightLegIK|Take 001|BaseLayer|RightLegIK|
+    7400180: LeftLegIK|RightLegIK|RightLegIK|SpineIK|Take 001|BaseLayer|RightLegIK|Spi
+    7400182: LeftLegIK|RightLegIK|RightLegIK|TopHandle|Take 001|BaseLayer|RightLegIK|T
+    7400184: LeftLegIK|SpineIK|SpineIK|HipHandle|Take 001|BaseLayer|SpineIK|HipHandle|
+    7400186: LeftLegIK|SpineIK|SpineIK|LeftLegHandle|Take 001|BaseLayer|SpineIK|LeftLe
+    7400188: LeftLegIK|SpineIK|SpineIK|LeftLegIK|Take 001|BaseLayer|SpineIK|LeftLegIK|
+    7400190: LeftLegIK|SpineIK|SpineIK|RightLegHandle|Take 001|BaseLayer|SpineIK|Right
+    7400192: LeftLegIK|SpineIK|SpineIK|RightLegIK|Take 001|BaseLayer|SpineIK|RightLegI
+    7400194: LeftLegIK|SpineIK|SpineIK|SpineIK|Take 001|BaseLayer|SpineIK|SpineIK|Take
+    7400196: LeftLegIK|SpineIK|SpineIK|TopHandle|Take 001|BaseLayer|SpineIK|TopHandle|
+    7400198: LeftLegIK|TopHandle|TopHandle|HipHandle|Take 001|BaseLayer|TopHandle|HipH
+    7400200: LeftLegIK|TopHandle|TopHandle|LeftLegHandle|Take 001|BaseLayer|TopHandle|
+    7400202: LeftLegIK|TopHandle|TopHandle|LeftLegIK|Take 001|BaseLayer|TopHandle|Left
+    7400204: LeftLegIK|TopHandle|TopHandle|RightLegHandle|Take 001|BaseLayer|TopHandle
+    7400206: LeftLegIK|TopHandle|TopHandle|RightLegIK|Take 001|BaseLayer|TopHandle|Rig
+    7400208: LeftLegIK|TopHandle|TopHandle|SpineIK|Take 001|BaseLayer|TopHandle|SpineI
+    7400210: LeftLegIK|TopHandle|TopHandle|TopHandle|Take 001|BaseLayer|TopHandle|TopH
+    7400212: RightLegIK|HipHandle|HipHandle|HipHandle|Take 001|BaseLayer|HipHandle|HipH
+    7400214: RightLegIK|HipHandle|HipHandle|LeftLegHandle|Take 001|BaseLayer|HipHandle|
+    7400216: RightLegIK|HipHandle|HipHandle|LeftLegIK|Take 001|BaseLayer|HipHandle|Left
+    7400218: RightLegIK|HipHandle|HipHandle|RightLegHandle|Take 001|BaseLayer|HipHandle
+    7400220: RightLegIK|HipHandle|HipHandle|RightLegIK|Take 001|BaseLayer|HipHandle|Rig
+    7400222: RightLegIK|HipHandle|HipHandle|SpineIK|Take 001|BaseLayer|HipHandle|SpineI
+    7400224: RightLegIK|HipHandle|HipHandle|TopHandle|Take 001|BaseLayer|HipHandle|TopH
+    7400226: RightLegIK|LeftLegHandle|LeftLegHandle|HipHandle|Take 001|BaseLayer|LeftLe
+    7400228: RightLegIK|LeftLegHandle|LeftLegHandle|LeftLegHandle|Take 001|BaseLayer|Le
+    7400230: RightLegIK|LeftLegHandle|LeftLegHandle|LeftLegIK|Take 001|BaseLayer|LeftLe
+    7400232: RightLegIK|LeftLegHandle|LeftLegHandle|RightLegHandle|Take 001|BaseLayer|L
+    7400234: RightLegIK|LeftLegHandle|LeftLegHandle|RightLegIK|Take 001|BaseLayer|LeftL
+    7400236: RightLegIK|LeftLegHandle|LeftLegHandle|SpineIK|Take 001|BaseLayer|LeftLegH
+    7400238: RightLegIK|LeftLegHandle|LeftLegHandle|TopHandle|Take 001|BaseLayer|LeftLe
+    7400240: RightLegIK|LeftLegIK|LeftLegIK|HipHandle|Take 001|BaseLayer|LeftLegIK|HipH
+    7400242: RightLegIK|LeftLegIK|LeftLegIK|LeftLegHandle|Take 001|BaseLayer|LeftLegIK|
+    7400244: RightLegIK|LeftLegIK|LeftLegIK|LeftLegIK|Take 001|BaseLayer|LeftLegIK|Left
+    7400246: RightLegIK|LeftLegIK|LeftLegIK|RightLegHandle|Take 001|BaseLayer|LeftLegIK
+    7400248: RightLegIK|LeftLegIK|LeftLegIK|RightLegIK|Take 001|BaseLayer|LeftLegIK|Rig
+    7400250: RightLegIK|LeftLegIK|LeftLegIK|SpineIK|Take 001|BaseLayer|LeftLegIK|SpineI
+    7400252: RightLegIK|LeftLegIK|LeftLegIK|TopHandle|Take 001|BaseLayer|LeftLegIK|TopH
+    7400254: RightLegIK|RightLegHandle|RightLegHandle|HipHandle|Take 001|BaseLayer|Righ
+    7400256: RightLegIK|RightLegHandle|RightLegHandle|LeftLegHandle|Take 001|BaseLayer|
+    7400258: RightLegIK|RightLegHandle|RightLegHandle|LeftLegIK|Take 001|BaseLayer|Righ
+    7400260: RightLegIK|RightLegHandle|RightLegHandle|RightLegHandle|Take 001|BaseLayer
+    7400262: RightLegIK|RightLegHandle|RightLegHandle|RightLegIK|Take 001|BaseLayer|Rig
+    7400264: RightLegIK|RightLegHandle|RightLegHandle|SpineIK|Take 001|BaseLayer|RightL
+    7400266: RightLegIK|RightLegHandle|RightLegHandle|TopHandle|Take 001|BaseLayer|Righ
+    7400268: RightLegIK|RightLegIK|RightLegIK|HipHandle|Take 001|BaseLayer|RightLegIK|H
+    7400270: RightLegIK|RightLegIK|RightLegIK|LeftLegHandle|Take 001|BaseLayer|RightLeg
+    7400272: RightLegIK|RightLegIK|RightLegIK|LeftLegIK|Take 001|BaseLayer|RightLegIK|L
+    7400274: RightLegIK|RightLegIK|RightLegIK|RightLegHandle|Take 001|BaseLayer|RightLe
+    7400276: RightLegIK|RightLegIK|RightLegIK|RightLegIK|Take 001|BaseLayer|RightLegIK|
+    7400278: RightLegIK|RightLegIK|RightLegIK|SpineIK|Take 001|BaseLayer|RightLegIK|Spi
+    7400280: RightLegIK|RightLegIK|RightLegIK|TopHandle|Take 001|BaseLayer|RightLegIK|T
+    7400282: RightLegIK|SpineIK|SpineIK|HipHandle|Take 001|BaseLayer|SpineIK|HipHandle|
+    7400284: RightLegIK|SpineIK|SpineIK|LeftLegHandle|Take 001|BaseLayer|SpineIK|LeftLe
+    7400286: RightLegIK|SpineIK|SpineIK|LeftLegIK|Take 001|BaseLayer|SpineIK|LeftLegIK|
+    7400288: RightLegIK|SpineIK|SpineIK|RightLegHandle|Take 001|BaseLayer|SpineIK|Right
+    7400290: RightLegIK|SpineIK|SpineIK|RightLegIK|Take 001|BaseLayer|SpineIK|RightLegI
+    7400292: RightLegIK|SpineIK|SpineIK|SpineIK|Take 001|BaseLayer|SpineIK|SpineIK|Take
+    7400294: RightLegIK|SpineIK|SpineIK|TopHandle|Take 001|BaseLayer|SpineIK|TopHandle|
+    7400296: RightLegIK|TopHandle|TopHandle|HipHandle|Take 001|BaseLayer|TopHandle|HipH
+    7400298: RightLegIK|TopHandle|TopHandle|LeftLegHandle|Take 001|BaseLayer|TopHandle|
+    7400300: RightLegIK|TopHandle|TopHandle|LeftLegIK|Take 001|BaseLayer|TopHandle|Left
+    7400302: RightLegIK|TopHandle|TopHandle|RightLegHandle|Take 001|BaseLayer|TopHandle
+    7400304: RightLegIK|TopHandle|TopHandle|RightLegIK|Take 001|BaseLayer|TopHandle|Rig
+    7400306: RightLegIK|TopHandle|TopHandle|SpineIK|Take 001|BaseLayer|TopHandle|SpineI
+    7400308: RightLegIK|TopHandle|TopHandle|TopHandle|Take 001|BaseLayer|TopHandle|TopH
+    7400310: HipHandle|HipHandle|HipHandle|HipHandle|Take 001|BaseLayer|HipHandle|HipH
+    7400312: HipHandle|HipHandle|HipHandle|LeftLegHandle|Take 001|BaseLayer|HipHandle|
+    7400314: HipHandle|HipHandle|HipHandle|LeftLegIK|Take 001|BaseLayer|HipHandle|Left
+    7400316: HipHandle|HipHandle|HipHandle|RightLegHandle|Take 001|BaseLayer|HipHandle
+    7400318: HipHandle|HipHandle|HipHandle|RightLegIK|Take 001|BaseLayer|HipHandle|Rig
+    7400320: HipHandle|HipHandle|HipHandle|SpineIK|Take 001|BaseLayer|HipHandle|SpineI
+    7400322: HipHandle|HipHandle|HipHandle|TopHandle|Take 001|BaseLayer|HipHandle|TopH
+    7400324: HipHandle|LeftLegHandle|LeftLegHandle|HipHandle|Take 001|BaseLayer|LeftLe
+    7400326: HipHandle|LeftLegHandle|LeftLegHandle|LeftLegHandle|Take 001|BaseLayer|Le
+    7400328: HipHandle|LeftLegHandle|LeftLegHandle|LeftLegIK|Take 001|BaseLayer|LeftLe
+    7400330: HipHandle|LeftLegHandle|LeftLegHandle|RightLegHandle|Take 001|BaseLayer|L
+    7400332: HipHandle|LeftLegHandle|LeftLegHandle|RightLegIK|Take 001|BaseLayer|LeftL
+    7400334: HipHandle|LeftLegHandle|LeftLegHandle|SpineIK|Take 001|BaseLayer|LeftLegH
+    7400336: HipHandle|LeftLegHandle|LeftLegHandle|TopHandle|Take 001|BaseLayer|LeftLe
+    7400338: HipHandle|LeftLegIK|LeftLegIK|HipHandle|Take 001|BaseLayer|LeftLegIK|HipH
+    7400340: HipHandle|LeftLegIK|LeftLegIK|LeftLegHandle|Take 001|BaseLayer|LeftLegIK|
+    7400342: HipHandle|LeftLegIK|LeftLegIK|LeftLegIK|Take 001|BaseLayer|LeftLegIK|Left
+    7400344: HipHandle|LeftLegIK|LeftLegIK|RightLegHandle|Take 001|BaseLayer|LeftLegIK
+    7400346: HipHandle|LeftLegIK|LeftLegIK|RightLegIK|Take 001|BaseLayer|LeftLegIK|Rig
+    7400348: HipHandle|LeftLegIK|LeftLegIK|SpineIK|Take 001|BaseLayer|LeftLegIK|SpineI
+    7400350: HipHandle|LeftLegIK|LeftLegIK|TopHandle|Take 001|BaseLayer|LeftLegIK|TopH
+    7400352: HipHandle|RightLegHandle|RightLegHandle|HipHandle|Take 001|BaseLayer|Righ
+    7400354: HipHandle|RightLegHandle|RightLegHandle|LeftLegHandle|Take 001|BaseLayer|
+    7400356: HipHandle|RightLegHandle|RightLegHandle|LeftLegIK|Take 001|BaseLayer|Righ
+    7400358: HipHandle|RightLegHandle|RightLegHandle|RightLegHandle|Take 001|BaseLayer
+    7400360: HipHandle|RightLegHandle|RightLegHandle|RightLegIK|Take 001|BaseLayer|Rig
+    7400362: HipHandle|RightLegHandle|RightLegHandle|SpineIK|Take 001|BaseLayer|RightL
+    7400364: HipHandle|RightLegHandle|RightLegHandle|TopHandle|Take 001|BaseLayer|Righ
+    7400366: HipHandle|RightLegIK|RightLegIK|HipHandle|Take 001|BaseLayer|RightLegIK|H
+    7400368: HipHandle|RightLegIK|RightLegIK|LeftLegHandle|Take 001|BaseLayer|RightLeg
+    7400370: HipHandle|RightLegIK|RightLegIK|LeftLegIK|Take 001|BaseLayer|RightLegIK|L
+    7400372: HipHandle|RightLegIK|RightLegIK|RightLegHandle|Take 001|BaseLayer|RightLe
+    7400374: HipHandle|RightLegIK|RightLegIK|RightLegIK|Take 001|BaseLayer|RightLegIK|
+    7400376: HipHandle|RightLegIK|RightLegIK|SpineIK|Take 001|BaseLayer|RightLegIK|Spi
+    7400378: HipHandle|RightLegIK|RightLegIK|TopHandle|Take 001|BaseLayer|RightLegIK|T
+    7400380: HipHandle|SpineIK|SpineIK|HipHandle|Take 001|BaseLayer|SpineIK|HipHandle|
+    7400382: HipHandle|SpineIK|SpineIK|LeftLegHandle|Take 001|BaseLayer|SpineIK|LeftLe
+    7400384: HipHandle|SpineIK|SpineIK|LeftLegIK|Take 001|BaseLayer|SpineIK|LeftLegIK|
+    7400386: HipHandle|SpineIK|SpineIK|RightLegHandle|Take 001|BaseLayer|SpineIK|Right
+    7400388: HipHandle|SpineIK|SpineIK|RightLegIK|Take 001|BaseLayer|SpineIK|RightLegI
+    7400390: HipHandle|SpineIK|SpineIK|SpineIK|Take 001|BaseLayer|SpineIK|SpineIK|Take
+    7400392: HipHandle|SpineIK|SpineIK|TopHandle|Take 001|BaseLayer|SpineIK|TopHandle|
+    7400394: HipHandle|TopHandle|TopHandle|HipHandle|Take 001|BaseLayer|TopHandle|HipH
+    7400396: HipHandle|TopHandle|TopHandle|LeftLegHandle|Take 001|BaseLayer|TopHandle|
+    7400398: HipHandle|TopHandle|TopHandle|LeftLegIK|Take 001|BaseLayer|TopHandle|Left
+    7400400: HipHandle|TopHandle|TopHandle|RightLegHandle|Take 001|BaseLayer|TopHandle
+    7400402: HipHandle|TopHandle|TopHandle|RightLegIK|Take 001|BaseLayer|TopHandle|Rig
+    7400404: HipHandle|TopHandle|TopHandle|SpineIK|Take 001|BaseLayer|TopHandle|SpineI
+    7400406: HipHandle|TopHandle|TopHandle|TopHandle|Take 001|BaseLayer|TopHandle|TopH
+    7400408: LeftLegHandle|HipHandle|HipHandle|HipHandle|Take 001|BaseLayer|HipHandle|HipH
+    7400410: LeftLegHandle|HipHandle|HipHandle|LeftLegHandle|Take 001|BaseLayer|HipHandle|
+    7400412: LeftLegHandle|HipHandle|HipHandle|LeftLegIK|Take 001|BaseLayer|HipHandle|Left
+    7400414: LeftLegHandle|HipHandle|HipHandle|RightLegHandle|Take 001|BaseLayer|HipHandle
+    7400416: LeftLegHandle|HipHandle|HipHandle|RightLegIK|Take 001|BaseLayer|HipHandle|Rig
+    7400418: LeftLegHandle|HipHandle|HipHandle|SpineIK|Take 001|BaseLayer|HipHandle|SpineI
+    7400420: LeftLegHandle|HipHandle|HipHandle|TopHandle|Take 001|BaseLayer|HipHandle|TopH
+    7400422: LeftLegHandle|LeftLegHandle|LeftLegHandle|HipHandle|Take 001|BaseLayer|LeftLe
+    7400424: LeftLegHandle|LeftLegHandle|LeftLegHandle|LeftLegHandle|Take 001|BaseLayer|Le
+    7400426: LeftLegHandle|LeftLegHandle|LeftLegHandle|LeftLegIK|Take 001|BaseLayer|LeftLe
+    7400428: LeftLegHandle|LeftLegHandle|LeftLegHandle|RightLegHandle|Take 001|BaseLayer|L
+    7400430: LeftLegHandle|LeftLegHandle|LeftLegHandle|RightLegIK|Take 001|BaseLayer|LeftL
+    7400432: LeftLegHandle|LeftLegHandle|LeftLegHandle|SpineIK|Take 001|BaseLayer|LeftLegH
+    7400434: LeftLegHandle|LeftLegHandle|LeftLegHandle|TopHandle|Take 001|BaseLayer|LeftLe
+    7400436: LeftLegHandle|LeftLegIK|LeftLegIK|HipHandle|Take 001|BaseLayer|LeftLegIK|HipH
+    7400438: LeftLegHandle|LeftLegIK|LeftLegIK|LeftLegHandle|Take 001|BaseLayer|LeftLegIK|
+    7400440: LeftLegHandle|LeftLegIK|LeftLegIK|LeftLegIK|Take 001|BaseLayer|LeftLegIK|Left
+    7400442: LeftLegHandle|LeftLegIK|LeftLegIK|RightLegHandle|Take 001|BaseLayer|LeftLegIK
+    7400444: LeftLegHandle|LeftLegIK|LeftLegIK|RightLegIK|Take 001|BaseLayer|LeftLegIK|Rig
+    7400446: LeftLegHandle|LeftLegIK|LeftLegIK|SpineIK|Take 001|BaseLayer|LeftLegIK|SpineI
+    7400448: LeftLegHandle|LeftLegIK|LeftLegIK|TopHandle|Take 001|BaseLayer|LeftLegIK|TopH
+    7400450: LeftLegHandle|RightLegHandle|RightLegHandle|HipHandle|Take 001|BaseLayer|Righ
+    7400452: LeftLegHandle|RightLegHandle|RightLegHandle|LeftLegHandle|Take 001|BaseLayer|
+    7400454: LeftLegHandle|RightLegHandle|RightLegHandle|LeftLegIK|Take 001|BaseLayer|Righ
+    7400456: LeftLegHandle|RightLegHandle|RightLegHandle|RightLegHandle|Take 001|BaseLayer
+    7400458: LeftLegHandle|RightLegHandle|RightLegHandle|RightLegIK|Take 001|BaseLayer|Rig
+    7400460: LeftLegHandle|RightLegHandle|RightLegHandle|SpineIK|Take 001|BaseLayer|RightL
+    7400462: LeftLegHandle|RightLegHandle|RightLegHandle|TopHandle|Take 001|BaseLayer|Righ
+    7400464: LeftLegHandle|RightLegIK|RightLegIK|HipHandle|Take 001|BaseLayer|RightLegIK|H
+    7400466: LeftLegHandle|RightLegIK|RightLegIK|LeftLegHandle|Take 001|BaseLayer|RightLeg
+    7400468: LeftLegHandle|RightLegIK|RightLegIK|LeftLegIK|Take 001|BaseLayer|RightLegIK|L
+    7400470: LeftLegHandle|RightLegIK|RightLegIK|RightLegHandle|Take 001|BaseLayer|RightLe
+    7400472: LeftLegHandle|RightLegIK|RightLegIK|RightLegIK|Take 001|BaseLayer|RightLegIK|
+    7400474: LeftLegHandle|RightLegIK|RightLegIK|SpineIK|Take 001|BaseLayer|RightLegIK|Spi
+    7400476: LeftLegHandle|RightLegIK|RightLegIK|TopHandle|Take 001|BaseLayer|RightLegIK|T
+    7400478: LeftLegHandle|SpineIK|SpineIK|HipHandle|Take 001|BaseLayer|SpineIK|HipHandle|
+    7400480: LeftLegHandle|SpineIK|SpineIK|LeftLegHandle|Take 001|BaseLayer|SpineIK|LeftLe
+    7400482: LeftLegHandle|SpineIK|SpineIK|LeftLegIK|Take 001|BaseLayer|SpineIK|LeftLegIK|
+    7400484: LeftLegHandle|SpineIK|SpineIK|RightLegHandle|Take 001|BaseLayer|SpineIK|Right
+    7400486: LeftLegHandle|SpineIK|SpineIK|RightLegIK|Take 001|BaseLayer|SpineIK|RightLegI
+    7400488: LeftLegHandle|SpineIK|SpineIK|SpineIK|Take 001|BaseLayer|SpineIK|SpineIK|Take
+    7400490: LeftLegHandle|SpineIK|SpineIK|TopHandle|Take 001|BaseLayer|SpineIK|TopHandle|
+    7400492: LeftLegHandle|TopHandle|TopHandle|HipHandle|Take 001|BaseLayer|TopHandle|HipH
+    7400494: LeftLegHandle|TopHandle|TopHandle|LeftLegHandle|Take 001|BaseLayer|TopHandle|
+    7400496: LeftLegHandle|TopHandle|TopHandle|LeftLegIK|Take 001|BaseLayer|TopHandle|Left
+    7400498: LeftLegHandle|TopHandle|TopHandle|RightLegHandle|Take 001|BaseLayer|TopHandle
+    7400500: LeftLegHandle|TopHandle|TopHandle|RightLegIK|Take 001|BaseLayer|TopHandle|Rig
+    7400502: LeftLegHandle|TopHandle|TopHandle|SpineIK|Take 001|BaseLayer|TopHandle|SpineI
+    7400504: LeftLegHandle|TopHandle|TopHandle|TopHandle|Take 001|BaseLayer|TopHandle|TopH
+    7400506: RightLegHandle|HipHandle|HipHandle|HipHandle|Take 001|BaseLayer|HipHandle|HipH
+    7400508: RightLegHandle|HipHandle|HipHandle|LeftLegHandle|Take 001|BaseLayer|HipHandle|
+    7400510: RightLegHandle|HipHandle|HipHandle|LeftLegIK|Take 001|BaseLayer|HipHandle|Left
+    7400512: RightLegHandle|HipHandle|HipHandle|RightLegHandle|Take 001|BaseLayer|HipHandle
+    7400514: RightLegHandle|HipHandle|HipHandle|RightLegIK|Take 001|BaseLayer|HipHandle|Rig
+    7400516: RightLegHandle|HipHandle|HipHandle|SpineIK|Take 001|BaseLayer|HipHandle|SpineI
+    7400518: RightLegHandle|HipHandle|HipHandle|TopHandle|Take 001|BaseLayer|HipHandle|TopH
+    7400520: RightLegHandle|LeftLegHandle|LeftLegHandle|HipHandle|Take 001|BaseLayer|LeftLe
+    7400522: RightLegHandle|LeftLegHandle|LeftLegHandle|LeftLegHandle|Take 001|BaseLayer|Le
+    7400524: RightLegHandle|LeftLegHandle|LeftLegHandle|LeftLegIK|Take 001|BaseLayer|LeftLe
+    7400526: RightLegHandle|LeftLegHandle|LeftLegHandle|RightLegHandle|Take 001|BaseLayer|L
+    7400528: RightLegHandle|LeftLegHandle|LeftLegHandle|RightLegIK|Take 001|BaseLayer|LeftL
+    7400530: RightLegHandle|LeftLegHandle|LeftLegHandle|SpineIK|Take 001|BaseLayer|LeftLegH
+    7400532: RightLegHandle|LeftLegHandle|LeftLegHandle|TopHandle|Take 001|BaseLayer|LeftLe
+    7400534: RightLegHandle|LeftLegIK|LeftLegIK|HipHandle|Take 001|BaseLayer|LeftLegIK|HipH
+    7400536: RightLegHandle|LeftLegIK|LeftLegIK|LeftLegHandle|Take 001|BaseLayer|LeftLegIK|
+    7400538: RightLegHandle|LeftLegIK|LeftLegIK|LeftLegIK|Take 001|BaseLayer|LeftLegIK|Left
+    7400540: RightLegHandle|LeftLegIK|LeftLegIK|RightLegHandle|Take 001|BaseLayer|LeftLegIK
+    7400542: RightLegHandle|LeftLegIK|LeftLegIK|RightLegIK|Take 001|BaseLayer|LeftLegIK|Rig
+    7400544: RightLegHandle|LeftLegIK|LeftLegIK|SpineIK|Take 001|BaseLayer|LeftLegIK|SpineI
+    7400546: RightLegHandle|LeftLegIK|LeftLegIK|TopHandle|Take 001|BaseLayer|LeftLegIK|TopH
+    7400548: RightLegHandle|RightLegHandle|RightLegHandle|HipHandle|Take 001|BaseLayer|Righ
+    7400550: RightLegHandle|RightLegHandle|RightLegHandle|LeftLegHandle|Take 001|BaseLayer|
+    7400552: RightLegHandle|RightLegHandle|RightLegHandle|LeftLegIK|Take 001|BaseLayer|Righ
+    7400554: RightLegHandle|RightLegHandle|RightLegHandle|RightLegHandle|Take 001|BaseLayer
+    7400556: RightLegHandle|RightLegHandle|RightLegHandle|RightLegIK|Take 001|BaseLayer|Rig
+    7400558: RightLegHandle|RightLegHandle|RightLegHandle|SpineIK|Take 001|BaseLayer|RightL
+    7400560: RightLegHandle|RightLegHandle|RightLegHandle|TopHandle|Take 001|BaseLayer|Righ
+    7400562: RightLegHandle|RightLegIK|RightLegIK|HipHandle|Take 001|BaseLayer|RightLegIK|H
+    7400564: RightLegHandle|RightLegIK|RightLegIK|LeftLegHandle|Take 001|BaseLayer|RightLeg
+    7400566: RightLegHandle|RightLegIK|RightLegIK|LeftLegIK|Take 001|BaseLayer|RightLegIK|L
+    7400568: RightLegHandle|RightLegIK|RightLegIK|RightLegHandle|Take 001|BaseLayer|RightLe
+    7400570: RightLegHandle|RightLegIK|RightLegIK|RightLegIK|Take 001|BaseLayer|RightLegIK|
+    7400572: RightLegHandle|RightLegIK|RightLegIK|SpineIK|Take 001|BaseLayer|RightLegIK|Spi
+    7400574: RightLegHandle|RightLegIK|RightLegIK|TopHandle|Take 001|BaseLayer|RightLegIK|T
+    7400576: RightLegHandle|SpineIK|SpineIK|HipHandle|Take 001|BaseLayer|SpineIK|HipHandle|
+    7400578: RightLegHandle|SpineIK|SpineIK|LeftLegHandle|Take 001|BaseLayer|SpineIK|LeftLe
+    7400580: RightLegHandle|SpineIK|SpineIK|LeftLegIK|Take 001|BaseLayer|SpineIK|LeftLegIK|
+    7400582: RightLegHandle|SpineIK|SpineIK|RightLegHandle|Take 001|BaseLayer|SpineIK|Right
+    7400584: RightLegHandle|SpineIK|SpineIK|RightLegIK|Take 001|BaseLayer|SpineIK|RightLegI
+    7400586: RightLegHandle|SpineIK|SpineIK|SpineIK|Take 001|BaseLayer|SpineIK|SpineIK|Take
+    7400588: RightLegHandle|SpineIK|SpineIK|TopHandle|Take 001|BaseLayer|SpineIK|TopHandle|
+    7400590: RightLegHandle|TopHandle|TopHandle|HipHandle|Take 001|BaseLayer|TopHandle|HipH
+    7400592: RightLegHandle|TopHandle|TopHandle|LeftLegHandle|Take 001|BaseLayer|TopHandle|
+    7400594: RightLegHandle|TopHandle|TopHandle|LeftLegIK|Take 001|BaseLayer|TopHandle|Left
+    7400596: RightLegHandle|TopHandle|TopHandle|RightLegHandle|Take 001|BaseLayer|TopHandle
+    7400598: RightLegHandle|TopHandle|TopHandle|RightLegIK|Take 001|BaseLayer|TopHandle|Rig
+    7400600: RightLegHandle|TopHandle|TopHandle|SpineIK|Take 001|BaseLayer|TopHandle|SpineI
+    7400602: RightLegHandle|TopHandle|TopHandle|TopHandle|Take 001|BaseLayer|TopHandle|TopH
+    7400604: TopHandle|HipHandle|HipHandle|HipHandle|Take 001|BaseLayer|HipHandle|HipH
+    7400606: TopHandle|HipHandle|HipHandle|LeftLegHandle|Take 001|BaseLayer|HipHandle|
+    7400608: TopHandle|HipHandle|HipHandle|LeftLegIK|Take 001|BaseLayer|HipHandle|Left
+    7400610: TopHandle|HipHandle|HipHandle|RightLegHandle|Take 001|BaseLayer|HipHandle
+    7400612: TopHandle|HipHandle|HipHandle|RightLegIK|Take 001|BaseLayer|HipHandle|Rig
+    7400614: TopHandle|HipHandle|HipHandle|SpineIK|Take 001|BaseLayer|HipHandle|SpineI
+    7400616: TopHandle|HipHandle|HipHandle|TopHandle|Take 001|BaseLayer|HipHandle|TopH
+    7400618: TopHandle|LeftLegHandle|LeftLegHandle|HipHandle|Take 001|BaseLayer|LeftLe
+    7400620: TopHandle|LeftLegHandle|LeftLegHandle|LeftLegHandle|Take 001|BaseLayer|Le
+    7400622: TopHandle|LeftLegHandle|LeftLegHandle|LeftLegIK|Take 001|BaseLayer|LeftLe
+    7400624: TopHandle|LeftLegHandle|LeftLegHandle|RightLegHandle|Take 001|BaseLayer|L
+    7400626: TopHandle|LeftLegHandle|LeftLegHandle|RightLegIK|Take 001|BaseLayer|LeftL
+    7400628: TopHandle|LeftLegHandle|LeftLegHandle|SpineIK|Take 001|BaseLayer|LeftLegH
+    7400630: TopHandle|LeftLegHandle|LeftLegHandle|TopHandle|Take 001|BaseLayer|LeftLe
+    7400632: TopHandle|LeftLegIK|LeftLegIK|HipHandle|Take 001|BaseLayer|LeftLegIK|HipH
+    7400634: TopHandle|LeftLegIK|LeftLegIK|LeftLegHandle|Take 001|BaseLayer|LeftLegIK|
+    7400636: TopHandle|LeftLegIK|LeftLegIK|LeftLegIK|Take 001|BaseLayer|LeftLegIK|Left
+    7400638: TopHandle|LeftLegIK|LeftLegIK|RightLegHandle|Take 001|BaseLayer|LeftLegIK
+    7400640: TopHandle|LeftLegIK|LeftLegIK|RightLegIK|Take 001|BaseLayer|LeftLegIK|Rig
+    7400642: TopHandle|LeftLegIK|LeftLegIK|SpineIK|Take 001|BaseLayer|LeftLegIK|SpineI
+    7400644: TopHandle|LeftLegIK|LeftLegIK|TopHandle|Take 001|BaseLayer|LeftLegIK|TopH
+    7400646: TopHandle|RightLegHandle|RightLegHandle|HipHandle|Take 001|BaseLayer|Righ
+    7400648: TopHandle|RightLegHandle|RightLegHandle|LeftLegHandle|Take 001|BaseLayer|
+    7400650: TopHandle|RightLegHandle|RightLegHandle|LeftLegIK|Take 001|BaseLayer|Righ
+    7400652: TopHandle|RightLegHandle|RightLegHandle|RightLegHandle|Take 001|BaseLayer
+    7400654: TopHandle|RightLegHandle|RightLegHandle|RightLegIK|Take 001|BaseLayer|Rig
+    7400656: TopHandle|RightLegHandle|RightLegHandle|SpineIK|Take 001|BaseLayer|RightL
+    7400658: TopHandle|RightLegHandle|RightLegHandle|TopHandle|Take 001|BaseLayer|Righ
+    7400660: TopHandle|RightLegIK|RightLegIK|HipHandle|Take 001|BaseLayer|RightLegIK|H
+    7400662: TopHandle|RightLegIK|RightLegIK|LeftLegHandle|Take 001|BaseLayer|RightLeg
+    7400664: TopHandle|RightLegIK|RightLegIK|LeftLegIK|Take 001|BaseLayer|RightLegIK|L
+    7400666: TopHandle|RightLegIK|RightLegIK|RightLegHandle|Take 001|BaseLayer|RightLe
+    7400668: TopHandle|RightLegIK|RightLegIK|RightLegIK|Take 001|BaseLayer|RightLegIK|
+    7400670: TopHandle|RightLegIK|RightLegIK|SpineIK|Take 001|BaseLayer|RightLegIK|Spi
+    7400672: TopHandle|RightLegIK|RightLegIK|TopHandle|Take 001|BaseLayer|RightLegIK|T
+    7400674: TopHandle|SpineIK|SpineIK|HipHandle|Take 001|BaseLayer|SpineIK|HipHandle|
+    7400676: TopHandle|SpineIK|SpineIK|LeftLegHandle|Take 001|BaseLayer|SpineIK|LeftLe
+    7400678: TopHandle|SpineIK|SpineIK|LeftLegIK|Take 001|BaseLayer|SpineIK|LeftLegIK|
+    7400680: TopHandle|SpineIK|SpineIK|RightLegHandle|Take 001|BaseLayer|SpineIK|Right
+    7400682: TopHandle|SpineIK|SpineIK|RightLegIK|Take 001|BaseLayer|SpineIK|RightLegI
+    7400684: TopHandle|SpineIK|SpineIK|SpineIK|Take 001|BaseLayer|SpineIK|SpineIK|Take
+    7400686: TopHandle|SpineIK|SpineIK|TopHandle|Take 001|BaseLayer|SpineIK|TopHandle|
+    7400688: TopHandle|TopHandle|TopHandle|HipHandle|Take 001|BaseLayer|TopHandle|HipH
+    7400690: TopHandle|TopHandle|TopHandle|LeftLegHandle|Take 001|BaseLayer|TopHandle|
+    7400692: TopHandle|TopHandle|TopHandle|LeftLegIK|Take 001|BaseLayer|TopHandle|Left
+    7400694: TopHandle|TopHandle|TopHandle|RightLegHandle|Take 001|BaseLayer|TopHandle
+    7400696: TopHandle|TopHandle|TopHandle|RightLegIK|Take 001|BaseLayer|TopHandle|Rig
+    7400698: TopHandle|TopHandle|TopHandle|SpineIK|Take 001|BaseLayer|TopHandle|SpineI
+    7400700: TopHandle|TopHandle|TopHandle|TopHandle|Take 001|BaseLayer|TopHandle|TopH
+    7400702: SpineIK|HipHandle|HipHandle|HipHandle|Take 001|BaseLayer|HipHandle|HipH
+    7400704: SpineIK|HipHandle|HipHandle|LeftLegHandle|Take 001|BaseLayer|HipHandle|
+    7400706: SpineIK|HipHandle|HipHandle|LeftLegIK|Take 001|BaseLayer|HipHandle|Left
+    7400708: SpineIK|HipHandle|HipHandle|RightLegHandle|Take 001|BaseLayer|HipHandle
+    7400710: SpineIK|HipHandle|HipHandle|RightLegIK|Take 001|BaseLayer|HipHandle|Rig
+    7400712: SpineIK|HipHandle|HipHandle|SpineIK|Take 001|BaseLayer|HipHandle|SpineI
+    7400714: SpineIK|HipHandle|HipHandle|TopHandle|Take 001|BaseLayer|HipHandle|TopH
+    7400716: SpineIK|LeftLegHandle|LeftLegHandle|HipHandle|Take 001|BaseLayer|LeftLe
+    7400718: SpineIK|LeftLegHandle|LeftLegHandle|LeftLegHandle|Take 001|BaseLayer|Le
+    7400720: SpineIK|LeftLegHandle|LeftLegHandle|LeftLegIK|Take 001|BaseLayer|LeftLe
+    7400722: SpineIK|LeftLegHandle|LeftLegHandle|RightLegHandle|Take 001|BaseLayer|L
+    7400724: SpineIK|LeftLegHandle|LeftLegHandle|RightLegIK|Take 001|BaseLayer|LeftL
+    7400726: SpineIK|LeftLegHandle|LeftLegHandle|SpineIK|Take 001|BaseLayer|LeftLegH
+    7400728: SpineIK|LeftLegHandle|LeftLegHandle|TopHandle|Take 001|BaseLayer|LeftLe
+    7400730: SpineIK|LeftLegIK|LeftLegIK|HipHandle|Take 001|BaseLayer|LeftLegIK|HipH
+    7400732: SpineIK|LeftLegIK|LeftLegIK|LeftLegHandle|Take 001|BaseLayer|LeftLegIK|
+    7400734: SpineIK|LeftLegIK|LeftLegIK|LeftLegIK|Take 001|BaseLayer|LeftLegIK|Left
+    7400736: SpineIK|LeftLegIK|LeftLegIK|RightLegHandle|Take 001|BaseLayer|LeftLegIK
+    7400738: SpineIK|LeftLegIK|LeftLegIK|RightLegIK|Take 001|BaseLayer|LeftLegIK|Rig
+    7400740: SpineIK|LeftLegIK|LeftLegIK|SpineIK|Take 001|BaseLayer|LeftLegIK|SpineI
+    7400742: SpineIK|LeftLegIK|LeftLegIK|TopHandle|Take 001|BaseLayer|LeftLegIK|TopH
+    7400744: SpineIK|RightLegHandle|RightLegHandle|HipHandle|Take 001|BaseLayer|Righ
+    7400746: SpineIK|RightLegHandle|RightLegHandle|LeftLegHandle|Take 001|BaseLayer|
+    7400748: SpineIK|RightLegHandle|RightLegHandle|LeftLegIK|Take 001|BaseLayer|Righ
+    7400750: SpineIK|RightLegHandle|RightLegHandle|RightLegHandle|Take 001|BaseLayer
+    7400752: SpineIK|RightLegHandle|RightLegHandle|RightLegIK|Take 001|BaseLayer|Rig
+    7400754: SpineIK|RightLegHandle|RightLegHandle|SpineIK|Take 001|BaseLayer|RightL
+    7400756: SpineIK|RightLegHandle|RightLegHandle|TopHandle|Take 001|BaseLayer|Righ
+    7400758: SpineIK|RightLegIK|RightLegIK|HipHandle|Take 001|BaseLayer|RightLegIK|H
+    7400760: SpineIK|RightLegIK|RightLegIK|LeftLegHandle|Take 001|BaseLayer|RightLeg
+    7400762: SpineIK|RightLegIK|RightLegIK|LeftLegIK|Take 001|BaseLayer|RightLegIK|L
+    7400764: SpineIK|RightLegIK|RightLegIK|RightLegHandle|Take 001|BaseLayer|RightLe
+    7400766: SpineIK|RightLegIK|RightLegIK|RightLegIK|Take 001|BaseLayer|RightLegIK|
+    7400768: SpineIK|RightLegIK|RightLegIK|SpineIK|Take 001|BaseLayer|RightLegIK|Spi
+    7400770: SpineIK|RightLegIK|RightLegIK|TopHandle|Take 001|BaseLayer|RightLegIK|T
+    7400772: SpineIK|SpineIK|SpineIK|HipHandle|Take 001|BaseLayer|SpineIK|HipHandle|
+    7400774: SpineIK|SpineIK|SpineIK|LeftLegHandle|Take 001|BaseLayer|SpineIK|LeftLe
+    7400776: SpineIK|SpineIK|SpineIK|LeftLegIK|Take 001|BaseLayer|SpineIK|LeftLegIK|
+    7400778: SpineIK|SpineIK|SpineIK|RightLegHandle|Take 001|BaseLayer|SpineIK|Right
+    7400780: SpineIK|SpineIK|SpineIK|RightLegIK|Take 001|BaseLayer|SpineIK|RightLegI
+    7400782: SpineIK|SpineIK|SpineIK|SpineIK|Take 001|BaseLayer|SpineIK|SpineIK|Take
+    7400784: SpineIK|SpineIK|SpineIK|TopHandle|Take 001|BaseLayer|SpineIK|TopHandle|
+    7400786: SpineIK|TopHandle|TopHandle|HipHandle|Take 001|BaseLayer|TopHandle|HipH
+    7400788: SpineIK|TopHandle|TopHandle|LeftLegHandle|Take 001|BaseLayer|TopHandle|
+    7400790: SpineIK|TopHandle|TopHandle|LeftLegIK|Take 001|BaseLayer|TopHandle|Left
+    7400792: SpineIK|TopHandle|TopHandle|RightLegHandle|Take 001|BaseLayer|TopHandle
+    7400794: SpineIK|TopHandle|TopHandle|RightLegIK|Take 001|BaseLayer|TopHandle|Rig
+    7400796: SpineIK|TopHandle|TopHandle|SpineIK|Take 001|BaseLayer|TopHandle|SpineI
+    7400798: SpineIK|TopHandle|TopHandle|TopHandle|Take 001|BaseLayer|TopHandle|TopH
+    9500000: //RootNode
+    13700000: main body1
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
