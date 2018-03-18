@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4698581250897854}
   - component: {fileID: 33580526281990052}
   - component: {fileID: 23529280424796186}
+  - component: {fileID: 64817206722609762}
   m_Layer: 0
   m_Name: roofMid
   m_TagString: Untagged
@@ -89,6 +90,7 @@ GameObject:
   - component: {fileID: 4373377551631248}
   - component: {fileID: 33285838309973076}
   - component: {fileID: 23436332621265696}
+  - component: {fileID: 64445690773153934}
   m_Layer: 0
   m_Name: roof (L)
   m_TagString: Untagged
@@ -106,6 +108,7 @@ GameObject:
   - component: {fileID: 4163256816425264}
   - component: {fileID: 33262971355128166}
   - component: {fileID: 23119383966785042}
+  - component: {fileID: 64541048195245104}
   m_Layer: 0
   m_Name: roof.(R)
   m_TagString: Untagged
@@ -543,3 +546,45 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470557599951198}
   m_Mesh: {fileID: 4300000, guid: 64e2248d710315c4ba58b6207bd57e84, type: 3}
+--- !u!64 &64445690773153934
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1525315970983376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300008, guid: 64e2248d710315c4ba58b6207bd57e84, type: 3}
+--- !u!64 &64541048195245104
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637315143793520}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 64e2248d710315c4ba58b6207bd57e84, type: 3}
+--- !u!64 &64817206722609762
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488757756369450}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300010, guid: 64e2248d710315c4ba58b6207bd57e84, type: 3}

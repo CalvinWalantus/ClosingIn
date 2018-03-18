@@ -19,25 +19,36 @@ public class WallofFog : MonoBehaviour {
 	bool startFlag = true;
 
 	// Use this for initialization
-	void Awake () {
-		worldController = FindObjectOfType<World> ();
+	void Awake () 
+	{
+		worldController = FindObjectOfType<World>();
 		worldController.shiftEvent += HandleShift;
 
 		fog = gameObject.GetComponent<ParticleSystemRenderer>().material;
 		startColor = fog.GetColor ("_TintColor");
 	}															
 
-	void HandleShift (bool dim, float time) {
-		if (!startFlag) {
-			if (dim) {
+	void HandleShift (bool dim, float time) 
+	{
+		if (!startFlag) 
+		{
+			if (dim) 
+			{
 				StartCoroutine (LerpColor (startColor, Color.clear, dim, time));
-			} else {
+			} 
+			else 
+			{
 				StartCoroutine (LerpColor (Color.clear, startColor, dim, time));
 			}
-		} else {
-			if (dim) {
+		} 
+		else 
+		{
+			if (dim) 
+			{
 				fog.SetColor("_TintColor", Color.clear);
-			} else {
+			} 
+			else 
+			{
 				fog.SetColor("_TintColor", startColor);
 				GetComponent<Renderer> ().enabled = true;
 			}
@@ -49,7 +60,8 @@ public class WallofFog : MonoBehaviour {
 	{
 		float startTime = Time.time;
 
-		if (!disappearing) {
+		if (!disappearing) 
+		{
 			GetComponent<Renderer> ().enabled = true;
 		}
 
@@ -59,7 +71,8 @@ public class WallofFog : MonoBehaviour {
 			yield return 1;
 		}
 
-		if (disappearing) {
+		if (disappearing) 
+		{
 			GetComponent<Renderer> ().enabled = false;
 		}
 	}
