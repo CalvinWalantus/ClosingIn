@@ -12,8 +12,7 @@ public class LevelManager : MonoBehaviour
 {
 	public Transform main_menu, options_menu, hourglass;
 	public CinemachineVirtualCamera look;
-	public AudioSource levelmusic;
-	public GameObject music;
+	public AudioManager audioManager;
 	public GameObject mainobject;
 
 	World worldController;
@@ -27,14 +26,17 @@ public class LevelManager : MonoBehaviour
 	void Awake()
 	{
 		worldController = FindObjectOfType<World> ();
+		audioManager = FindObjectOfType<AudioManager> ();
 		look.Priority = 40;
 	}
 
-	void Update (){
+	/*void Update (){
 		if (fade) {
 			StartCoroutine (fadeout (music));
 		}
-	}
+	}*/
+
+
 	// Loads a scene when a player clicks Play button. 
 	public void LoadScene(string name)
 	{
@@ -42,6 +44,7 @@ public class LevelManager : MonoBehaviour
 		canvas.enabled = false;
 		//this.gameObject.SetActive (false);
 		//this.gameObject.layer = 0;
+		audioManager.StartCoroutine(audioManager.fadeout());
 		fade = true;
 		look.Priority = -100;
 		worldController.StartAnimation ();
@@ -74,7 +77,7 @@ public class LevelManager : MonoBehaviour
 		#endif
 	}
 
-	IEnumerator fadeout(GameObject temp){
+	/*IEnumerator fadeout(GameObject temp){
 		float original = temp.GetComponent<AudioSource> ().volume;
 		for (float i = 0.0f; i < 1.0f; i += Time.deltaTime / 22.0f) {
 			temp.GetComponent<AudioSource> ().volume = Mathf.Lerp (original, 0, i);
@@ -86,7 +89,7 @@ public class LevelManager : MonoBehaviour
 			levelmusic.loop = true;
 			yield break;
 		}
-	}
+	}*/
 			
 	public void InvertMouseY () {
 		FindObjectOfType<CinemachineFreeLook> ().gameObject.GetComponent<FreelookFindPlayer> ().ToggleInvertMouseY ();
