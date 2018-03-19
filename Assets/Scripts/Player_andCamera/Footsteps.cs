@@ -33,7 +33,7 @@ public class Footsteps : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		//Debug.Log (animationlength);
+		Debug.Log (animationlength);
 		if(tpc.GetGroundStatus() == true && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking") && timer > animationlength/anim.GetCurrentAnimatorStateInfo(0).speed)
 		{
 			audio_source.Play();
