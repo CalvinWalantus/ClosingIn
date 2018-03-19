@@ -7,8 +7,8 @@ public class FreelookFindPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<CinemachineFreeLook> ().m_Follow = FindObjectOfType<ThirdPersonCharacter> ().transform;
-		GetComponent<CinemachineFreeLook> ().m_LookAt = FindObjectOfType<ThirdPersonCharacter> ().transform;
+		//GetComponent<CinemachineFreeLook> ().m_Follow = FindObjectOfType<ThirdPersonCharacter> ().transform;
+		//GetComponent<CinemachineFreeLook> ().m_LookAt = FindObjectOfType<ThirdPersonCharacter> ().transform;
 	}
 
 	// Invert mouse controls when called by the level manager

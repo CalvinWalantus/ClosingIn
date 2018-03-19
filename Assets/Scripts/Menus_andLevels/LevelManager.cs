@@ -41,13 +41,14 @@ public class LevelManager : MonoBehaviour
 	public void LoadScene(string name)
 	{
 		Canvas canvas = mainobject.GetComponent<Canvas> ();
-		canvas.enabled = false;
+		//canvas.enabled = false;
 		//this.gameObject.SetActive (false);
 		//this.gameObject.layer = 0;
 		audioManager.StartCoroutine(audioManager.fadeout());
 		fade = true;
 		look.Priority = -100;
 		worldController.StartAnimation ();
+		this.gameObject.SetActive (false);
 	}
 
 	// Opens Option menu when player clicks Options button.
@@ -56,13 +57,13 @@ public class LevelManager : MonoBehaviour
 		if (clicked == true) 
 		{
 			options_menu.gameObject.SetActive (clicked);
-			hourglass.gameObject.SetActive(false);
+			//hourglass.gameObject.SetActive(false);
 			main_menu.gameObject.SetActive(false);
 		} 
 		else 
 		{
 			options_menu.gameObject.SetActive(clicked);
-			hourglass.gameObject.SetActive(true);
+			//hourglass.gameObject.SetActive(true);
 			main_menu.gameObject.SetActive(true);
 		}
 	}

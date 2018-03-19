@@ -5,15 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/StartScreen.unity
-    guid: 210005c1d3df29c4e979b55c790e1fa5
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/sophiaDoppelganger_11.unity
-    guid: 2d50eb2c6fc83fa4ba16c6f92d934475
+    path: Assets/Scenes/sophiaDoppelganger_12.unity
+    guid: 1d7883e0e548ffc46bff72326a7fa5bc
