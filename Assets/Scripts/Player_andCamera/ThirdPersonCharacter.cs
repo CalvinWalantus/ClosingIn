@@ -216,5 +216,10 @@ using UnityEngine;
 				m_Animator.applyRootMotion = false;
 			}
 		}
+
+		public bool GetGroundStatus()
+		{
+			return m_IsGrounded;
+		}
 	}
 //}
