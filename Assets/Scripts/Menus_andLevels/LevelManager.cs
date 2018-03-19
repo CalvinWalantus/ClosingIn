@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
 {
 	public Transform main_menu, options_menu, hourglass;
 	public CinemachineVirtualCamera look;
+	public AudioSource levelmusic;
 	public GameObject music;
 	public GameObject mainobject;
 
@@ -37,7 +38,10 @@ public class LevelManager : MonoBehaviour
 	// Loads a scene when a player clicks Play button. 
 	public void LoadScene(string name)
 	{
-		this.gameObject.SetActive (false);
+		Canvas canvas = mainobject.GetComponent<Canvas> ();
+		canvas.enabled = false;
+		//this.gameObject.SetActive (false);
+		//this.gameObject.layer = 0;
 		fade = true;
 		look.Priority = -100;
 		worldController.StartAnimation ();
@@ -78,6 +82,8 @@ public class LevelManager : MonoBehaviour
 		}
 		if (temp.GetComponent<AudioSource> ().volume < 0.02f) {
 			temp.GetComponent<AudioSource> ().Stop ();
+			levelmusic.Play ();
+			levelmusic.loop = true;
 			yield break;
 		}
 	}
