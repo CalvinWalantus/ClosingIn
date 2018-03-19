@@ -50,7 +50,8 @@ public class foreground : MonoBehaviour {
 		}
 		foreach(Collider i in temp){
 			if (world_controller.two_shot == 3) {
-				if (i.gameObject.transform.position.z - i.gameObject.transform.lossyScale.z / 2 > player.transform.position.z && !disables.Contains(i)) {
+				if (i.gameObject.transform.position.z + (i.gameObject.transform.lossyScale.z / 2) > player.transform.position.z && !disables.Contains(i)) {
+					Debug.Log (i.gameObject.transform.position.z + i.gameObject.transform.lossyScale.z / 2 + i.gameObject.name);
 					if (i.GetComponent<Renderer> ()) {
 						//i.GetComponent<Renderer> ().enabled = false;
 						StartCoroutine(fadeout(i.gameObject,0.0f,false));
@@ -60,7 +61,7 @@ public class foreground : MonoBehaviour {
 				}
 			}
 			if (world_controller.two_shot == 1) {
-				if (i.gameObject.transform.position.z + i.gameObject.transform.lossyScale.z / 2 < player.transform.position.z && !disables.Contains(i)) {
+				if (i.gameObject.transform.position.z + (i.gameObject.transform.lossyScale.z / 2) > player.transform.position.z && !disables.Contains(i)) {
 					if (i.GetComponent<Renderer> ()) {
 						//i.GetComponent<Renderer> ().enabled = false;
 						StartCoroutine(fadeout(i.gameObject,0.0f,false));
@@ -69,7 +70,7 @@ public class foreground : MonoBehaviour {
 				}
 			}
 			if (world_controller.two_shot == 4) {
-				if (i.gameObject.transform.position.x + i.gameObject.transform.lossyScale.z / 2 < player.transform.position.x && !disables.Contains(i)) {
+				if (i.gameObject.transform.position.x - (i.gameObject.transform.lossyScale.x / 2) < player.transform.position.x && !disables.Contains(i)) {
 					if (i.GetComponent<Renderer> ()) {
 						StartCoroutine(fadeout(i.gameObject,0.0f,false));
 						//i.GetComponent<Renderer> ().enabled = false;
@@ -78,12 +79,16 @@ public class foreground : MonoBehaviour {
 				}
 			}
 			if (world_controller.two_shot == 2) {
-				if (i.gameObject.transform.position.x - i.gameObject.transform.lossyScale.x / 2 > player.transform.position.x && !disables.Contains(i)) {
-					if (i.GetComponent<Renderer> ()) {
-						StartCoroutine(fadeout(i.gameObject,0.0f,false));
-						//i.GetComponent<Renderer> ().enabled = false;
-						disables.Add (i);
-					}
+				//Debug.Log (i.gameObject.transform.position.x - (i.gameObject.transform.lossyScale.x / 2) + i.gameObject.name);
+				if (i.gameObject.transform.position.x - (i.gameObject.transform.lossyScale.x / 2) < player.transform.position.x && !disables.Contains(i)) {
+					Debug.Log (i.name + " " + i.transform.lossyScale.x);
+					//if (i.gameObject.transform.position.z - (i.gameObject.transform.lossyScale.z / 2) > player.transform.position.z && !disables.Contains(i)){
+						if (i.GetComponent<Renderer> ()) {
+							StartCoroutine (fadeout (i.gameObject, 0.0f, false));
+							//i.GetComponent<Renderer> ().enabled = false;
+							disables.Add (i);
+						}
+					//}
 				}
 			}
 
