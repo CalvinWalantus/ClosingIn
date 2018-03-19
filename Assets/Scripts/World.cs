@@ -49,6 +49,7 @@ public class World : MonoBehaviour
 		shotChangeEvent (two_shot);
 		shiftEvent (dimension, shift_time);
 
+		Camera.main.gameObject.GetComponent<PlayableDirector>().enabled = false;
 
 		foreach (Teleport boundary in FindObjectsOfType<Teleport>())
 		{
