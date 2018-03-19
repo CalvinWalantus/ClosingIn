@@ -82,6 +82,8 @@ public class LevelManager : MonoBehaviour
 		}
 	}
 			
-		
+	public void InvertMouseY () {
+		FindObjectOfType<CinemachineFreeLook> ().gameObject.GetComponent<FreelookFindPlayer> ().ToggleInvertMouseY ();
+	}
 
 }

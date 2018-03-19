@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
 	public static bool paused_game = false;
 
 	public GameObject pauseMenuUI;
+	public GameObject optionsMenuUI;
 
 	public string level = "StartScreen";
 	
@@ -53,10 +54,10 @@ public class PauseMenu : MonoBehaviour
 
 		Time.timeScale = 1f;
 
-		SceneManager.LoadScene(level);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
 		#if UNITY_EDITOR
-		EditorSceneManager.LoadScene(level);
+		EditorSceneManager.LoadScene(EditorSceneManager.GetActiveScene().name);
 		#endif
 	}
 
@@ -69,5 +70,19 @@ public class PauseMenu : MonoBehaviour
 		#if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
 		#endif
+	}
+
+	public void OptionsMenu(bool clicked)
+	{
+		if (clicked == true) 
+		{
+			optionsMenuUI.gameObject.SetActive (clicked);
+			pauseMenuUI.gameObject.SetActive(false);
+		} 
+		else 
+		{
+			optionsMenuUI.gameObject.SetActive(clicked);
+			pauseMenuUI.gameObject.SetActive(true);
+		}
 	}
 }
