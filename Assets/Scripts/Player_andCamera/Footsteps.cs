@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Footsteps : MonoBehaviour 
 {
+	
 	ThirdPersonCharacter tpc;
 	Animator anim;
 	AudioSource audio_source;
@@ -14,6 +15,7 @@ public class Footsteps : MonoBehaviour
 	void Start ()
 	{
 		tpc = GetComponentInParent<ThirdPersonCharacter> ();
+		Debug.Log (tpc.gameObject.name);
 		anim = GetComponent<Animator> ();
 		audio_source = GetComponent<AudioSource> ();
 		audio_source.pitch = 0.65f;
@@ -31,7 +33,7 @@ public class Footsteps : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		Debug.Log (animationlength);
+		//Debug.Log (animationlength);
 		if(tpc.GetGroundStatus() == true && anim.GetCurrentAnimatorStateInfo(0).IsName("Walking") && timer > animationlength/anim.GetCurrentAnimatorStateInfo(0).speed)
 		{
 			audio_source.Play();
