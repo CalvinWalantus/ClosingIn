@@ -12,7 +12,6 @@ public class PauseMenu : MonoBehaviour
 	public static bool paused_game = false;
 
 	public GameObject pauseMenuUI;
-	public GameObject Build;
 
 	public string level = "StartScreen";
 	
@@ -35,7 +34,6 @@ public class PauseMenu : MonoBehaviour
 	// For Resume button
 	public void Resume()
 	{
-		Build.SetActive(true);
 		pauseMenuUI.SetActive(false);
 		Time.timeScale = 1f;
 		paused_game = false;
@@ -43,7 +41,6 @@ public class PauseMenu : MonoBehaviour
 		
 	void Pause()
 	{
-		Build.SetActive(false);
 		pauseMenuUI.SetActive(true);
 		Time.timeScale = 0f;
 		paused_game = true;

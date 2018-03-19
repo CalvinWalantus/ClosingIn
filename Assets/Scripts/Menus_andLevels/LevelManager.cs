@@ -13,15 +13,22 @@ public class LevelManager : MonoBehaviour
 	public Transform main_menu, options_menu, hourglass;
 	public CinemachineVirtualCamera look;
 	public GameObject music;
-	public bool fade;
 	public GameObject mainobject;
+
+	World worldController;
+
+	public bool fade;
+
 	void Start (){
 		fade = false;
 	}
+
 	void Awake()
 	{
+		worldController = FindObjectOfType<World> ();
 		look.Priority = 40;
 	}
+
 	void Update (){
 		if (fade) {
 			StartCoroutine (fadeout (music));
@@ -30,11 +37,10 @@ public class LevelManager : MonoBehaviour
 	// Loads a scene when a player clicks Play button. 
 	public void LoadScene(string name)
 	{
-		Canvas canvas = mainobject.GetComponent<Canvas> ();
-		canvas.enabled = false;
+		this.gameObject.SetActive (false);
 		fade = true;
 		look.Priority = -100;
-		//this.gameObject.SetActive (false);
+		worldController.StartAnimation ();
 	}
 
 	// Opens Option menu when player clicks Options button.
@@ -63,6 +69,7 @@ public class LevelManager : MonoBehaviour
 		UnityEditor.EditorApplication.isPlaying = false;
 		#endif
 	}
+
 	IEnumerator fadeout(GameObject temp){
 		float original = temp.GetComponent<AudioSource> ().volume;
 		for (float i = 0.0f; i < 1.0f; i += Time.deltaTime / 22.0f) {

@@ -12,6 +12,8 @@ public class ending : MonoBehaviour {
 	private float alpha = 0.0f;
 	private float fadeDir = -1f;
 	private bool startfade;
+	public GameObject panel1;
+	public GameObject panel2;
 	// Use this for initialization
 	void Start () {
 		startfade = false;
@@ -28,7 +30,7 @@ public class ending : MonoBehaviour {
 		}
 	}
 	void OnGUI() {
-		if (startfade) {
+		if (startfade && this.gameObject.name == "Cube") {
 			alpha -= fadeDir * fadespeed * Time.deltaTime;
 			alpha = Mathf.Clamp01 (alpha);
 
@@ -40,8 +42,12 @@ public class ending : MonoBehaviour {
 			GUI.depth = drawDepth;
 
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), fadeTexture);
-			string words = "Coming Up on spring quarter";
-			words = GUI.TextField (new Rect (100, 100, 300, 300), words, 50);
+//			string words = "Coming Up on spring quarter";
+//			words = GUI.TextField (new Rect (100, 100, 300, 300), words, 50);
+			panel1.SetActive(true);
+		} else if(startfade){
+			panel2.SetActive(true);
+			Debug.Log ("hi");
 		}
 	}
 
