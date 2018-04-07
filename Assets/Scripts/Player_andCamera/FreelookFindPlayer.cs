@@ -7,8 +7,20 @@ public class FreelookFindPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//GetComponent<CinemachineFreeLook> ().m_Follow = FindObjectOfType<ThirdPersonCharacter> ().transform;
-		//GetComponent<CinemachineFreeLook> ().m_LookAt = FindObjectOfType<ThirdPersonCharacter> ().transform;
+
+		// These seemingly arbitrary operations are to solve the problem of the build being way under-sensitive in
+		// the final build
+		float x_original = GetComponent<CinemachineFreeLook> ().m_XAxis.m_MaxSpeed;
+		float y_original = GetComponent<CinemachineFreeLook> ().m_YAxis.m_MaxSpeed;
+
+		GetComponent<CinemachineFreeLook> ().m_XAxis.m_MaxSpeed = 1000;
+		GetComponent<CinemachineFreeLook> ().m_YAxis.m_MaxSpeed = 15;
+
+		#if UNITY_EDITOR
+		GetComponent<CinemachineFreeLook> ().m_XAxis.m_MaxSpeed = x_original;
+		GetComponent<CinemachineFreeLook> ().m_YAxis.m_MaxSpeed = y_original;
+		#endif
+
 	}
 
 	// Invert mouse controls when called by the level manager

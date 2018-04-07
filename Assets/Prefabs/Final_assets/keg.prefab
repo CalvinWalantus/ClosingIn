@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4048002840271178}
   - component: {fileID: 33764770727491156}
   - component: {fileID: 23550087392671274}
+  - component: {fileID: 64466324135835362}
   m_Layer: 0
   m_Name: keg
   m_TagString: Untagged
@@ -184,3 +185,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1676139479100582}
   m_Mesh: {fileID: 4300000, guid: 0aaaf9c5f3e41a54abcfc7f03904a23d, type: 3}
+--- !u!64 &64466324135835362
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1142037356842510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 0aaaf9c5f3e41a54abcfc7f03904a23d, type: 3}

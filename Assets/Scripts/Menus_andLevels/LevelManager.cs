@@ -10,7 +10,7 @@ using UnityEditor.SceneManagement;
 
 public class LevelManager : MonoBehaviour 
 {
-	public Transform main_menu, options_menu, hourglass;
+	public Transform main_menu, options_menu;
 	public CinemachineVirtualCamera look;
 	public AudioManager audioManager;
 	public GameObject mainobject;
@@ -57,13 +57,11 @@ public class LevelManager : MonoBehaviour
 		if (clicked == true) 
 		{
 			options_menu.gameObject.SetActive (clicked);
-			//hourglass.gameObject.SetActive(false);
 			main_menu.gameObject.SetActive(false);
 		} 
 		else 
 		{
 			options_menu.gameObject.SetActive(clicked);
-			//hourglass.gameObject.SetActive(true);
 			main_menu.gameObject.SetActive(true);
 		}
 	}
