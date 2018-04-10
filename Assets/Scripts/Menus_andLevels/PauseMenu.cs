@@ -35,6 +35,7 @@ public class PauseMenu : MonoBehaviour
 	// For Resume button
 	public void Resume()
 	{
+		Debug.Log ("wow");
 		pauseMenuUI.SetActive(false);
 		Time.timeScale = 1f;
 		paused_game = false;
@@ -70,6 +71,10 @@ public class PauseMenu : MonoBehaviour
 		#if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
 		#endif
+	}
+	public void options(){
+		pauseMenuUI.SetActive (false);
+		optionsMenuUI.SetActive (true);
 	}
 
 	public void OptionsMenu(bool clicked)
