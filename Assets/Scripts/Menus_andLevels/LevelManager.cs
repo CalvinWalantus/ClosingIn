@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
 	public CinemachineVirtualCamera look;
 	public AudioManager audioManager;
 	public GameObject mainobject;
-
+	public GameObject pausemenu;
 	World worldController;
 
 	public bool fade;
@@ -54,7 +54,11 @@ public class LevelManager : MonoBehaviour
 	// Opens Option menu when player clicks Options button.
 	public void OptionsMenu(bool clicked)
 	{
-		if (clicked == true) 
+		if (clicked == false && fade == true) {
+			options_menu.gameObject.SetActive (false);
+			pausemenu.SetActive (true);
+		}
+		else if (clicked == true) 
 		{
 			options_menu.gameObject.SetActive (clicked);
 			main_menu.gameObject.SetActive(false);
@@ -75,7 +79,9 @@ public class LevelManager : MonoBehaviour
 		UnityEditor.EditorApplication.isPlaying = false;
 		#endif
 	}
-
+		
+		
+		
 	/*IEnumerator fadeout(GameObject temp){
 		float original = temp.GetComponent<AudioSource> ().volume;
 		for (float i = 0.0f; i < 1.0f; i += Time.deltaTime / 22.0f) {
@@ -92,6 +98,11 @@ public class LevelManager : MonoBehaviour
 			
 	public void InvertMouseY () {
 		FindObjectOfType<CinemachineFreeLook> ().gameObject.GetComponent<FreelookFindPlayer> ().ToggleInvertMouseY ();
+		//Debug.Log (FindObjectOfType<CinemachineFreeLook> ().gameObject.GetComponent<CinemachineFreeLook> ().m_XAxis.m_InvertAxis);
+	}
+
+	public void InvertMouseX () {
+		FindObjectOfType<CinemachineFreeLook> ().gameObject.GetComponent<CinemachineFreeLook> ().m_XAxis.m_InvertAxis ^= true;
 	}
 
 }
