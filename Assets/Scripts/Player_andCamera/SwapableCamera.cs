@@ -57,8 +57,8 @@ public class SwapableCamera : MonoBehaviour {
 
 	// This function handles movement of the camera between 2D and 3D shots,
 	// and the changing of projection mode
-	void Shift(bool dim, float time) {
-
+	void Shift(bool dim, float time)
+	{
 		// Assign global variables to values of event parameters
 		dimension = dim;
 		GetComponent<CinemachineBrain> ().m_DefaultBlend.m_Time = time;
@@ -107,13 +107,14 @@ public class SwapableCamera : MonoBehaviour {
 				}
 					
 				// trigger a shotchange event, which will in turn move the camera.
-				if (world_controller) {
-					world_controller.ShotChangeOnExternalCall (index + 1);
+				if (world_controller)
+				{
+					world_controller.ShotChangeOnExternalCall(index + 1);
 				}
 
-
 				// Refers to the Matrixblender script to change perspective
-				if (blendingOrtho) {
+				if (blendingOrtho)
+				{
 					blender.BlendToMatrix (ortho, time);
 				}
 			} 
@@ -123,11 +124,13 @@ public class SwapableCamera : MonoBehaviour {
 	}
 
 	// Cinemachine handles all camera movement
-	void MoveCamera(int shot) {
+	void MoveCamera(int shot)
+	{
 
 		// the freelook camera, used for 3D, statically has a priority of 15. When we want to switch to
 		// 2D, we set one of the 2D cameras' priority to 20
-		if (shot < 5) {
+		if (shot < 5)
+		{
 			shot_reference [shot - 1].GetComponent<CinemachineVirtualCamera> ().Priority = 20;
 		}
 
