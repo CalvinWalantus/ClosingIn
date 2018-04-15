@@ -18,6 +18,7 @@ public class ThirdPersonUserControl : MonoBehaviour
 	// Boolean Allow flags
 	public bool allow_jump = false;
 	public bool allow_movement = true;
+	public bool allow_sprint = true;
 
 	// inverts mouse Y, set by in game options menu
 	bool invertMouseY = false;
@@ -137,7 +138,8 @@ public class ThirdPersonUserControl : MonoBehaviour
 		{
 			v = 0;
 		}
-			
+
+		//Debug.Log (v + " " + h + " " + (h == 0.0f) + " " + (v == 0.0f));
 		// CUSTOM - disables horizontal movement, for 2D
 		// if (m_VerticalMovement) v = CrossPlatformInputManager.GetAxis("Vertical");
 		// else v = 0;
@@ -158,7 +160,7 @@ public class ThirdPersonUserControl : MonoBehaviour
         }
 #if !MOBILE_INPUT
 		// Walk speed multiplier
-        if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
+		if (Input.GetKey(KeyCode.LeftControl) && allow_sprint) m_Move *= 0.5f;
 #endif
 
 		// Regular gameplay allow movement

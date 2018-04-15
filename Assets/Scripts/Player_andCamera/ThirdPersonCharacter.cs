@@ -29,9 +29,6 @@ public class ThirdPersonCharacter : MonoBehaviour
 	CapsuleCollider m_Capsule;
 	bool m_Crouching;
 
-	//CUSTOM
-	private bool m_StartOfJump;
-	private float m_InitialJumpX, m_InitialJumpZ;
 
 	public float twod_jumping_force=0.3f;
 	public float threed_jumping_force = 0.3f;
@@ -57,6 +54,13 @@ public class ThirdPersonCharacter : MonoBehaviour
 
 	public void Move(Vector3 move, bool crouch, bool jump)
 	{
+
+		// increase drag when player is standing still to avoid sliding on inclines
+		if (Vector3.Equals (move, Vector3.zero) && m_IsGrounded) {
+			m_Rigidbody.drag = 500;
+		} else {
+			m_Rigidbody.drag = 0;
+		}
 
 
 		// convert the world relative moveInput vector into a local-relative
@@ -132,8 +136,8 @@ public class ThirdPersonCharacter : MonoBehaviour
 	void UpdateAnimator(Vector3 move)
 	{
 		// update the animator parameters
-		m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
-		m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+		m_Animator.SetFloat("Forward", m_ForwardAmount, 0.0f, Time.deltaTime);
+		m_Animator.SetFloat("Turn", m_TurnAmount, 0.0f, Time.deltaTime);
 		m_Animator.SetBool("Crouch", m_Crouching);
 		m_Animator.SetBool("OnGround", m_IsGrounded);
 		if (!m_IsGrounded)
@@ -196,9 +200,6 @@ public class ThirdPersonCharacter : MonoBehaviour
 			m_IsGrounded = false;
 			m_Animator.applyRootMotion = false;
 			m_GroundCheckDistance = 0.1f;
-
-
-			m_StartOfJump = true;
 		}
 	}
 
@@ -252,6 +253,7 @@ public class ThirdPersonCharacter : MonoBehaviour
 			out hitInfo,
 			m_GroundCheckDistance
 		);
+			
 
 		if (condition) {
 			m_IsGrounded = true;
@@ -264,6 +266,11 @@ public class ThirdPersonCharacter : MonoBehaviour
 			m_Animator.applyRootMotion = false;
 		}
 	}
+
+	/*void OnDrawGizmos () {
+		Gizmos.DrawSphere (m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f),
+			m_Capsule.height / 2);
+	}*/
 
 	public bool GetGroundStatus () {
 		return m_IsGrounded;
