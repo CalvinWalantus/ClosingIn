@@ -253,6 +253,7 @@ public class ThirdPersonCharacter : MonoBehaviour
 			out hitInfo,
 			m_GroundCheckDistance
 		);
+			
 
 		if (condition) {
 			m_IsGrounded = true;
@@ -265,6 +266,11 @@ public class ThirdPersonCharacter : MonoBehaviour
 			m_Animator.applyRootMotion = false;
 		}
 	}
+
+	/*void OnDrawGizmos () {
+		Gizmos.DrawSphere (m_Capsule.transform.position + m_Capsule.center + (Vector3.up * 0.1f),
+			m_Capsule.height / 2);
+	}*/
 
 	public bool GetGroundStatus () {
 		return m_IsGrounded;
