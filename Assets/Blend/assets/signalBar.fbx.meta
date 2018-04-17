@@ -1,0 +1,140 @@
+fileFormatVersion: 2
+guid: aa7593a4c6025354a9ed1d7e30f8a730
+timeCreated: 1524001920
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: wifi bar1
+    100004: wifi bar1.001
+    100006: wifi bar2
+    100008: wifi bar2.001
+    100010: wifi bar3
+    100012: wifi bar3.001
+    100014: wifi bar4
+    100016: wifi bar4.001
+    100018: wifi bar5
+    100020: wifi bar5.001
+    400000: //RootNode
+    400002: wifi bar1
+    400004: wifi bar1.001
+    400006: wifi bar2
+    400008: wifi bar2.001
+    400010: wifi bar3
+    400012: wifi bar3.001
+    400014: wifi bar4
+    400016: wifi bar4.001
+    400018: wifi bar5
+    400020: wifi bar5.001
+    2100000: Material
+    2300000: wifi bar1
+    2300002: wifi bar1.001
+    2300004: wifi bar2
+    2300006: wifi bar2.001
+    2300008: wifi bar3
+    2300010: wifi bar3.001
+    2300012: wifi bar4
+    2300014: wifi bar4.001
+    2300016: wifi bar5
+    2300018: wifi bar5.001
+    3300000: wifi bar1
+    3300002: wifi bar1.001
+    3300004: wifi bar2
+    3300006: wifi bar2.001
+    3300008: wifi bar3
+    3300010: wifi bar3.001
+    3300012: wifi bar4
+    3300014: wifi bar4.001
+    3300016: wifi bar5
+    3300018: wifi bar5.001
+    4300000: wifi bar1.001
+    4300002: wifi bar2.001
+    4300004: wifi bar3.001
+    4300006: wifi bar4.001
+    4300008: wifi bar5.001
+    4300010: wifi bar5
+    4300012: wifi bar4
+    4300014: wifi bar3
+    4300016: wifi bar2
+    4300018: wifi bar1
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
