@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/sophiaDoppelganger_12.unity
+  - enabled: 0
+    path: Assets/Scenes/SpingWk1.unity
     guid: 1d7883e0e548ffc46bff72326a7fa5bc
+  - enabled: 1
+    path: Assets/Scenes/DemoScene.unity
+    guid: f4e854447639d674f85d13eaba8ed9b4
