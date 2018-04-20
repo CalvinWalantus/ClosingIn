@@ -10,10 +10,12 @@ using UnityEditor.SceneManagement;
 
 public class LevelManager : MonoBehaviour 
 {
-	public Transform main_menu, options_menu;
+	public Transform main_menu, options_menu, build_info;
+	public bool showBuildInfo = false;
 	public CinemachineVirtualCamera look;
 	public AudioManager audioManager;
 	public GameObject mainobject;
+
 
 	World worldController;
 
@@ -48,6 +50,9 @@ public class LevelManager : MonoBehaviour
 		fade = true;
 		look.Priority = -100;
 		worldController.StartAnimation ();
+		if (showBuildInfo) {
+			build_info.gameObject.SetActive(true);
+		}
 		this.gameObject.SetActive (false);
 	}
 
