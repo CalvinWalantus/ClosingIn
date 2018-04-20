@@ -44,6 +44,7 @@ public class World : MonoBehaviour
 
 	void Start()
 	{
+
 		timer = shift_time;
 
 		shotChangeEvent (two_shot);
@@ -105,7 +106,7 @@ public class World : MonoBehaviour
 		// Tracks Current Shot
 		int compare = current_shot;
 
-		if (Input.GetKeyDown(KeyCode.LeftArrow)) 
+		if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow)) 
 		{
 			current_shot -= 1;				// Move shot left from Shot 2 to Shot 2 = Shot 2 - 1.
 
@@ -114,7 +115,7 @@ public class World : MonoBehaviour
 				current_shot = 4;
 			}
 		} 
-		else if(Input.GetKeyDown(KeyCode.RightArrow))
+		else if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightArrow))
 		{
 			current_shot += 1;				// Move shot right from Shot 2 to Shot 2 = Shot 2 + 1.
 

@@ -55,13 +55,14 @@ public class ThirdPersonCharacter : MonoBehaviour
 	public void Move(Vector3 move, bool crouch, bool jump)
 	{
 
+		/*
 		// increase drag when player is standing still to avoid sliding on inclines
 		if (Vector3.Equals (move, Vector3.zero) && m_IsGrounded) {
 			m_Rigidbody.drag = 500;
 		} else {
 			m_Rigidbody.drag = 0;
 		}
-
+		*/
 
 		// convert the world relative moveInput vector into a local-relative
 		// turn amount and forward amount required to head in the desired
