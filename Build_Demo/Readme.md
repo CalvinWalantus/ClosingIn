@@ -16,8 +16,7 @@ Known Issues:
 - player floats midair when staitonary
 
 Optimization:
-This build should be played on a gaming desktop with a modern graphics card to avoid framerate lag.
-
+This build should be played on a gaming computer with a modern graphics card to avoid severe lag.
 
 Notes:
-Some areas are incomplete. The area currently reached by pressing Alpha4 is a good demonstration of the compressable mechanic.
+Some areas are incomplete. Make sure to check out the area currently reached by pressing Alpha 4, which is a good demonstration of the compressable mechanic.
