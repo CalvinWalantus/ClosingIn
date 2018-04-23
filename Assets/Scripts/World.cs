@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿// Worldcontroller
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Playables;
 using UnityEngine.Animations;
 using UnityEngine;
-
 
 public class World : MonoBehaviour 
 {
@@ -178,7 +179,7 @@ public class World : MonoBehaviour
 		}
 	}
 
-	// Allow other objects to trigger a shotchagne event
+	// Allow other objects to trigger a shotchange event
 	public void ShotChangeOnExternalCall (int tw_shot)
 	{
 		two_shot = tw_shot;
