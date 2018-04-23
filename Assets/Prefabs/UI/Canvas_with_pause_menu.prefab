@@ -940,6 +940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main_menu: {fileID: 224629671338612090}
   options_menu: {fileID: 224920626340709376}
+  build_info: {fileID: 224597608203285446}
+  showBuildInfo: 0
   look: {fileID: 0}
   audioManager: {fileID: 0}
   mainobject: {fileID: 1267220270553722}

@@ -30,6 +30,13 @@ public class LevelManager : MonoBehaviour
 		worldController = FindObjectOfType<World> ();
 		audioManager = FindObjectOfType<AudioManager> ();
 		look.Priority = 40;
+
+		if (showBuildInfo) {
+			build_info.gameObject.SetActive (true);
+		} else {
+			build_info.gameObject.SetActive (false);
+			Debug.Log ("found");
+		}
 	}
 
 	/*void Update (){
@@ -50,9 +57,7 @@ public class LevelManager : MonoBehaviour
 		fade = true;
 		look.Priority = -100;
 		worldController.StartAnimation ();
-		if (showBuildInfo) {
-			build_info.gameObject.SetActive(true);
-		}
+
 		this.gameObject.SetActive (false);
 	}
 
