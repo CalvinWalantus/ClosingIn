@@ -42,7 +42,6 @@ public class temp : MonoBehaviour {
 		Debug.DrawLine (Camera.main.transform.position, targetposition, Color.black);
 		foreach (RaycastHit hit in Hits) {
 
-			Debug.Log ("HI");
 			renderers = hit.collider.GetComponentsInParent<Renderer>();  
 			foreach (Renderer r in renderers) {  
 				addtransparent (r); 
