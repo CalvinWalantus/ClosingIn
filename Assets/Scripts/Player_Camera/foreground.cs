@@ -13,7 +13,7 @@ public class foreground : MonoBehaviour {
 	GameObject player;
 	Camera cam;
 	public List<Collider> disables = new List<Collider>();
-	public List<Collider> temp = new List<Collider> ();
+	public List<Collider> hitList = new List<Collider> ();
 	public Collider[] hits;
 	World world_controller;
 	public int layermask;
@@ -39,7 +39,7 @@ public class foreground : MonoBehaviour {
 	}
 
 	void findobjects(){
-		temp.Clear ();
+		hitList.Clear ();
 		float x = (player.transform.position.x + cam.transform.position.x)/2;
 		float y = (player.transform.position.y + cam.transform.position.y)/2;
 		float z = (player.transform.position.z + cam.transform.position.z)/2;
@@ -48,19 +48,19 @@ public class foreground : MonoBehaviour {
 		size = size * 0.9f;
 		hits = Physics.OverlapBox (pos, new Vector3 (20f/2, 8.3f/2, size/2),Quaternion.identity,layermask);
 		//debugdraw (hits);
-		temp = hits.ToList();
+		hitList = hits.ToList();
 		foreach (Collider q in disables.ToList()) {
-			if (!temp.Contains (q)) {
+			if (!hitList.Contains (q)) {
 				//q.GetComponent<Renderer> ().enabled = true;
 				StartCoroutine(fadeout(q.gameObject,1.0f,true));
 				disables.Remove (q);
 				//Debug.Log (q.gameObject.name);
 			}
 		}
-		foreach(Collider i in temp){
+		foreach(Collider i in hitList){
 			if (world_controller.two_shot == 3) {
-				if (i.gameObject.transform.position.z + (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) > player.transform.position.z && !disables.Contains(i)) {
-					Debug.Log (i.gameObject.transform.position.z + i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z + i.gameObject.name);
+				if ((i.gameObject.transform.position.z - i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) > player.transform.position.z && !disables.Contains(i)) {
+					Debug.Log (i.gameObject.name + ": " + (i.gameObject.transform.position.z - i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) + " " + player.gameObject.transform.position.z);
 					if (i.GetComponent<Renderer> ()) {
 						//i.GetComponent<Renderer> ().enabled = false;
 						StartCoroutine(fadeout(i.gameObject,0.0f,false));
@@ -69,8 +69,8 @@ public class foreground : MonoBehaviour {
 					}
 				}
 			}
-			if (world_controller.two_shot == 1) {
-				if (i.gameObject.transform.position.z + (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) > player.transform.position.z && !disables.Contains(i)) {
+			else if (world_controller.two_shot == 1) {
+				if (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z > player.transform.position.z && !disables.Contains(i)) {
 					if (i.GetComponent<Renderer> ()) {
 						//i.GetComponent<Renderer> ().enabled = false;
 						StartCoroutine(fadeout(i.gameObject,0.0f,false));
@@ -78,8 +78,8 @@ public class foreground : MonoBehaviour {
 					}
 				}
 			}
-			if (world_controller.two_shot == 4) {
-				if (i.gameObject.transform.position.x - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x) < player.transform.position.x && !disables.Contains(i)) {
+			else if (world_controller.two_shot == 4) {
+				if (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x < player.transform.position.x && !disables.Contains(i)) {
 					if (i.GetComponent<Renderer> ()) {
 						StartCoroutine(fadeout(i.gameObject,0.0f,false));
 						//i.GetComponent<Renderer> ().enabled = false;
@@ -87,9 +87,9 @@ public class foreground : MonoBehaviour {
 					}
 				}
 			}
-			if (world_controller.two_shot == 2) {
+			else if (world_controller.two_shot == 2) {
 				//Debug.Log (i.gameObject.transform.position.x - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x / 2) + i.gameObject.name);
-				if (i.gameObject.transform.position.x - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x) < player.transform.position.x && !disables.Contains(i)) {
+				if (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x < player.transform.position.x && !disables.Contains(i)) {
 					Debug.Log (i.name + " " + i.GetComponent<MeshRenderer>().bounds.extents.x);
 					//if (i.gameObject.transform.position.z - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z / 2) > player.transform.position.z && !disables.Contains(i)){
 						if (i.GetComponent<Renderer> ()) {
