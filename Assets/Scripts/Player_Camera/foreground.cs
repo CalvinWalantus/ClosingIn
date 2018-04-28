@@ -1,18 +1,27 @@
-﻿using System.Collections;
+﻿// Foreground.cs - Zijie Zhang and Calvin Walantus
+// This script should be attached to the Main Camera object.
+// Parses objects between the player and the camera in 2D, deciding which to make invisible
+// Objects that are exclusively in front of the player are made invisible, so that the player does not make the mistake of trying to interact with them.
+// Objects that are both in front of the player and on the same plan as them are preserved since they are still interactable.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
 public class foreground : MonoBehaviour {
-	public GameObject player;
+	GameObject player;
+	Camera cam;
 	public List<Collider> disables = new List<Collider>();
 	public List<Collider> temp = new List<Collider> ();
 	public Collider[] hits;
 	World world_controller;
 	public int layermask;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		world_controller = FindObjectOfType<World> ();
+		cam = GetComponent<Camera> ();
+		player = GameObject.FindGameObjectWithTag ("Player");
 		layermask = 1 << 1;
 	}
 	
@@ -31,11 +40,11 @@ public class foreground : MonoBehaviour {
 
 	void findobjects(){
 		temp.Clear ();
-		float x = (player.transform.position.x + Camera.main.transform.position.x)/2;
-		float y = (player.transform.position.y + Camera.main.transform.position.y)/2;
-		float z = (player.transform.position.z + Camera.main.transform.position.z)/2;
+		float x = (player.transform.position.x + cam.transform.position.x)/2;
+		float y = (player.transform.position.y + cam.transform.position.y)/2;
+		float z = (player.transform.position.z + cam.transform.position.z)/2;
 		Vector3 pos = new Vector3 (x, y, z);
-		float size = Vector3.Distance (player.transform.position, Camera.main.transform.position);
+		float size = Vector3.Distance (player.transform.position, cam.transform.position);
 		size = size * 0.9f;
 		hits = Physics.OverlapBox (pos, new Vector3 (20f/2, 8.3f/2, size/2),Quaternion.identity,layermask);
 		//debugdraw (hits);
@@ -50,8 +59,8 @@ public class foreground : MonoBehaviour {
 		}
 		foreach(Collider i in temp){
 			if (world_controller.two_shot == 3) {
-				if (i.gameObject.transform.position.z + (i.gameObject.transform.lossyScale.z / 2) > player.transform.position.z && !disables.Contains(i)) {
-					Debug.Log (i.gameObject.transform.position.z + i.gameObject.transform.lossyScale.z / 2 + i.gameObject.name);
+				if (i.gameObject.transform.position.z + (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) > player.transform.position.z && !disables.Contains(i)) {
+					Debug.Log (i.gameObject.transform.position.z + i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z + i.gameObject.name);
 					if (i.GetComponent<Renderer> ()) {
 						//i.GetComponent<Renderer> ().enabled = false;
 						StartCoroutine(fadeout(i.gameObject,0.0f,false));
@@ -61,7 +70,7 @@ public class foreground : MonoBehaviour {
 				}
 			}
 			if (world_controller.two_shot == 1) {
-				if (i.gameObject.transform.position.z + (i.gameObject.transform.lossyScale.z / 2) > player.transform.position.z && !disables.Contains(i)) {
+				if (i.gameObject.transform.position.z + (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) > player.transform.position.z && !disables.Contains(i)) {
 					if (i.GetComponent<Renderer> ()) {
 						//i.GetComponent<Renderer> ().enabled = false;
 						StartCoroutine(fadeout(i.gameObject,0.0f,false));
@@ -70,7 +79,7 @@ public class foreground : MonoBehaviour {
 				}
 			}
 			if (world_controller.two_shot == 4) {
-				if (i.gameObject.transform.position.x - (i.gameObject.transform.lossyScale.x / 2) < player.transform.position.x && !disables.Contains(i)) {
+				if (i.gameObject.transform.position.x - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x) < player.transform.position.x && !disables.Contains(i)) {
 					if (i.GetComponent<Renderer> ()) {
 						StartCoroutine(fadeout(i.gameObject,0.0f,false));
 						//i.GetComponent<Renderer> ().enabled = false;
@@ -79,10 +88,10 @@ public class foreground : MonoBehaviour {
 				}
 			}
 			if (world_controller.two_shot == 2) {
-				//Debug.Log (i.gameObject.transform.position.x - (i.gameObject.transform.lossyScale.x / 2) + i.gameObject.name);
-				if (i.gameObject.transform.position.x - (i.gameObject.transform.lossyScale.x / 2) < player.transform.position.x && !disables.Contains(i)) {
-					Debug.Log (i.name + " " + i.transform.lossyScale.x);
-					//if (i.gameObject.transform.position.z - (i.gameObject.transform.lossyScale.z / 2) > player.transform.position.z && !disables.Contains(i)){
+				//Debug.Log (i.gameObject.transform.position.x - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x / 2) + i.gameObject.name);
+				if (i.gameObject.transform.position.x - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x) < player.transform.position.x && !disables.Contains(i)) {
+					Debug.Log (i.name + " " + i.GetComponent<MeshRenderer>().bounds.extents.x);
+					//if (i.gameObject.transform.position.z - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z / 2) > player.transform.position.z && !disables.Contains(i)){
 						if (i.GetComponent<Renderer> ()) {
 							StartCoroutine (fadeout (i.gameObject, 0.0f, false));
 							//i.GetComponent<Renderer> ().enabled = false;
@@ -98,11 +107,11 @@ public class foreground : MonoBehaviour {
 	}
 	void OnDrawGizmos() {
 		Gizmos.color = Color.red;
-		float x = (player.transform.position.x + Camera.main.transform.position.x)/2;
-		float y = (player.transform.position.y + Camera.main.transform.position.y)/2;
-		float z = (player.transform.position.z + Camera.main.transform.position.z)/2;
+		float x = (player.transform.position.x + cam.transform.position.x)/2;
+		float y = (player.transform.position.y + cam.transform.position.y)/2;
+		float z = (player.transform.position.z + cam.transform.position.z)/2;
 		Vector3 pos = new Vector3 (x, y, z);
-		float size = Vector3.Distance (player.transform.position, Camera.main.transform.position);
+		float size = Vector3.Distance (player.transform.position, cam.transform.position);
 		Gizmos.DrawWireCube(pos,new Vector3(20f,8.3f,size));
 	}
 	void debugdraw(Collider[] hits){

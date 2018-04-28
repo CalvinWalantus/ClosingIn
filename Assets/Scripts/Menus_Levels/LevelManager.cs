@@ -35,7 +35,6 @@ public class LevelManager : MonoBehaviour
 			build_info.gameObject.SetActive (true);
 		} else {
 			build_info.gameObject.SetActive (false);
-			Debug.Log ("found");
 		}
 	}
 
