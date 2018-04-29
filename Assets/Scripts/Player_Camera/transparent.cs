@@ -19,7 +19,7 @@ public class transparent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float distance = Vector3.Distance (player.transform.position, Camera.main.transform.position);
-		hits = Physics.CapsuleCastAll (player.transform.position + Vector3.up * 0.2f, player.transform.position - Vector3.up * 0.1f, 0.15f, (transform.position - player.transform.position).normalized, distance, layermask);
+		hits = Physics.CapsuleCastAll (player.transform.position + Vector3.up * 1.2f, player.transform.position + Vector3.up * 0.5f, 0.15f, (transform.position - player.transform.position).normalized, distance, layermask);
 		for (int i = 0; i < hits.Length; i++) {
 			RaycastHit hit = hits [i];
 			if (hit.collider.tag != "Player") {
