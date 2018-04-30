@@ -76,11 +76,12 @@ public class DisableForegroundObjects : MonoBehaviour {
 
 		// Detect all colliders in the box formed by the orthographic camera frame and the distance from player to camera.
 		// Objects without colliders will NOT be detected.
-		hits = Physics.OverlapBox (box_position, new Vector3 (20f/2, 8.3f/2, (box_size * 0.9f)/2), Quaternion.identity, layermask);
+		hits = Physics.OverlapBox (box_position, new Vector3 (500f/2, 200.3f/2, (box_size * 0.9f)/2), Quaternion.identity, layermask);
 		hitList = hits.ToList();
 
 		// Iterate through all colliders between the player and the camera.
-		foreach(Collider i in hitList){
+		foreach(Collider i in hitList) {
+
 			MeshRenderer hit_renderer = i.GetComponent<MeshRenderer>();
 			if (hit_renderer) {
 
