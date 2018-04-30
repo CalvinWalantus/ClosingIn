@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 	void Awake()
 	{
 		fade = false;
-		DontDestroyOnLoad(transform.gameObject);
+		DontDestroyOnLoad(this.gameObject);
 	}
 	/*void Update(){
 		if (fade) {

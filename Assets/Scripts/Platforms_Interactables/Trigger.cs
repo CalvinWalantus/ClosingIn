@@ -17,6 +17,7 @@ public class Trigger : MonoBehaviour {
 
 	public delegate void Hit(int trigger_id);
 	public event Hit hitEvent;
+	public float delay = 0.5f;
 
 	// Use this for initialization
 	void Start () 
@@ -33,8 +34,7 @@ public class Trigger : MonoBehaviour {
 			hitEvent (id);
 			StartCoroutine(FeedbackLerp(start_material, end_material, lerpSpeed));
 
-
-			GetComponent<AudioSource>().PlayDelayed(0.5f);
+			GetComponent<AudioSource>().PlayDelayed(delay);
 			once_only = false;
 		}
 	}

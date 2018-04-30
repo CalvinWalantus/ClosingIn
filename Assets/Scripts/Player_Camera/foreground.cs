@@ -31,7 +31,6 @@ public class foreground : MonoBehaviour {
 			findobjects ();
 		} else if(disables.Count>0) {
 			foreach (Collider i in disables.ToList()) {
-				//i.GetComponent<Renderer> ().enabled = true;
 				StartCoroutine(fadeout(i.gameObject,1.0f,true));
 			}
 			disables.Clear ();
@@ -58,54 +57,51 @@ public class foreground : MonoBehaviour {
 			}
 		}
 		foreach(Collider i in hitList){
-			if (world_controller.two_shot == 3) {
-				if ((i.gameObject.transform.position.z - i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) > player.transform.position.z && !disables.Contains(i)) {
-					Debug.Log (i.gameObject.name + ": " + (i.gameObject.transform.position.z - i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) + " " + player.gameObject.transform.position.z);
-					if (i.GetComponent<Renderer> ()) {
-						//i.GetComponent<Renderer> ().enabled = false;
-						StartCoroutine(fadeout(i.gameObject,0.0f,false));
-						disables.Add (i);
-						//Debug.Log (i.gameObject.name);
-					}
-				}
-			}
-			else if (world_controller.two_shot == 1) {
-				if (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z > player.transform.position.z && !disables.Contains(i)) {
-					if (i.GetComponent<Renderer> ()) {
-						//i.GetComponent<Renderer> ().enabled = false;
-						StartCoroutine(fadeout(i.gameObject,0.0f,false));
-						disables.Add (i);
-					}
-				}
-			}
-			else if (world_controller.two_shot == 4) {
-				if (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x < player.transform.position.x && !disables.Contains(i)) {
-					if (i.GetComponent<Renderer> ()) {
-						StartCoroutine(fadeout(i.gameObject,0.0f,false));
-						//i.GetComponent<Renderer> ().enabled = false;
-						disables.Add (i);
-					}
-				}
-			}
-			else if (world_controller.two_shot == 2) {
-				//Debug.Log (i.gameObject.transform.position.x - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x / 2) + i.gameObject.name);
-				if (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x < player.transform.position.x && !disables.Contains(i)) {
-					Debug.Log (i.name + " " + i.GetComponent<MeshRenderer>().bounds.extents.x);
-					//if (i.gameObject.transform.position.z - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z / 2) > player.transform.position.z && !disables.Contains(i)){
+			MeshRenderer hit_renderer = i.gameObject.GetComponent<MeshRenderer>();
+			if (hit_renderer) {
+				if (world_controller.two_shot == 3) {
+					if ((i.gameObject.transform.position.z - i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) > player.transform.position.z && !disables.Contains(i)) {
+						//Debug.Log (i.gameObject.name + ": " + (i.gameObject.transform.position.z - i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) + " " + player.gameObject.transform.position.z);
 						if (i.GetComponent<Renderer> ()) {
-							StartCoroutine (fadeout (i.gameObject, 0.0f, false));
-							//i.GetComponent<Renderer> ().enabled = false;
+							StartCoroutine(fadeout(i.gameObject,0.0f,false));
 							disables.Add (i);
 						}
-					//}
+					}
+				}
+				else if (world_controller.two_shot == 1) {
+					if ((i.gameObject.transform.position.z + i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) < player.transform.position.z && !disables.Contains(i)) {
+						if (i.GetComponent<Renderer> ()) {
+							StartCoroutine(fadeout(i.gameObject,0.0f,false));
+							disables.Add (i);
+						}
+					}
+				}
+				else if (world_controller.two_shot == 4) {
+					if ((i.gameObject.transform.position.x + i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x) < player.transform.position.x && !disables.Contains(i)) {
+						//Debug.Log (i.gameObject.name + ": " + (i.gameObject.transform.position.x - i.gameObject.GetComponent<MeshRenderer>().bounds.extents.z) + " " + player.gameObject.transform.position.z);
+						if (i.GetComponent<Renderer> ()) {
+							StartCoroutine(fadeout(i.gameObject,0.0f,false));
+							disables.Add (i);
+						}
+					}
+				}
+				else if (world_controller.two_shot == 2) {
+					//Debug.Log (i.gameObject.transform.position.x - (i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x / 2) + i.gameObject.name);
+					if ((i.gameObject.transform.position.x - i.gameObject.GetComponent<MeshRenderer>().bounds.extents.x) > player.transform.position.x && !disables.Contains(i)) {
+						if (i.GetComponent<Renderer> ()) {
+							StartCoroutine (fadeout (i.gameObject, 0.0f, false));
+							disables.Add (i);
+						}
+					}
 				}
 			}
-
-
 		}
 
 	}
 	void OnDrawGizmos() {
+		if (player == null) {
+			player = GameObject.FindGameObjectWithTag("Player");
+		}
 		Gizmos.color = Color.red;
 		float x = (player.transform.position.x + cam.transform.position.x)/2;
 		float y = (player.transform.position.y + cam.transform.position.y)/2;
