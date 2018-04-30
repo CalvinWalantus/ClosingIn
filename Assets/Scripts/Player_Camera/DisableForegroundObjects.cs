@@ -11,8 +11,10 @@ using System.Linq;
 
 public class DisableForegroundObjects : MonoBehaviour {
 
-	GameObject player;
-	Camera cam;
+	Transform player_transform, cam_transform;
+	Vector3 box_position;
+	float box_size;
+
 	World world_controller;
 	int two_shot;
 	bool dimension;
@@ -26,10 +28,10 @@ public class DisableForegroundObjects : MonoBehaviour {
 	// We find our key objects and initiate the layermask
 	void Awake () {
 
-		world_controller = FindObjectOfType<World> ();
-		cam = GetComponent<Camera> ();
-		player = GameObject.FindGameObjectWithTag ("Player");
+		cam_transform = transform;
+		player_transform = GameObject.FindGameObjectWithTag("Player").transform;
 
+		world_controller = FindObjectOfType<World> ();
 		world_controller.shiftEvent += HandleShift;
 		world_controller.shotChangeEvent += HandleShotChange;
 
@@ -55,6 +57,7 @@ public class DisableForegroundObjects : MonoBehaviour {
 	void HandleShotChange (int tw_shot) {
 		two_shot = tw_shot;
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -68,26 +71,13 @@ public class DisableForegroundObjects : MonoBehaviour {
 	void findobjects(){
 
 		hitList.Clear ();
-		float x = (player.transform.position.x + cam.transform.position.x)/2;
-		float y = (player.transform.position.y + cam.transform.position.y)/2;
-		float z = (player.transform.position.z + cam.transform.position.z)/2;
 
-		Vector3 pos = new Vector3 (x, y, z);
-		float size = Vector3.Distance (player.transform.position, cam.transform.position);
-		size = size * 0.9f;
+		GetDisableBoxSize();
 
 		// Detect all colliders in the box formed by the orthographic camera frame and the distance from player to camera.
 		// Objects without colliders will NOT be detected.
-		hits = Physics.OverlapBox (pos, new Vector3 (20f/2, 8.3f/2, size/2),Quaternion.identity,layermask);
+		hits = Physics.OverlapBox (box_position, new Vector3 (20f/2, 8.3f/2, (box_size * 0.9f)/2), Quaternion.identity, layermask);
 		hitList = hits.ToList();
-
-		// Resolidify any disbaled objects that are no longer in frame.
-		foreach (Collider q in disables.ToList()) {
-			if (!hitList.Contains (q)) {
-				StartCoroutine(fadeout(q.gameObject,1.0f,true));
-				disables.Remove (q);
-			}
-		}
 
 		// Iterate through all colliders between the player and the camera.
 		foreach(Collider i in hitList){
@@ -99,47 +89,54 @@ public class DisableForegroundObjects : MonoBehaviour {
 				bool disable_object = false;
 
 				if (world_controller.two_shot == 3) {
-					if ((i.transform.position.z - i.GetComponent<MeshRenderer>().bounds.extents.z) > player.transform.position.z && !disables.Contains(i)) {
+					if ((i.transform.position.z - hit_renderer.bounds.extents.z) > player_transform.position.z) {
 						disable_object = true;
 					}
 				}
 				else if (world_controller.two_shot == 1) {
-					if ((i.transform.position.z + i.GetComponent<MeshRenderer>().bounds.extents.z) < player.transform.position.z && !disables.Contains(i)) {
+					if ((i.transform.position.z + hit_renderer.bounds.extents.z) < player_transform.position.z) {
 						disable_object = true;
 					}
 				}
 				else if (world_controller.two_shot == 4) {
-					if ((i.transform.position.x + i.GetComponent<MeshRenderer>().bounds.extents.x) < player.transform.position.x && !disables.Contains(i)) {
+					if ((i.transform.position.x + hit_renderer.bounds.extents.x) < player_transform.position.x) {
 						disable_object = true;
 					}
 				}
 				else if (world_controller.two_shot == 2) {
-					if ((i.transform.position.x - i.GetComponent<MeshRenderer>().bounds.extents.x) > player.transform.position.x && !disables.Contains(i)) {
+					if ((i.transform.position.x - hit_renderer.bounds.extents.x) > player_transform.position.x) {
 						disable_object = true;
 					}
 				}
 
 				// Fade the object out and add it to the list of disabled objects.
 				if (disable_object) {
-					StartCoroutine(fadeout(i.gameObject,0.0f,false));
-					disables.Add (i);
+					if (!disables.Contains(i)) {
+						StartCoroutine(fadeout(i.gameObject,0.0f,false));
+						disables.Add (i);
+					}
+				}
+				else {
+					StartCoroutine(fadeout(i.gameObject,1.0f,true));
+					disables.Remove (i);
 				}
 			}
 		}
+
+
 	}
 
 
 	void OnDrawGizmos() {
-		if (player == null) {
-			player = GameObject.FindGameObjectWithTag("Player");
-		}
+		/*if (player_position == null) {
+			cam_position = transform.position;
+			player_position = GameObject.FindGameObjectWithTag("Player").transform.position;
+		}*/
+
+		GetDisableBoxSize();
+
 		Gizmos.color = Color.red;
-		float x = (player.transform.position.x + cam.transform.position.x)/2;
-		float y = (player.transform.position.y + cam.transform.position.y)/2;
-		float z = (player.transform.position.z + cam.transform.position.z)/2;
-		Vector3 pos = new Vector3 (x, y, z);
-		float size = Vector3.Distance (player.transform.position, cam.transform.position);
-		Gizmos.DrawWireCube(pos,new Vector3(20f,8.3f,size));
+		Gizmos.DrawWireCube(box_position, new Vector3(20f,8.3f,box_size));
 	}
 
 
@@ -167,6 +164,16 @@ public class DisableForegroundObjects : MonoBehaviour {
 			yield return 1;
 		}
 
+	}
+
+	void GetDisableBoxSize () {
+
+		float x = (player_transform.position.x + cam_transform.position.x)/2;
+		float y = (player_transform.position.y + cam_transform.position.y)/2;
+		float z = (player_transform.position.z + cam_transform.position.z)/2;
+
+		box_position = new Vector3 (x, y, z);
+		box_size = Vector3.Distance (player_transform.position, cam_transform.position);
 	}
 
 }
