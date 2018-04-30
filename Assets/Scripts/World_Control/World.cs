@@ -20,12 +20,12 @@ public class World : MonoBehaviour
 	public float timer = 0;
 
 	// Event signaling a dimension change (a "shift")
+	// dim is dimension being changed to.
 	public delegate void Shift(bool dim, float time);
 	public event Shift shiftEvent;
 
 	// Event signalling a shot change
-	// 1-4 = 2D shot change
-	// 5-8 = 3D shot change
+	// tw_shot is shot being changed to.
 	public delegate void ShotChange (int tw_shot);
 	public event ShotChange shotChangeEvent;
 
