@@ -25,6 +25,8 @@ public class DisableForegroundObjects : MonoBehaviour {
 
 	public int layermask;
 
+	public bool drawBox = false;
+
 	// We find our key objects and initiate the layermask
 	void Awake () {
 
@@ -129,10 +131,15 @@ public class DisableForegroundObjects : MonoBehaviour {
 
 
 	void OnDrawGizmos() {
-		/*if (player_position == null) {
-			cam_position = transform.position;
-			player_position = GameObject.FindGameObjectWithTag("Player").transform.position;
-		}*/
+
+		if (!drawBox) {
+			return;
+		}
+
+		if (player_transform == null) {
+			cam_transform = transform;
+			player_transform = GameObject.FindGameObjectWithTag("Player").transform;
+		}
 
 		GetDisableBoxSize();
 

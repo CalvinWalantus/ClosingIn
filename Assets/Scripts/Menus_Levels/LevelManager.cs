@@ -48,7 +48,6 @@ public class LevelManager : MonoBehaviour
 	// Loads a scene when a player clicks Play button. 
 	public void LoadScene(string name)
 	{
-		Canvas canvas = mainobject.GetComponent<Canvas> ();
 		//canvas.enabled = false;
 		//this.gameObject.SetActive (false);
 		//this.gameObject.layer = 0;

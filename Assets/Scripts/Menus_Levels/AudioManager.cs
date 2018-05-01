@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour 
 {
-	bool fade;
 	public AudioSource levelmusic;
 	void Awake()
 	{
-		fade = false;
 		DontDestroyOnLoad(this.gameObject);
 	}
 	/*void Update(){
