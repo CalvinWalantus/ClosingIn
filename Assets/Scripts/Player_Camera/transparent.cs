@@ -12,7 +12,7 @@ public class transparent : MonoBehaviour {
 	private List<Transform> reset;
 	private List<Color>tempcolor;
 
-	private Dictionary<GameObject, Material> originalMaterials;
+	private Dictionary<Transform, Material> originalMaterials;
 
 	private Shader legacyTrans;
 
@@ -24,7 +24,7 @@ public class transparent : MonoBehaviour {
 		reset = new List<Transform> ();
 		second = new List<Transform> ();
 		tempcolor = new List<Color> ();
-		originalMaterials = new Dictionary<GameObject, Material>();
+		originalMaterials = new Dictionary<Transform, Material>();
 
 		legacyTrans = Shader.Find("Transparent/Diffuse");
 	}
@@ -32,13 +32,18 @@ public class transparent : MonoBehaviour {
 	void Update () {
 		float distance = Vector3.Distance (player.transform.position, Camera.main.transform.position);
 		hits = Physics.SphereCastAll (Camera.main.transform.position, 0.5f,(player.transform.position - Camera.main.transform.position)+ new Vector3(0,1,0), distance, layermask);
+		Transform hitDouble = null;
 		for (int i = 0; i < hits.Length; i++) {
 			RaycastHit hit = hits [i];
 			if (hit.collider.tag != "Player") {
-				if (!originalMaterials.ContainsKey(hit.collider.gameObject)) {
+				//if (!originalMaterials.ContainsKey(hit.transform)) {
 					Renderer rend = hit.transform.GetComponent<Renderer> ();
 					if (rend) {
-						originalMaterials.Add(hit.collider.gameObject, new Material(rend.material));
+						if (!originalMaterials.ContainsKey(hit.transform)) {
+							originalMaterials.Add(hit.transform, new Material(rend.material));
+							hitDouble = hit.transform;
+							Debug.Log("originalMaterilas: " + hitDouble);
+						}
 
 						hit.collider.GetComponent<Renderer> ().enabled = true;
 						rend.material.shader = legacyTrans;
@@ -55,7 +60,8 @@ public class transparent : MonoBehaviour {
 						}
 						tempcolor.Clear ();
 					}
-				}
+				//}
+
 			}
 		}
 
@@ -65,19 +71,24 @@ public class transparent : MonoBehaviour {
 				reset.Add (second [n]);
 			}
 		}
+		Debug.Log(Time.frameCount + ": " + reset.Count);
 		foreach (Transform temp in reset) {
-			Renderer clear = temp.transform.GetComponent<Renderer> ();
+			/*Renderer clear = temp.transform.GetComponent<Renderer> ();
 			foreach (Material tempmaterial in clear.materials) {
 				Color tempc = tempmaterial.color;
 				tempc.a = 1.0f;
 				tempmaterial.color = tempc;
+			}*/
+			if (hitDouble) {
+				Debug.Log(hitDouble.Equals(temp));
 			}
+			
+			temp.GetComponent<Renderer>().material = originalMaterials[temp];
+			originalMaterials.Remove(temp);
 		}
 		reset.Clear ();
 		second = new List<Transform> (first);
 		first.Clear ();
-
-
 
 		Debug.DrawRay (Camera.main.transform.position, player.transform.position - Camera.main.transform.position+ new Vector3(0,1.5f,0), Color.red);
 	}
