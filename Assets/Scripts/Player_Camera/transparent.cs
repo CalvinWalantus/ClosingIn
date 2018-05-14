@@ -11,13 +11,22 @@ public class transparent : MonoBehaviour {
 	private List<Transform> second;
 	private List<Transform> reset;
 	private List<Color>tempcolor;
+
+	private Dictionary<GameObject, Material> originalMaterials;
+
+	private Shader legacyTrans;
+
 	// Use this for initialization
 	void Start () {
 		layermask = 1 << 1;
+
 		first = new List<Transform> ();
 		reset = new List<Transform> ();
 		second = new List<Transform> ();
 		tempcolor = new List<Color> ();
+		originalMaterials = new Dictionary<GameObject, Material>();
+
+		legacyTrans = Shader.Find("Transparent/Diffuse");
 	}
 	// Update is called once per frame
 	void Update () {
@@ -26,21 +35,26 @@ public class transparent : MonoBehaviour {
 		for (int i = 0; i < hits.Length; i++) {
 			RaycastHit hit = hits [i];
 			if (hit.collider.tag != "Player") {
-				Renderer rend = hit.transform.GetComponent<Renderer> ();
-				if (rend) {
-					hit.collider.GetComponent<Renderer> ().enabled = true;
-					rend.material.shader = Shader.Find ("Transparent/Diffuse");
-					foreach (Material tempmaterial in rend.materials) {
-						tempcolor.Add (tempmaterial.color);
+				if (!originalMaterials.ContainsKey(hit.collider.gameObject)) {
+					Renderer rend = hit.transform.GetComponent<Renderer> ();
+					if (rend) {
+						originalMaterials.Add(hit.collider.gameObject, new Material(rend.material));
+
+						hit.collider.GetComponent<Renderer> ().enabled = true;
+						rend.material.shader = legacyTrans;
+
+						foreach (Material tempmaterial in rend.materials) {
+							tempcolor.Add (tempmaterial.color);
+						}
+						for(int j =0; j<tempcolor.Count;j++){
+							Color store = tempcolor [j];
+							store.a = 0.2F;
+							tempcolor [j] = store;
+							rend.material.color = tempcolor[j];
+							first.Add (hit.transform);
+						}
+						tempcolor.Clear ();
 					}
-					for(int j =0; j<tempcolor.Count;j++){
-						Color store = tempcolor [j];
-						store.a = 0.2F;
-						tempcolor [j] = store;
-						rend.material.color = tempcolor[j];
-						first.Add (hit.transform);
-					}
-					tempcolor.Clear ();
 				}
 			}
 		}
