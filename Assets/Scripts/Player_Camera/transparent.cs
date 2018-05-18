@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿// Transparent.cs - Zijie Zhang and Calvin Walantus
+// This script is used to detect any objects that are blocking the camera's view of the player
+// and make them transparent. This should be attached to the main camera.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,11 +16,12 @@ public class transparent : MonoBehaviour {
 	private List<Transform> reset;
 	private List<Color>tempcolor;
 
-	private Dictionary<Transform, Material> originalMaterials;
+    // Objects that are made transparent will have their original materials stored in a dicitonary
+    private Dictionary<GameObject, Material> originalMaterials;
 
-	private Shader legacyTrans;
+    // The legacy transparent shader, which we will use to amke objects transparent.
+    private Shader legacyTrans;
 
-	// Use this for initialization
 	void Start () {
 		layermask = 1 << 1;
 
@@ -24,75 +29,72 @@ public class transparent : MonoBehaviour {
 		reset = new List<Transform> ();
 		second = new List<Transform> ();
 		tempcolor = new List<Color> ();
-		originalMaterials = new Dictionary<Transform, Material>();
+		originalMaterials = new Dictionary<GameObject, Material>();
 
 		legacyTrans = Shader.Find("Transparent/Diffuse");
 	}
-	// Update is called once per frame
+
+	
 	void Update () {
+
+        // Detect all objects between the player and the camera.
 		float distance = Vector3.Distance (player.transform.position, Camera.main.transform.position);
 		hits = Physics.SphereCastAll (Camera.main.transform.position, 0.5f,(player.transform.position - Camera.main.transform.position)+ new Vector3(0,1,0), distance, layermask);
-		Transform hitDouble = null;
-		for (int i = 0; i < hits.Length; i++) {
+
+        // Loop through objects, making those that have renderers that are not already transparent.
+        for (int i = 0; i < hits.Length; i++) {
 			RaycastHit hit = hits [i];
 			if (hit.collider.tag != "Player") {
-				//if (!originalMaterials.ContainsKey(hit.transform)) {
-					Renderer rend = hit.transform.GetComponent<Renderer> ();
-					if (rend) {
-						if (!originalMaterials.ContainsKey(hit.transform)) {
-							originalMaterials.Add(hit.transform, new Material(rend.material));
-							hitDouble = hit.transform;
-							Debug.Log("originalMaterilas: " + hitDouble);
-						}
-
-						hit.collider.GetComponent<Renderer> ().enabled = true;
-						rend.material.shader = legacyTrans;
-
-						foreach (Material tempmaterial in rend.materials) {
-							tempcolor.Add (tempmaterial.color);
-						}
-						for(int j =0; j<tempcolor.Count;j++){
-							Color store = tempcolor [j];
-							store.a = 0.2F;
-							tempcolor [j] = store;
-							rend.material.color = tempcolor[j];
-							first.Add (hit.transform);
-						}
-						tempcolor.Clear ();
+				Renderer rend = hit.transform.GetComponent<Renderer> ();
+				if (rend) {
+					if (!originalMaterials.ContainsKey(hit.transform.gameObject)) {
+						originalMaterials.Add(hit.transform.gameObject, new Material(rend.material));
 					}
-				//}
+
+					hit.collider.GetComponent<Renderer> ().enabled = true;
+					rend.material.shader = legacyTrans;
+
+					foreach (Material tempmaterial in rend.materials) {
+						tempcolor.Add (tempmaterial.color);
+					}
+					for(int j =0; j<tempcolor.Count;j++){
+						Color store = tempcolor [j];
+						store.a = 0.2F;
+						tempcolor [j] = store;
+						rend.material.color = tempcolor[j];
+					}
+					tempcolor.Clear ();
+                    first.Add(hit.transform);
+                }
 
 			}
 		}
 
 
-		for (int n = 0; n < second.Count; n++) {
+        // Detect which objects are no longer blcoking the camera and add them to the reset list
+        int counter = 0;
+        for (int n = 0; n < second.Count; n++) {
 			if (!first.Contains (second [n])) {
 				reset.Add (second [n]);
+                counter++;
 			}
 		}
-		Debug.Log(Time.frameCount + ": " + reset.Count);
-		foreach (Transform temp in reset) {
-			/*Renderer clear = temp.transform.GetComponent<Renderer> ();
-			foreach (Material tempmaterial in clear.materials) {
-				Color tempc = tempmaterial.color;
-				tempc.a = 1.0f;
-				tempmaterial.color = tempc;
-			}*/
-			if (hitDouble) {
-				Debug.Log(hitDouble.Equals(temp));
-			}
-			
-			temp.GetComponent<Renderer>().material = originalMaterials[temp];
-			originalMaterials.Remove(temp);
+
+        // Return each object in the reset array to its original material, which is stored in originalMaterials
+        foreach (Transform temp in reset) {
+			temp.GetComponent<Renderer>().material = originalMaterials[temp.gameObject];
+			originalMaterials.Remove(temp.gameObject);
 		}
-		reset.Clear ();
+
+        // Clear arrays
+        reset.Clear ();
 		second = new List<Transform> (first);
 		first.Clear ();
 
 		Debug.DrawRay (Camera.main.transform.position, player.transform.position - Camera.main.transform.position+ new Vector3(0,1.5f,0), Color.red);
 	}
-	void OnDrawGizmos(){
+
+    void OnDrawGizmos(){
 		Gizmos.color = Color.green;
 		Gizmos.DrawWireSphere(player.transform.position+new Vector3(0,1.5f,0),1);
 	}
