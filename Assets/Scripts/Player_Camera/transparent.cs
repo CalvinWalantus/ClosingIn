@@ -9,8 +9,9 @@ using UnityEngine;
 public class transparent : MonoBehaviour {
 
 	public GameObject player;
-	private RaycastHit[] hits;
-	private int layermask;
+	public RaycastHit[] hits;
+	public RaycastHit[] hitsline;
+	public int layermask;
 	private List<Transform> first;
 	private List<Transform> second;
 	private List<Transform> reset;
@@ -40,35 +41,40 @@ public class transparent : MonoBehaviour {
         // Detect all objects between the player and the camera.
 		float distance = Vector3.Distance (player.transform.position, Camera.main.transform.position);
 		hits = Physics.SphereCastAll (Camera.main.transform.position, 0.5f,(player.transform.position - Camera.main.transform.position)+ new Vector3(0,1,0), distance, layermask);
-
+		hitsline = Physics.RaycastAll(Camera.main.transform.position, ((player.transform.position - Camera.main.transform.position)),distance, layermask);
+		Debug.Log (hitsline.Length);
         // Loop through objects, making those that have renderers that are not already transparent.
-        for (int i = 0; i < hits.Length; i++) {
+		for (int i = 0; i < hits.Length; i++) {
 			RaycastHit hit = hits [i];
 			if (hit.collider.tag != "Player") {
 				Renderer rend = hit.transform.GetComponent<Renderer> ();
 				if (rend) {
-					if (!originalMaterials.ContainsKey(hit.transform.gameObject)) {
-						originalMaterials.Add(hit.transform.gameObject, new Material(rend.material));
+					if (searchArray (hitsline, hit.transform) == true) {
+						//Debug.Log ("true");
+						if (!originalMaterials.ContainsKey (hit.transform.gameObject)) {
+							originalMaterials.Add (hit.transform.gameObject, new Material (rend.material));
+						}
+
+						hit.collider.GetComponent<Renderer> ().enabled = true;
+						rend.material.shader = legacyTrans;
+
+						foreach (Material tempmaterial in rend.materials) {
+							tempcolor.Add (tempmaterial.color);
+						}
+						for (int j = 0; j < tempcolor.Count; j++) {
+							Color store = tempcolor [j];
+							store.a = 0.2F;
+							tempcolor [j] = store;
+							rend.material.color = tempcolor [j];
+						}
+						tempcolor.Clear ();
+						first.Add (hit.transform);
 					}
 
-					hit.collider.GetComponent<Renderer> ().enabled = true;
-					rend.material.shader = legacyTrans;
-
-					foreach (Material tempmaterial in rend.materials) {
-						tempcolor.Add (tempmaterial.color);
-					}
-					for(int j =0; j<tempcolor.Count;j++){
-						Color store = tempcolor [j];
-						store.a = 0.2F;
-						tempcolor [j] = store;
-						rend.material.color = tempcolor[j];
-					}
-					tempcolor.Clear ();
-                    first.Add(hit.transform);
-                }
-
+				}
 			}
 		}
+
 
 
         // Detect which objects are no longer blcoking the camera and add them to the reset list
@@ -91,11 +97,20 @@ public class transparent : MonoBehaviour {
 		second = new List<Transform> (first);
 		first.Clear ();
 
-		Debug.DrawRay (Camera.main.transform.position, player.transform.position - Camera.main.transform.position+ new Vector3(0,1.5f,0), Color.red);
+		//Debug.DrawRay (Camera.main.transform.position, player.transform.position - Camera.main.transform.position+ new Vector3(0,1.5f,0), Color.red);
 	}
 
     void OnDrawGizmos(){
 		Gizmos.color = Color.green;
 		Gizmos.DrawWireSphere(player.transform.position+new Vector3(0,1.5f,0),1);
+		Gizmos.DrawRay (Camera.main.transform.position, ((player.transform.position - Camera.main.transform.position) + new Vector3 (0, 1.5f, 0)));
+	}
+		
+	bool searchArray(RaycastHit[] input, Transform inputobject){
+		for (int i = 0; i < input.Length; i++) {
+			if (input [i].transform == inputobject)
+				return true;
+		}
+		return false;
 	}
 }
