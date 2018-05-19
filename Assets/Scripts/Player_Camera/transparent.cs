@@ -49,6 +49,7 @@ public class transparent : MonoBehaviour {
 				if (rend) {
 					if (!originalMaterials.ContainsKey(hit.transform.gameObject)) {
 						originalMaterials.Add(hit.transform.gameObject, new Material(rend.material));
+                        //Debug.Log(rend.gameObject.name + "   " + originalMaterials.Count);
 					}
 
 					hit.collider.GetComponent<Renderer> ().enabled = true;
@@ -81,9 +82,18 @@ public class transparent : MonoBehaviour {
 		}
 
         // Return each object in the reset array to its original material, which is stored in originalMaterials
+        // The try clause catches any objects that have been logged in the dictionary twice, which can happen if an object has two colliders.
         foreach (Transform temp in reset) {
-			temp.GetComponent<Renderer>().material = originalMaterials[temp.gameObject];
-			originalMaterials.Remove(temp.gameObject);
+            try
+            {
+                temp.GetComponent<Renderer>().material = originalMaterials[temp.gameObject];
+                originalMaterials.Remove(temp.gameObject);
+            }
+            catch (KeyNotFoundException)
+            {
+                Debug.Log("Problematic Collider: " + temp.gameObject.name + "\nPlayer at: " + FindObjectOfType<ThirdPersonCharacter>().gameObject.transform.position);
+            }
+           
 		}
 
         // Clear arrays
