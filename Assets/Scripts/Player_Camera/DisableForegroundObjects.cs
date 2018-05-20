@@ -23,7 +23,9 @@ public class DisableForegroundObjects : MonoBehaviour {
 	public List<Collider> hitList = new List<Collider> ();
 	public Collider[] hits;
 
-	public int layermask;
+    public float boxOffset = 0.1f;
+
+    public int layermask;
 
 	public bool drawBox = false;
 
@@ -176,12 +178,17 @@ public class DisableForegroundObjects : MonoBehaviour {
 
 	void GetDisableBoxSize () {
 
-		float x = (player_transform.position.x + cam_transform.position.x)/2;
-		float y = (player_transform.position.y + cam_transform.position.y)/2;
-		float z = (player_transform.position.z + cam_transform.position.z)/2;
+		float x = CameraBiasedPosition(cam_transform.position.x, player_transform.position.x);
+		float y = CameraBiasedPosition(cam_transform.position.y, player_transform.position.y);
+        float z = CameraBiasedPosition(cam_transform.position.z, player_transform.position.z);
 
-		box_position = new Vector3 (x, y, z);
-		box_size = Vector3.Distance (player_transform.position, cam_transform.position);
+        box_position = new Vector3 (x, y, z);
+		box_size = Vector3.Distance (player_transform.position, cam_transform.position) * (1 + boxOffset);
 	}
+
+    float CameraBiasedPosition (float cameraPosition, float playerPosition)
+    {
+        return ((cameraPosition + playerPosition)/2.0f + (boxOffset * (cameraPosition - playerPosition)));
+    }
 
 }

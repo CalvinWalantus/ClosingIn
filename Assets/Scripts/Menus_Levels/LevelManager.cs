@@ -10,8 +10,7 @@ using UnityEditor.SceneManagement;
 
 public class LevelManager : MonoBehaviour 
 {
-	public Transform main_menu, options_menu, build_info;
-	public bool showBuildInfo = false;
+    public Transform main_menu, options_menu;
 	public CinemachineVirtualCamera look;
 	public AudioManager audioManager;
 	public GameObject mainobject;
@@ -30,12 +29,6 @@ public class LevelManager : MonoBehaviour
 		worldController = FindObjectOfType<World> ();
 		audioManager = FindObjectOfType<AudioManager> ();
 		look.Priority = 40;
-
-		if (showBuildInfo) {
-			build_info.gameObject.SetActive (true);
-		} else {
-			build_info.gameObject.SetActive (false);
-		}
 	}
 
 	/*void Update (){

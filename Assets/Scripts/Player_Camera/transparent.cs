@@ -16,6 +16,8 @@ public class transparent : MonoBehaviour {
 	private List<Transform> reset;
 	private List<Color>tempcolor;
 
+    public float opacity = 0.1f;
+
     // Objects that are made transparent will have their original materials stored in a dicitonary
     private Dictionary<GameObject, Material> originalMaterials;
 
@@ -60,7 +62,7 @@ public class transparent : MonoBehaviour {
 					}
 					for(int j =0; j<tempcolor.Count;j++){
 						Color store = tempcolor [j];
-						store.a = 0.2F;
+						store.a = opacity;
 						tempcolor [j] = store;
 						rend.material.color = tempcolor[j];
 					}

@@ -26,7 +26,8 @@ public class AddCollidersToAll : MonoBehaviour {
     {
         foreach (MeshRenderer mesh in all_visible_objects) {
             if (mesh.enabled) {
-                if (mesh.gameObject.GetComponent<Collider>() == null) {
+                if (mesh.gameObject.GetComponent<Collider>() == null && mesh.gameObject.GetComponent<HideMPDestination>() == null) {
+                    mesh.gameObject.AddComponent<MeshCollider>();
                     Debug.Log(mesh.gameObject.name);
                 }
             }
