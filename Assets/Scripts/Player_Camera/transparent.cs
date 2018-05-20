@@ -17,6 +17,9 @@ public class transparent : MonoBehaviour {
 	private List<Transform> reset;
 	private List<Color>tempcolor;
 
+    World worldcontroller;
+    bool dimension;
+
     public float opacity = 0.1f;
 
     // Objects that are made transparent will have their original materials stored in a dicitonary
@@ -34,16 +37,38 @@ public class transparent : MonoBehaviour {
 		tempcolor = new List<Color> ();
 		originalMaterials = new Dictionary<GameObject, Material>();
 
+        worldcontroller = FindObjectOfType<World>();
+        worldcontroller.shiftEvent += HandleShift;
+
 		legacyTrans = Shader.Find("Transparent/Diffuse");
 	}
 
+    void HandleShift (bool dim, float time)
+    {
+        // Set the dimension, and return all 2D objects to their original material if going to 2D
+        dimension = dim;
+        if (!dimension)
+        {
+            foreach (KeyValuePair<GameObject, Material> clearObject in originalMaterials)
+            {
+                RestoreOriginalMaterial(clearObject.Key);
+            }
+        }
+    }
 
 	void Update () {
+
+        // Do nothing in 2D
+        if (!dimension)
+        {
+            return;
+        }
 
 		// Detect all objects between the player and the camera.
 		float distance = Vector3.Distance (player.transform.position, Camera.main.transform.position);
 		hits = Physics.SphereCastAll (Camera.main.transform.position, 0.5f,(player.transform.position - Camera.main.transform.position)+ new Vector3(0,1,0), distance, layermask);
 		hitsline = Physics.RaycastAll(Camera.main.transform.position, ((player.transform.position - Camera.main.transform.position)),distance, layermask);
+
 		// Loop through objects, making those that have renderers that are not already transparent.
 		for (int i = 0; i < hits.Length; i++) {
 			RaycastHit hit = hits [i];
@@ -52,7 +77,6 @@ public class transparent : MonoBehaviour {
 				if (rend && searchArray (hitsline, hit.transform) == true) {
 					if (!originalMaterials.ContainsKey(hit.transform.gameObject)) {
 						originalMaterials.Add(hit.transform.gameObject, new Material(rend.material));
-						//Debug.Log(rend.gameObject.name + "   " + originalMaterials.Count);
 					}
 
 					hit.collider.GetComponent<Renderer> ().enabled = true;
@@ -86,28 +110,33 @@ public class transparent : MonoBehaviour {
 
 		// Return each object in the reset array to its original material, which is stored in originalMaterials
 		// The try clause catches any objects that have been logged in the dictionary twice, which can happen if an object has two colliders.
-		foreach (Transform temp in reset) {
-			try
-			{
-				temp.GetComponent<Renderer>().material = originalMaterials[temp.gameObject];
-				originalMaterials.Remove(temp.gameObject);
-			}
-			catch (KeyNotFoundException)
-			{
-				Debug.Log("Problematic Collider: " + temp.gameObject.name + "\nPlayer at: " + FindObjectOfType<ThirdPersonCharacter>().gameObject.transform.position);
-			}
+		foreach (Transform temp in reset)
+        {
+            RestoreOriginalMaterial(temp.gameObject);
+        }
 
-		}
-
-		// Clear arrays
-		reset.Clear ();
+        // Clear arrays
+        reset.Clear ();
 		second = new List<Transform> (first);
 		first.Clear ();
 
 		Debug.DrawRay (Camera.main.transform.position, player.transform.position - Camera.main.transform.position+ new Vector3(0,1.5f,0), Color.red);
 	}
 
-	void OnDrawGizmos(){
+    private void RestoreOriginalMaterial(GameObject temp)
+    {
+        try
+        {
+            temp.GetComponent<Renderer>().material = originalMaterials[temp];
+            originalMaterials.Remove(temp);
+        }
+        catch (KeyNotFoundException)
+        {
+            Debug.Log("Problematic Collider: " + temp.name + "\nPlayer at: " + FindObjectOfType<ThirdPersonCharacter>().gameObject.transform.position);
+        }
+    }
+
+    void OnDrawGizmos(){
 		Gizmos.color = Color.green;
 		Gizmos.DrawWireSphere(player.transform.position+new Vector3(0,1.5f,0),1);
 	}
