@@ -1,0 +1,233 @@
+fileFormatVersion: 2
+guid: 5c85bfcb958eec445a9bbcf1ee6f05a5
+timeCreated: 1526936951
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bed
+    100002: Bed.001
+    100004: Bed.002
+    100006: beding
+    100008: //RootNode
+    100010: Bedroom model
+    100012: blanket
+    100014: Cabinet
+    100016: Camera
+    100018: Cylinder
+    100020: Cylinder.001
+    100022: Cylinder.002
+    100024: dvdvhsPlayer
+    100026: flat_screen_3
+    100028: Lamp
+    100030: pillow
+    100032: Plane
+    100034: Plane.001
+    100036: Plane.002
+    100038: Plane.003
+    100040: Plane.004
+    100042: Plane.005
+    100044: Plane.006
+    100046: potted_plant_2
+    100048: Text.001
+    100050: Text.003
+    100052: Wardrobe
+    400000: Bed
+    400002: Bed.001
+    400004: Bed.002
+    400006: beding
+    400008: //RootNode
+    400010: Bedroom model
+    400012: blanket
+    400014: Cabinet
+    400016: Camera
+    400018: Cylinder
+    400020: Cylinder.001
+    400022: Cylinder.002
+    400024: dvdvhsPlayer
+    400026: flat_screen_3
+    400028: Lamp
+    400030: pillow
+    400032: Plane
+    400034: Plane.001
+    400036: Plane.002
+    400038: Plane.003
+    400040: Plane.004
+    400042: Plane.005
+    400044: Plane.006
+    400046: potted_plant_2
+    400048: Text.001
+    400050: Text.003
+    400052: Wardrobe
+    2000000: Camera
+    2100000: No Name
+    2100002: Material.002
+    2100004: Material.009
+    2100006: Material.008
+    2100008: Material
+    2100010: Material.006
+    2100012: Material.007
+    2100014: Material.005
+    2100016: gggg
+    2100018: Material.003
+    2100020: black
+    2100022: Material.004
+    2100024: Material.001
+    2100026: brown
+    2100028: Bedroom model
+    2100030: white
+    2100032: pink
+    2100034: green
+    2100036: light_light_green
+    2100038: brown.001
+    2100040: brown.002
+    2300000: Bed.001
+    2300002: Bed.002
+    2300004: beding
+    2300006: Bedroom model
+    2300008: blanket
+    2300010: Cabinet
+    2300012: Cylinder
+    2300014: Cylinder.001
+    2300016: Cylinder.002
+    2300018: dvdvhsPlayer
+    2300020: flat_screen_3
+    2300022: pillow
+    2300024: Plane
+    2300026: Plane.001
+    2300028: Plane.002
+    2300030: Plane.003
+    2300032: Plane.004
+    2300034: Plane.005
+    2300036: Plane.006
+    2300038: potted_plant_2
+    2300040: Text.001
+    2300042: Text.003
+    2300044: Wardrobe
+    3300000: Bed.001
+    3300002: Bed.002
+    3300004: beding
+    3300006: Bedroom model
+    3300008: blanket
+    3300010: Cabinet
+    3300012: Cylinder
+    3300014: Cylinder.001
+    3300016: Cylinder.002
+    3300018: dvdvhsPlayer
+    3300020: flat_screen_3
+    3300022: pillow
+    3300024: Plane
+    3300026: Plane.001
+    3300028: Plane.002
+    3300030: Plane.003
+    3300032: Plane.004
+    3300034: Plane.005
+    3300036: Plane.006
+    3300038: potted_plant_2
+    3300040: Text.001
+    3300042: Text.003
+    3300044: Wardrobe
+    4300000: Plane.006
+    4300002: Plane.005
+    4300004: Plane.004
+    4300006: Plane.003
+    4300008: pillow
+    4300010: beding
+    4300012: Bed.002
+    4300014: blanket
+    4300016: Bed.001
+    4300018: Cylinder.002
+    4300020: Cylinder.001
+    4300022: Cylinder
+    4300024: Text.003
+    4300026: Text.001
+    4300028: dvdvhsPlayer
+    4300030: Plane.001
+    4300032: Plane.002
+    4300034: Cabinet
+    4300036: Wardrobe
+    4300038: Plane
+    4300040: Bedroom model
+    4300042: flat_screen_3
+    4300044: potted_plant_2
+    10800000: Lamp
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
