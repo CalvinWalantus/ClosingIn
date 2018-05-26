@@ -20,8 +20,8 @@ public class SphereOfInfluence : MonoBehaviour {
 	// and the value is the object's original transform.
 	Dictionary<GameObject, Vector3> compressables = new Dictionary<GameObject, Vector3>();
 
-	void Awake () {
-
+	void Awake ()
+	{
 		player = transform.parent;
 
 		if (world_controller == null)
@@ -33,42 +33,53 @@ public class SphereOfInfluence : MonoBehaviour {
 		world_controller.shotChangeEvent += ShotChange;
 	}
 
-	IEnumerator TwoShotChange(float speed, bool decomp) {
-
-		//Decompress every object in the sphere
-		if (decomp) {
+	IEnumerator TwoShotChange(float speed, bool decomp)
+	{
+		// Decompress every object in the sphere
+		if (decomp)
+		{
 			foreach (KeyValuePair<GameObject, Vector3> compressable in compressables) 
-				Decompress (compressable.Key, compressable.Value);
+				Decompress(compressable.Key, compressable.Value);
 		}
 
 		// Wait for the shift to complete
 		yield return new WaitForSeconds (speed);
 
 		// Check if dimension has changed during coroutine
-		if (!dimension) {
+		if (!dimension)
+		{
 			// Recompress every object in the sphere
 			foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
 				Compress (compressable.Key);
 		}
 	}
 
-	void ShotChange (int tw_shot) {
+	void ShotChange (int tw_shot)
+	{
 		two_shot = tw_shot;
-		if (!dimension && !startflag) {
+		if (!dimension && !startflag)
+		{
 			StartCoroutine (TwoShotChange (shift_time, true));
-		} else {
+		}
+		else
+		{
 			startflag = false;
 		}
 	}
 
-	void Shift (bool dim, float time) {
+	void Shift (bool dim, float time)
+	{
 		shift_time = time;
-		if (dimension != dim) {
+
+		if (dimension != dim)
+		{
 			dimension = dim;
-			if  (!dimension) {
+			if(!dimension)
+			{
 				StartCoroutine(TwoShotChange(shift_time, false));
 			}
-			else {
+			else
+			{
 				foreach (KeyValuePair<GameObject, Vector3> compressable in compressables)
 					Decompress (compressable.Key, compressable.Value);
 			} 
@@ -79,10 +90,10 @@ public class SphereOfInfluence : MonoBehaviour {
 	// Decompress the objects in the sphere when it is rotating between two different 2D
 	// shots so that the player sees the world as 3D during the shift (decomp = true)
 
-
-	void OnTriggerEnter (Collider other) {
-
-		if (other.tag.Equals("Compressable")) {
+	void OnTriggerEnter (Collider other)
+	{
+		if (other.tag.Equals("Compressable"))
+		{
 			// Add the compressable to the dictionary, with its original transform as the value
 			compressables[other.gameObject] = new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z);
 
@@ -91,9 +102,11 @@ public class SphereOfInfluence : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerExit (Collider other) {
+	void OnTriggerExit (Collider other)
+	{
 
-		if (other.tag.Equals ("Compressable")) {
+		if (other.tag.Equals ("Compressable"))
+		{
 			// Decompress the object
 			Decompress (other.gameObject, compressables[other.gameObject]);
 			// Remove the object from the dictionary
@@ -101,25 +114,33 @@ public class SphereOfInfluence : MonoBehaviour {
 		}
 	}
 
-	void Compress(GameObject compressable) {
-		if (compressable.GetComponent<ComplexCompressableController>() != null) {
+	void Compress(GameObject compressable)
+	{
+		if (compressable.GetComponent<ComplexCompressableController>() != null)
+		{
 			compressable.GetComponent<ComplexCompressableController>().ComplexCompress(two_shot, player.transform.position);
 		}
-		else {
-			if (two_shot % 2 != 1) {
+		else
+		{
+			if (two_shot % 2 != 1)
+			{
 				compressable.transform.position = new Vector3( player.position.x, compressable.transform.position.y, compressable.transform.position.z);
 			}
-			else {
+			else
+			{
 				compressable.transform.position = new Vector3(compressable.transform.position.x, compressable.transform.position.y, player.position.z);
 			}
 		}
 	}
 
-	void Decompress(GameObject compressable, Vector3 original) {
-		if (compressable.GetComponent<ComplexCompressableController>() != null) {
+	void Decompress(GameObject compressable, Vector3 original)
+	{
+		if (compressable.GetComponent<ComplexCompressableController>() != null)
+		{
 			compressable.GetComponent<ComplexCompressableController>().ComplexDecompress(original);
 		}
-		else {
+		else
+		{
 			compressable.transform.position = original;
 		}
 
