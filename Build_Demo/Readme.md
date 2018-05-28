@@ -1,4 +1,10 @@
-Flicker 2.3
+Flicker 3.9
+
+This game is incomplete, but feel free to look around. If you are unsure how to proceed through an area, try pressing shift!
+
+If you get truly stuck, the number keys will teleport you to new areas. 
+
+Please reach out to cwalantu@ucsc.edu with any feedback or bug reports!
 
 Controls:
 
@@ -8,15 +14,12 @@ Shift - change dimension
 Q,E - change perspective in 2D
 Esc - pause
 
-Alpha 1, 2, 3, 4, 5 - teleport to new areas (debug)
+Alpha 1, 2, 3, 4, 5, 6 - teleport to new areas (debug)
 
 Known Issues:
-- In 2D, objects in foreground are visible, sometimes creating the illusion that you can walk onto something you cannot
-
+- Objects blocked by camera will appear pink
+- Coloring and texture issues in general
 - player floats midair when staitonary
 
 Optimization:
-This build should be played on a gaming computer with a modern graphics card to avoid severe lag.
-
-Notes:
-Some areas are incomplete. Make sure to check out the area currently reached by pressing Alpha 4, which is a good demonstration of the compressable mechanic.
+This build should be played on a gaming computer with a modern graphics card to avoid lag.

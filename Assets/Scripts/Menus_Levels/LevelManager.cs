@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
 		//canvas.enabled = false;
 		//this.gameObject.SetActive (false);
 		//this.gameObject.layer = 0;
-		//audioManager.StartCoroutine(audioManager.fadeout());
+		audioManager.StartCoroutine(audioManager.fadeout());
 		fade = true;
 		look.Priority = -100;
 		worldController.StartAnimation ();
