@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovingPlatform : ComplexCompressable {
 
@@ -18,6 +19,8 @@ public class MovingPlatform : ComplexCompressable {
 	public Trigger trigger;
 
 	Vector3 origin, current_destination;
+	public Material targetMaterial;
+	public GameObject targetImage;
 
 	// Use this for initialization
 	void Start () {
@@ -77,5 +80,11 @@ public class MovingPlatform : ComplexCompressable {
 	public override void ComplexDecompress (Vector3 original) {
 		// TO DO: Return switch, platform and destination to their relevant position,
 		// depending on whether or not they are tagged as compressable.
+	}
+
+	void OnCollisionEnter(Collision objects){
+		Debug.Log (objects.transform.name);
+		objects.gameObject.GetComponent<MeshRenderer> ().material = targetMaterial;
+		targetImage.GetComponent<Image> ().enabled = true;
 	}
 }
