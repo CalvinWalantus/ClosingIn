@@ -8,9 +8,13 @@ public class collideSet : MonoBehaviour {
 	public Material targetMaterial;
 	public GameObject targetImage;
 	private float targetAlpha;
+	public GameObject [] airWalls;
 	// Use this for initialization
 	void Start () {
 		this.targetAlpha = this.targetImage.GetComponent<Image> ().color.a;
+		foreach (GameObject airwall in airWalls) {
+			airwall.GetComponent<MeshCollider> ().enabled = false;
+		}
 	}
 	
 	// Update is called once per frame
@@ -20,18 +24,29 @@ public class collideSet : MonoBehaviour {
 		if (difference > 0.0001f) {
 			current.a = Mathf.Lerp (current.a, targetAlpha, this.fadeTime * Time.deltaTime);
 		}
+
+		if (this.transform.GetComponent<Rigidbody> ().IsSleeping() == true) {
+			foreach (GameObject airwall in airWalls) {
+				airwall.GetComponent<MeshCollider> ().enabled = false;
+			}
+		}
 	}
 
 	void OnCollisionEnter(Collision objects){
+		fadeIn ();
 		Debug.Log (objects.transform.name);
 		objects.gameObject.GetComponent<MeshRenderer> ().material = targetMaterial;
 		targetImage.GetComponent<Image> ().enabled = true;
+		foreach (GameObject airwall in airWalls) {
+			airwall.GetComponent<MeshCollider> ().enabled = true;
+		}
 	}
 
 	void OnCollisionExit(Collision other){
-		if (other.transform.tag == "Player") {
+		if (targetImage.GetComponent<Image> ().color.a == 0.0) {
 			targetImage.GetComponent<Image> ().enabled = false;
 		}
+		fadeOut ();
 	}
 
 	public void fadeOut(){
