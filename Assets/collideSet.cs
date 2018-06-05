@@ -33,6 +33,7 @@ public class collideSet : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision objects){
+		Debug.Log ("hyi");
 		fadeIn ();
 		Debug.Log (objects.transform.name);
 		objects.gameObject.GetComponent<MeshRenderer> ().material = targetMaterial;
