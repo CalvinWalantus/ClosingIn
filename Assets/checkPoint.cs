@@ -12,7 +12,6 @@ public class checkPoint : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	void activateCheckPoint(){
@@ -23,5 +22,18 @@ public class checkPoint : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision objects){
-		if(o
+		if(objects.transform.gameObject.tag == "Player"){
+			activateCheckPoint();
+		}
+	}
+	
+	public static Vector3 returnCheckPointLocation(){
+		Vector3 result = Vector3.zero;
+		foreach (GameObject beacon in checkPointsList) {
+			if (beacon.GetComponent<checkPoint> ().activated == true) {
+				result = beacon.transform.position;
+			}
+		}
+		return result;
+	}
 }
