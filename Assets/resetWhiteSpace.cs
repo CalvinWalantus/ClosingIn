@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class resetWhiteSpace : MonoBehaviour {
 	Vector3 result;
+	public Vector3 destination;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,10 +13,12 @@ public class resetWhiteSpace : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown ("space")) {
-			result = checkPoint.returnCheckPointLocation ();
-			if (result != Vector3.zero) {
-				this.transform.position = result + new Vector3 (0, 0, 0);
-			}
+			this.transform.position = destination;
+			Debug.DrawRay (this.transform.position, destination, Color.green);
+			//result = checkPoint.returnCheckPointLocation ();
+			//if (result != Vector3.zero) {
+				//this.transform.position = result + new Vector3 (0, 0, 0);
+			//}
 		}
 	}
 }
