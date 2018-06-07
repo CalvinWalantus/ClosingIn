@@ -4,57 +4,71 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class collideSet : MonoBehaviour {
-	public float fadeTime;
+	public float fadeInTime = 3.0f;
+	public float fadeOutTime = 3.0f;
 	public Material targetMaterial;
 	public GameObject targetImage;
-	private float targetAlpha;
 	public GameObject [] airWalls;
+	public int finished = -2;
+	public int platformMoveTime = 8;
+	public int platformWaitTime = 3;
 	// Use this for initialization
 	void Start () {
-		this.targetAlpha = this.targetImage.GetComponent<Image> ().color.a;
 		foreach (GameObject airwall in airWalls) {
-			airwall.GetComponent<MeshCollider> ().enabled = false;
+			airwall.GetComponent<BoxCollider> ().enabled = false;
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Color current = this.targetImage.GetComponent<Image> ().color;
-		float difference = Mathf.Abs (current.a - this.targetAlpha);
-		if (difference > 0.0001f) {
-			current.a = Mathf.Lerp (current.a, targetAlpha, this.fadeTime * Time.deltaTime);
-		}
 
-		if (this.transform.GetComponent<Rigidbody> ().IsSleeping() == true) {
-			foreach (GameObject airwall in airWalls) {
-				airwall.GetComponent<MeshCollider> ().enabled = false;
-			}
-		}
+			
+
+//		if (this.transform.GetComponent<Rigidbody> ().IsSleeping() == true) {
+//			foreach (GameObject airwall in airWalls) {
+//				airwall.GetComponent<MeshCollider> ().enabled = false;
+//			}
+//		}
 	}
 
 	void OnCollisionEnter(Collision objects){
-		Debug.Log ("hyi");
-		fadeIn ();
-		Debug.Log (objects.transform.name);
-		objects.gameObject.GetComponent<MeshRenderer> ().material = targetMaterial;
 		targetImage.GetComponent<Image> ().enabled = true;
-		foreach (GameObject airwall in airWalls) {
-			airwall.GetComponent<MeshCollider> ().enabled = true;
+		targetImage.GetComponent<Image> ().canvasRenderer.SetAlpha (0.0f);
+		if (finished != 0) {
+			targetImage.GetComponent<Image> ().CrossFadeAlpha (1.0f, fadeInTime, true);
+			finished += 1;
 		}
+		foreach (GameObject airwall in airWalls) {
+			airwall.GetComponent<BoxCollider> ().enabled = true;
+		}
+		StartCoroutine(ToggleFalse ());
 	}
 
 	void OnCollisionExit(Collision other){
-		if (targetImage.GetComponent<Image> ().color.a == 0.0) {
-			targetImage.GetComponent<Image> ().enabled = false;
+		if (finished != 0) {
+			targetImage.GetComponent<Image> ().CrossFadeAlpha (0.0f, fadeOutTime, true);
+			finished += 1;
 		}
-		fadeOut ();
 	}
 
-	public void fadeOut(){
-		this.targetAlpha = 0.0f;
+	IEnumerator ToggleFalse(){
+		StopCoroutine (ToggleTrue ());
+		yield return new WaitForSeconds (8);
+		foreach (GameObject airwall in airWalls) {
+			airwall.GetComponent<BoxCollider> ().enabled = false;
+		}
+		StartCoroutine(ToggleTrue ());
+		Debug.Log ("1");
+
 	}
-		
-	public void fadeIn(){
-		this.targetAlpha = 1.0f;
+	IEnumerator ToggleTrue(){
+		StopCoroutine (ToggleFalse ());
+		yield return new WaitForSeconds (3);
+
+		foreach (GameObject airwall in airWalls) {
+			airwall.GetComponent<BoxCollider> ().enabled = true;
+		}
+		StartCoroutine (ToggleFalse ());
+		Debug.Log ("2");
 	}
 }
