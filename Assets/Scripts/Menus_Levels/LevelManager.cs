@@ -13,8 +13,11 @@ public class LevelManager : MonoBehaviour
 	// True = Title as Menu State
 	// False = Gameplay Pause as Menu State
 	public bool menu_state = true;
+	public bool key_enabled = false; 		// Player cannot press ESC in Title. 
 
-    public Transform main_menu, options_menu;
+    public Transform main_menu, options_menu, pause_menu;
+	public ThirdPersonUserControl user;
+
 	public CinemachineVirtualCamera look;
 	public AudioManager audioManager;
 	public GameObject mainobject;
@@ -27,11 +30,14 @@ public class LevelManager : MonoBehaviour
 	void Start ()
 	{
 		fade = false;
+
+		user = FindObjectOfType<ThirdPersonUserControl>();
+		user.allow_movement = false;
 	}
 
 	void Awake()
 	{
-		worldController = FindObjectOfType<World> ();
+		worldController = FindObjectOfType<World>();
 		audioManager = FindObjectOfType<AudioManager> ();
 		look.Priority = 40;
 	}
@@ -50,7 +56,13 @@ public class LevelManager : MonoBehaviour
 		//this.gameObject.SetActive (false);
 		//this.gameObject.layer = 0;
 		//audioManager.StartCoroutine(audioManager.fadeout());
+
+		menu_state = false;				// Player has left title to gameplay.
+		key_enabled = true;				// Player cannot use ESC while in Title screen.
+		user.allow_movement = true;		// Player will now move during gameplay.
+
 		fade = true;
+
 		look.Priority = -100;
 		worldController.StartAnimation ();
 		FindObjectOfType<MasterQueue>().Fade();
@@ -61,9 +73,7 @@ public class LevelManager : MonoBehaviour
 	// Opens Option menu when player clicks Options button.
 	public void OptionsMenu(bool clicked)
 	{
-		Debug.Log(menu_state);
-
-		if (menu_state) // is Title screen
+		if (menu_state)  // is Title screen
 		{
 			if (clicked == true) 
 			{
@@ -74,6 +84,19 @@ public class LevelManager : MonoBehaviour
 			{
 				options_menu.gameObject.SetActive (clicked);
 				main_menu.gameObject.SetActive (true);
+			}
+		} 
+		else
+		{
+			if (clicked == true) 
+			{
+				options_menu.gameObject.SetActive(clicked);
+				pause_menu.gameObject.SetActive(false);
+			} 
+			else
+			{
+				options_menu.gameObject.SetActive(clicked);
+				pause_menu.gameObject.SetActive(true);
 			}
 		}
 	}
@@ -102,7 +125,8 @@ public class LevelManager : MonoBehaviour
 		}
 	}*/
 			
-	public void InvertMouseY () {
+	public void InvertMouseY()
+	{
 		FindObjectOfType<CinemachineFreeLook> ().gameObject.GetComponent<FreelookFindPlayer> ().ToggleInvertMouseY ();
 	}
 
