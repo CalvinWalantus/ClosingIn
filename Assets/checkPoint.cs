@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class checkPoint : MonoBehaviour {
+public class CheckPoint : MonoBehaviour {
 	public bool activated = false;
-	public static GameObject[] checkPointsList;
+	public static CheckPoint[] checkPointsList;
+
+	public GameObject respawnLocation;
+
 	// Use this for initialization
 	void Start () {
-		checkPointsList = GameObject.FindGameObjectsWithTag ("checkPoints");
+		checkPointsList = FindObjectsOfType<CheckPoint>();
 	}
 
 	// Update is called once per frame
@@ -21,10 +24,10 @@ public class checkPoint : MonoBehaviour {
 	}
 
 	void activateCheckPoint(){
-		foreach (GameObject beacon in checkPointsList) {
-			beacon.GetComponent<checkPoint> ().activated = false;
+		foreach (CheckPoint beacon in checkPointsList) {
+			beacon.activated = false;
 		}
-		this.GetComponent<checkPoint> ().activated = true;
+		activated = true;
 	}
 
 	void OnTriggerEnter(Collider objects){
@@ -35,9 +38,9 @@ public class checkPoint : MonoBehaviour {
 
 	public static Vector3 returnCheckPointLocation(){
 		Vector3 result = Vector3.zero;
-		foreach (GameObject beacon in checkPointsList) {
-			if (beacon.GetComponent<checkPoint> ().activated == true) {
-				result = beacon.transform.position;
+		foreach (CheckPoint beacon in checkPointsList) {
+			if (beacon.activated == true) {
+				result = beacon.respawnLocation.transform.position;
 			}
 		}
 		return result;

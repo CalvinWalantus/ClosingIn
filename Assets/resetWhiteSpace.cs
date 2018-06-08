@@ -15,7 +15,7 @@ public class resetWhiteSpace : MonoBehaviour {
 		if (Input.GetKeyDown ("space")) {
 			//this.transform.position = destination;
 			//Debug.DrawRay (this.transform.position, destination, Color.green);
-			result = checkPoint.returnCheckPointLocation ();
+			result = CheckPoint.returnCheckPointLocation();
 			if (result != Vector3.zero) {
 				this.transform.position = result + new Vector3 (0, 0, 0);
 			}
