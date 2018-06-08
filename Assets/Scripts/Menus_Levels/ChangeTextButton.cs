@@ -5,16 +5,35 @@ using UnityEngine.UI;
 
 public class ChangeTextButton : MonoBehaviour
 {
-	public Text text;
+	public float timer = 0f;
+	public Text txt;
+	public Color clr;
 
 	void Start()
 	{
-		text = GetComponent<Text>();
-		Debug.Log(text.transform);
+		txt = gameObject.GetComponent<Text>();
+		clr = txt.color;
 	}
 
-	void OnHover()
+	void Update()
 	{
-		Debug.Log("This is Supposed to Change");
+		//timer += Time.deltaTime;
+
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+		if (Physics.Raycast (ray))
+		{
+			Color new_color = Color.Lerp(txt.color, Color.white, 4);
+			txt.color = new_color;
+		}
+
+
+		/*if (timer >= 0.2f)
+		{
+			Color new_color = Color.Lerp(txt.color, Color.white, 4);
+			txt.color = new_color;
+
+			timer = 0;
+		}*/
 	}
 }
