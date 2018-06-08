@@ -45,7 +45,7 @@ public class DisableForegroundObjects : MonoBehaviour {
 	void HandleShift (bool dim, float time) {
 		dimension = dim;
 		if (dimension) {
-
+			//findobjects();
 			// If we are shifting to 3D, restore all disabled objects.
 			if(disables.Count>0) {
 
@@ -55,6 +55,10 @@ public class DisableForegroundObjects : MonoBehaviour {
 				disables.Clear ();
 			}
 
+		}
+		
+		if(!dimension) {
+			findobjects();
 		}
 	}
 
@@ -66,12 +70,15 @@ public class DisableForegroundObjects : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		// If we are in 2D, find and disable foreground objects.
+		/* // If we are in 2D, find and disable foreground objects.
 		if (!dimension) {
 			findobjects ();
 		} 
+	} */
 	}
 
+	Collider tempCollider;
+	MeshRenderer hit_renderer;
 	void findobjects(){
 
 		hitList.Clear ();
@@ -84,9 +91,12 @@ public class DisableForegroundObjects : MonoBehaviour {
 		hitList = hits.ToList();
 
 		// Iterate through all colliders between the player and the camera.
-		foreach(Collider i in hitList) {
-
-			MeshRenderer hit_renderer = i.GetComponent<MeshRenderer>();
+		//foreach(Collider i in hitList) {
+		for (int y = 0; y < hitList.Count; y++) {
+			
+			tempCollider = hitList[y];
+			
+			hit_renderer = tempCollider.GetComponent<MeshRenderer>();
 			if (hit_renderer) {
 
 				// We create a flag to indicate if the object will be disabled, then check if the object's bounds are beyond
@@ -94,36 +104,36 @@ public class DisableForegroundObjects : MonoBehaviour {
 				bool disable_object = false;
 
 				if (world_controller.two_shot == 3) {
-					if ((i.transform.position.z - hit_renderer.bounds.extents.z) > player_transform.position.z) {
+					if ((tempCollider.transform.position.z - hit_renderer.bounds.extents.z) > player_transform.position.z) {
 						disable_object = true;
 					}
 				}
 				else if (world_controller.two_shot == 1) {
-					if ((i.transform.position.z + hit_renderer.bounds.extents.z) < player_transform.position.z) {
+					if ((tempCollider.transform.position.z + hit_renderer.bounds.extents.z) < player_transform.position.z) {
 						disable_object = true;
 					}
 				}
 				else if (world_controller.two_shot == 4) {
-					if ((i.transform.position.x + hit_renderer.bounds.extents.x) < player_transform.position.x) {
+					if ((tempCollider.transform.position.x + hit_renderer.bounds.extents.x) < player_transform.position.x) {
 						disable_object = true;
 					}
 				}
 				else if (world_controller.two_shot == 2) {
-					if ((i.transform.position.x - hit_renderer.bounds.extents.x) > player_transform.position.x) {
+					if ((tempCollider.transform.position.x - hit_renderer.bounds.extents.x) > player_transform.position.x) {
 						disable_object = true;
 					}
 				}
 
 				// Fade the object out and add it to the list of disabled objects.
 				if (disable_object) {
-					if (!disables.Contains(i)) {
-						StartCoroutine(fadeout(i.gameObject,0.0f,false));
-						disables.Add (i);
+					if (!disables.Contains(tempCollider)) {
+						StartCoroutine(fadeout(tempCollider.gameObject,0.0f,false));
+						disables.Add (tempCollider);
 					}
 				}
 				else {
-					StartCoroutine(fadeout(i.gameObject,1.0f,true));
-					disables.Remove (i);
+					StartCoroutine(fadeout(tempCollider.gameObject,1.0f,true));
+					disables.Remove (tempCollider);
 				}
 			}
 		}

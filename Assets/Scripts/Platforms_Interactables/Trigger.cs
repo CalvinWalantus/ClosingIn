@@ -34,7 +34,7 @@ public class Trigger : MonoBehaviour {
 			hitEvent (id);
 			StartCoroutine(FeedbackLerp(start_material, end_material, lerpSpeed));
 
-			GetComponent<AudioSource>().PlayDelayed(delay);
+			//GetComponent<AudioSource>().PlayDelayed(delay);
 			once_only = false;
 		}
 	}

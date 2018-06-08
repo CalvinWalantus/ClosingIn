@@ -9,6 +9,8 @@ using UnityEditor.SceneManagement;
 
 public class PauseMenu : MonoBehaviour 
 {
+	public LevelManager manager_menuState;
+
 	public static bool paused_game = false;
 
 	public GameObject pauseMenuUI;
@@ -16,6 +18,11 @@ public class PauseMenu : MonoBehaviour
 
 	public string level = "StartScreen";
 	
+	void Start()
+	{
+		manager_menuState = (LevelManager)FindObjectOfType(typeof(LevelManager));
+	}
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -74,15 +81,20 @@ public class PauseMenu : MonoBehaviour
 
 	public void OptionsMenu(bool clicked)
 	{
-		if (clicked == true) 
+		Debug.Log(!manager_menuState);
+
+		if (!manager_menuState.menu_state == false) // is Gameplay Pause = False
 		{
-			optionsMenuUI.gameObject.SetActive (clicked);
-			pauseMenuUI.gameObject.SetActive(false);
-		} 
-		else 
-		{
-			optionsMenuUI.gameObject.SetActive(clicked);
-			pauseMenuUI.gameObject.SetActive(true);
+			if (clicked == true)
+			{
+				optionsMenuUI.gameObject.SetActive (clicked);
+				pauseMenuUI.gameObject.SetActive (false);
+			} 
+			else
+			{
+				optionsMenuUI.gameObject.SetActive (clicked);
+				pauseMenuUI.gameObject.SetActive (true);
+			}
 		}
 	}
 }
