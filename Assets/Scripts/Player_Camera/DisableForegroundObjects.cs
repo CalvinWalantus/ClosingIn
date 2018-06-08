@@ -70,9 +70,9 @@ public class DisableForegroundObjects : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		 // If we are in 2D, find and disable foreground objects.
-		if (!dimension) {
+		/*if (!dimension) {
 			findobjects ();
-		} 
+		} */
 	}
 
 	Collider tempCollider;
@@ -85,7 +85,7 @@ public class DisableForegroundObjects : MonoBehaviour {
 
 		// Detect all colliders in the box formed by the orthographic camera frame and the distance from player to camera.
 		// Objects without colliders will NOT be detected.
-		hits = Physics.OverlapBox (box_position, new Vector3 (500f/2, 200.3f/2, (box_size * 0.9f)/2), Quaternion.identity, layermask);
+		hits = Physics.OverlapBox (box_position, new Vector3 (2000f/2, 1000.3f/2, (box_size * 0.9f)/2), Quaternion.identity, layermask);
 		hitList = hits.ToList();
 
 		// Iterate through all colliders between the player and the camera.

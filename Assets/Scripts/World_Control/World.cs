@@ -185,4 +185,16 @@ public class World : MonoBehaviour
 		two_shot = tw_shot;
 		shotChangeEvent (two_shot);
 	}
+
+	public void ShiftOnExternalCall (bool shift, float time) 
+	{
+		dimension = shift;
+		shiftEvent (shift, time);
+		timer = 0;
+	}
+
+	public void ToggleInput( bool toggle ) 
+	{
+		allow_input = toggle;
+	}
 }

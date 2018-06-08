@@ -26,6 +26,8 @@ public class SwapableCamera : MonoBehaviour {
 
     private Camera cam;
 
+    private float shift_time;
+
 	// Use this for initialization
 	void Start () {
 
@@ -54,6 +56,7 @@ public class SwapableCamera : MonoBehaviour {
 			MoveCamera (5);
 		} else
 			MoveCamera (two_shot);
+			blender.BlendToMatrix(ortho, shift_time);
 	}
 
 
@@ -63,6 +66,7 @@ public class SwapableCamera : MonoBehaviour {
 
 		// Assign global variables to values of event parameters
 		dimension = dim;
+		shift_time = time;
 		GetComponent<CinemachineBrain> ().m_DefaultBlend.m_Time = time;
 
 		// if shifting to 3d...
@@ -84,6 +88,8 @@ public class SwapableCamera : MonoBehaviour {
 				// if the game starts in 2D, camera is moved by shotchange,
 				// and we instantly blend to orthographic 
 				if (blendingOrtho) {
+					CinemachineVirtualCamera newCam = GetComponent<CinemachineBrain>().ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
+					ortho = Matrix4x4.Ortho(-newCam.m_Lens.OrthographicSize * cam.aspect, newCam.m_Lens.OrthographicSize * cam.aspect, -newCam.m_Lens.OrthographicSize, newCam.m_Lens.OrthographicSize, cam.nearClipPlane, cam.farClipPlane);
 					blender.BlendToMatrix (ortho, 0.001f);
 				}
 

@@ -18,7 +18,7 @@ public class SphereOfInfluence : MonoBehaviour {
 	// The sphere of influence constantly maintains a roster of the compressables inside of it,
 	// so that they can quickly be compressed/decompressed. The gameobject is the key,
 	// and the value is the object's original transform position.
-	Dictionary<GameObject, Vector3> compressables = new Dictionary<GameObject, Vector3>();
+	public Dictionary<GameObject, Vector3> compressables = new Dictionary<GameObject, Vector3>();
 
 	void Awake () {
 
