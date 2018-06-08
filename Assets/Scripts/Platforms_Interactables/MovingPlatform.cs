@@ -6,6 +6,8 @@ public class MovingPlatform : ComplexCompressable {
 
 	public bool moving = true;
 	public bool debug = false;
+	private bool wait = false;
+	public float waitsecond = 3;
 
 	// Determines how long it takes the moving platform to make one trip.
 	// We choose this method over setting velocity directly to help time 
@@ -42,13 +44,18 @@ public class MovingPlatform : ComplexCompressable {
 			float step = velocity * Time.deltaTime;
 			if (step == 3)
 				moving = false;
-			transform.position = Vector3.MoveTowards (gameObject.transform.position, current_destination, step);
+			if (wait == false) {
+				
+				transform.position = Vector3.MoveTowards (gameObject.transform.position, current_destination, step);
+			}
 			if (V3Equal(current_destination, gameObject.transform.position)) {
+				wait = true;
 				if (V3Equal(current_destination, destination.position)) {
 					current_destination = origin;
 				} else {
 					current_destination = destination.position;
 				}
+				StartCoroutine (WaitASecond (waitsecond));
 			}
 		}
 	}
@@ -78,4 +85,10 @@ public class MovingPlatform : ComplexCompressable {
 		// TO DO: Return switch, platform and destination to their relevant position,
 		// depending on whether or not they are tagged as compressable.
 	}
+
+	IEnumerator WaitASecond(float second){
+		yield return new WaitForSeconds (second);
+		wait = false;
+	}
 }
+
