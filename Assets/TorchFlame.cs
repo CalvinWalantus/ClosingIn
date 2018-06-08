@@ -5,12 +5,12 @@ using UnityEngine;
 public class TorchFlame : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	/*void Start () {
 		this.gameObject
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-	}
+	}*/
 }
