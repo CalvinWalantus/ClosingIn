@@ -18,6 +18,9 @@ public class WallofFog : MonoBehaviour {
 
 	bool startFlag = true;
 
+	bool startInvisible;
+	public bool active = false;
+
 	// Use this for initialization
 	void Awake () 
 	{
@@ -30,20 +33,20 @@ public class WallofFog : MonoBehaviour {
 
 	void HandleShift (bool dim, float time) 
 	{
-		if (!startFlag) 
+		if (!startFlag && active) 
 		{
 			if (dim) 
 			{
 				StartCoroutine (LerpColor (startColor, Color.clear, dim, time));
 			} 
-			else 
+			else
 			{
 				StartCoroutine (LerpColor (Color.clear, startColor, dim, time));
 			}
 		} 
 		else 
 		{
-			if (dim) 
+			if (dim || startInvisible) 
 			{
 				fog.SetColor("_TintColor", Color.clear);
 			} 
@@ -75,5 +78,13 @@ public class WallofFog : MonoBehaviour {
 		{
 			GetComponent<Renderer> ().enabled = false;
 		}
+	}
+
+	public void StartInvisible(bool start) {
+		startInvisible = start;
+	}
+
+	public void StartFog(bool start) {
+		active = start;
 	}
 }

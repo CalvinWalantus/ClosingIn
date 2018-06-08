@@ -66,7 +66,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1943296032547066
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -89,12 +89,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1943296032547066}
-  m_LocalRotation: {x: -0.00000041723246, y: 0.000000037556703, z: 0.00000004500399,
-    w: 1}
-  m_LocalPosition: {x: -0.0031, y: -0.0058, z: -0.0066}
-  m_LocalScale: {x: 0.01821907, y: 0.015976116, z: 0.009290504}
+  m_LocalRotation: {x: -0, y: -5.293956e-23, z: 1.459021e-15, w: 1}
+  m_LocalPosition: {x: -0.06374642, y: -0.00049997325, z: 0.00009998314}
+  m_LocalScale: {x: 0.17830369, y: 0.07988056, z: 0.046452504}
   m_Children: []
-  m_Father: {fileID: 4471273983413752}
+  m_Father: {fileID: 4567148181913586}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4224266092144618
@@ -108,7 +107,7 @@ Transform:
   m_LocalScale: {x: 0.02, y: 0.019999996, z: 0.019999996}
   m_Children: []
   m_Father: {fileID: 4567148181913586}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4471273983413752
 Transform:
@@ -118,12 +117,11 @@ Transform:
   m_GameObject: {fileID: 1335307559727060}
   m_LocalRotation: {x: 0.00000041723246, y: -0.000000037556703, z: -0.00000004500399,
     w: 1}
-  m_LocalPosition: {x: 0.00010356903, y: 0.0017, z: 0.0331}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_Children:
-  - {fileID: 4190354009860212}
+  m_LocalPosition: {x: 0.00010356903, y: 0.0007, z: 0.032}
+  m_LocalScale: {x: 1.8696421, y: 1.8696421, z: 1.8696421}
+  m_Children: []
   m_Father: {fileID: 4567148181913586}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4567148181913586
 Transform:
@@ -132,9 +130,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1180053486923992}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -5.38, y: -23.13, z: -24.792711}
+  m_LocalPosition: {x: -2.4, y: -26.14, z: 9.74}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
+  - {fileID: 4190354009860212}
   - {fileID: 4471273983413752}
   - {fileID: 4224266092144618}
   m_Father: {fileID: 0}
@@ -300,6 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activated: 0
   respawnLocation: {fileID: 1727823784775692}
+  flame: {fileID: 198151123166305216}
 --- !u!114 &114160966858423570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,7 +374,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1462305953
+  randomSeed: -1275264366
   InitialModule:
     serializedVersion: 3
     enabled: 1

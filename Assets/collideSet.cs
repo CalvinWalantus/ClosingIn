@@ -10,13 +10,15 @@ public class collideSet : MonoBehaviour {
 	public GameObject targetImage;
 	public GameObject [] airWalls;
 	public int finished = -2;
-	public int platformMoveTime = 8;
-	public int platformWaitTime = 3;
+	public float platformMoveTime;
+	public float platformWaitTime;
 	// Use this for initialization
 	void Start () {
 		foreach (GameObject airwall in airWalls) {
 			airwall.GetComponent<BoxCollider> ().enabled = false;
 		}
+		platformMoveTime = GetComponentInParent<MovingPlatform>().moveTime;
+		platformWaitTime = GetComponentInParent<MovingPlatform>().waitsecond;
 	}
 
 	// Update is called once per frame
@@ -32,10 +34,10 @@ public class collideSet : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision objects){
-		targetImage.GetComponent<Image> ().enabled = true;
-		targetImage.GetComponent<Image> ().canvasRenderer.SetAlpha (0.0f);
+		targetImage.GetComponent<RawImage> ().enabled = true;
+		targetImage.GetComponent<RawImage> ().canvasRenderer.SetAlpha (0.0f);
 		if (finished != 0) {
-			targetImage.GetComponent<Image> ().CrossFadeAlpha (1.0f, fadeInTime, true);
+			targetImage.GetComponent<RawImage> ().CrossFadeAlpha (1.0f, fadeInTime, true);
 			finished += 1;
 		}
 		foreach (GameObject airwall in airWalls) {
@@ -46,14 +48,14 @@ public class collideSet : MonoBehaviour {
 
 	void OnCollisionExit(Collision other){
 		if (finished != 0) {
-			targetImage.GetComponent<Image> ().CrossFadeAlpha (0.0f, fadeOutTime, true);
+			targetImage.GetComponent<RawImage> ().CrossFadeAlpha (0.0f, fadeOutTime, true);
 			finished += 1;
 		}
 	}
 
 	IEnumerator ToggleFalse(){
 		StopCoroutine (ToggleTrue ());
-		yield return new WaitForSeconds (8);
+		yield return new WaitForSeconds (platformMoveTime);
 		foreach (GameObject airwall in airWalls) {
 			airwall.GetComponent<BoxCollider> ().enabled = false;
 		}
@@ -63,7 +65,7 @@ public class collideSet : MonoBehaviour {
 	}
 	IEnumerator ToggleTrue(){
 		StopCoroutine (ToggleFalse ());
-		yield return new WaitForSeconds (3);
+		yield return new WaitForSeconds (platformWaitTime);
 
 		foreach (GameObject airwall in airWalls) {
 			airwall.GetComponent<BoxCollider> ().enabled = true;

@@ -19,6 +19,8 @@ public class World : MonoBehaviour
 	public float shift_time = 5;
 	public float timer = 0;
 
+	WallofFog wallOfFog;
+
 	// Event signaling a dimension change (a "shift")
 	// dim is dimension being changed to.
 	public delegate void Shift(bool dim, float time);
@@ -43,9 +45,13 @@ public class World : MonoBehaviour
 
 	public bool allow_input = true;
 
+	public bool hideWallOfFogOnStart = true;
+
 	void Start()
 	{
 		timer = shift_time;
+		wallOfFog = FindObjectOfType<WallofFog>();
+		wallOfFog.StartInvisible(hideWallOfFogOnStart);
 
 		shotChangeEvent (two_shot);
 		shiftEvent (dimension, shift_time);
@@ -194,5 +200,10 @@ public class World : MonoBehaviour
 	public void ToggleInput( bool toggle ) 
 	{
 		allow_input = toggle;
+	}
+
+	public void ToggleFog( bool toggle ) 
+	{
+		wallOfFog.StartFog(toggle);
 	}
 }
