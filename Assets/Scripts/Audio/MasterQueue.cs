@@ -11,6 +11,8 @@ public class MasterQueue : MonoBehaviour {
 
     AudioSource currentlyPlaying;
 
+    public float fadeSpeed = 3.0f;
+
     public AudioSource[] startingAudio;
 
 	// Queue starting audio
@@ -51,6 +53,28 @@ public class MasterQueue : MonoBehaviour {
         currentlyPlaying.gameObject.SetActive(false);
         audio.gameObject.SetActive(true);
         currentlyPlaying = audio;
+    }
+
+    // Fades currentlyPlaying then stops it.
+	private IEnumerator FadeToNothing ()
+    {
+    	float startVol = currentlyPlaying.volume;
+    	float t = 0f;
+        while (currentlyPlaying.isActiveAndEnabled)
+        {
+        	currentlyPlaying.volume = Mathf.Lerp(startVol, 0f, t);
+        	t += fadeSpeed * Time.deltaTime;
+        	if (currentlyPlaying.volume < 0.01f) {
+        		currentlyPlaying.gameObject.SetActive(false);
+        	}
+            yield return 1;
+        }
+
+        currentlyPlaying.gameObject.SetActive(false);
+    }
+
+    public void Fade() {
+    	StartCoroutine(FadeToNothing());
     }
 
 }

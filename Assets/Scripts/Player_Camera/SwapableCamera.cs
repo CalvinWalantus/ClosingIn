@@ -24,6 +24,8 @@ public class SwapableCamera : MonoBehaviour {
 	// keeps track of the 5 regular virtual cameras
 	public List<GameObject> shot_reference;
 
+    private Camera cam;
+
 	// Use this for initialization
 	void Start () {
 
@@ -37,7 +39,7 @@ public class SwapableCamera : MonoBehaviour {
 		}
 
 		// Prepare the projection matrices based on the camera's settings.
-		Camera cam = Camera.main;
+		cam = Camera.main;
 		pers = Matrix4x4.Perspective (cam.fieldOfView, cam.aspect, cam.nearClipPlane, cam.farClipPlane);
 		ortho = Matrix4x4.Ortho (-cam.orthographicSize * cam.aspect, cam.orthographicSize * cam.aspect, -cam.orthographicSize, cam.orthographicSize, cam.nearClipPlane, cam.farClipPlane);
 	}
@@ -128,8 +130,10 @@ public class SwapableCamera : MonoBehaviour {
 		// the freelook camera, used for 3D, statically has a priority of 15. When we want to switch to
 		// 2D, we set one of the 2D cameras' priority to 20
 		if (shot < 5) {
-			shot_reference [shot - 1].GetComponent<CinemachineVirtualCamera> ().Priority = 20;
-		}
+            CinemachineVirtualCamera newCam = shot_reference[shot - 1].GetComponent<CinemachineVirtualCamera>();
+            newCam.Priority = 20;
+            ortho = Matrix4x4.Ortho(-newCam.m_Lens.OrthographicSize * cam.aspect, newCam.m_Lens.OrthographicSize * cam.aspect, -newCam.m_Lens.OrthographicSize, newCam.m_Lens.OrthographicSize, cam.nearClipPlane, cam.farClipPlane);
+        }
 
 		// decrease the priority of the previous shot
 		if (current_shot != 0 && current_shot < 5)

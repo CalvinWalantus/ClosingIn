@@ -33,9 +33,6 @@ public class ThirdPersonUserControl : MonoBehaviour
 		world_controller = FindObjectOfType<World> ();
 		world_controller.shotChangeEvent += ShotChange;
 		world_controller.shiftEvent += Shift;
-
-		world_controller.animationStartEvent += HandleAnimationStart;
-		world_controller.animationEndEvent += HandleAnimationEnd;
 	}
 
 	void Shift (bool dim, float time)
@@ -69,16 +66,6 @@ public class ThirdPersonUserControl : MonoBehaviour
 		{
 			Shift(dimension, 0);
 		}
-	}
-
-	void HandleAnimationStart()
-	{
-		allow_movement = false;
-	}
-
-	void HandleAnimationEnd()
-	{
-		allow_movement = true;
 	}
 
 	private void Start()

@@ -69,12 +69,10 @@ public class DisableForegroundObjects : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		/* // If we are in 2D, find and disable foreground objects.
+		 // If we are in 2D, find and disable foreground objects.
 		if (!dimension) {
 			findobjects ();
 		} 
-	} */
 	}
 
 	Collider tempCollider;

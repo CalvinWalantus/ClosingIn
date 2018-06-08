@@ -26,6 +26,8 @@ public class AudioTrigger:MonoBehaviour
             {
                 masterQ.QueueAudio(audio);
             }
+        	Destroy(this.gameObject);
         }
+
     }
 }

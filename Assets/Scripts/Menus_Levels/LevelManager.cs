@@ -53,6 +53,7 @@ public class LevelManager : MonoBehaviour
 		fade = true;
 		look.Priority = -100;
 		worldController.StartAnimation ();
+		FindObjectOfType<MasterQueue>().Fade();
 
 		this.gameObject.SetActive (false);
 	}
