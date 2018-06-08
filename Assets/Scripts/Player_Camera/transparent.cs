@@ -138,7 +138,7 @@ public class transparent : MonoBehaviour {
 
     void OnDrawGizmos(){
 		Gizmos.color = Color.green;
-		Gizmos.DrawWireSphere(player.transform.position+new Vector3(0,1.5f,0),1);
+		//Gizmos.DrawWireSphere(player.transform.position+new Vector3(0,1.5f,0),1);
 	}
 
 	bool searchArray(RaycastHit[] input, Transform inputobject){

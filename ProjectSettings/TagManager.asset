@@ -8,6 +8,7 @@ TagManager:
   - WorldController
   - Compressable
   - SticksToPlatform
+  - checkPoints
   layers:
   - Default
   - TransparentFX
