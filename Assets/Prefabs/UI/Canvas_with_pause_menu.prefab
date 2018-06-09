@@ -1001,7 +1001,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 114905840641686982}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1179,8 +1179,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7afcc89c170f879469856edf4bad608a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu_state: 1
+  key_enabled: 0
   main_menu: {fileID: 224629671338612090}
   options_menu: {fileID: 224920626340709376}
+  pause_menu: {fileID: 224392535644240600}
+  user: {fileID: 0}
   look: {fileID: 0}
   audioManager: {fileID: 0}
   mainobject: {fileID: 1267220270553722}
@@ -1196,6 +1200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fc773d0c28e9d48997fa4cfee31bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level_manager: {fileID: 0}
   pauseMenuUI: {fileID: 1014103610064828}
   optionsMenuUI: {fileID: 1656854365893744}
   level: StartScreen
@@ -1346,7 +1351,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 114868267410882092}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2735,7 +2740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.519989, y: 105.8}
+  m_AnchoredPosition: {x: 7.5200195, y: 105.79999}
   m_SizeDelta: {x: -428.47, y: -319.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224539020146420654
@@ -2830,7 +2835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: 1.3825073}
+  m_AnchoredPosition: {x: 0, y: 1.3825073}
   m_SizeDelta: {x: -333.053, y: -176.54037}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224687047966506090
