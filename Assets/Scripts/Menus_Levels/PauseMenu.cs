@@ -9,7 +9,7 @@ using UnityEditor.SceneManagement;
 
 public class PauseMenu : MonoBehaviour 
 {
-	public LevelManager manager_menuState;
+	public LevelManager level_manager;
 
 	public static bool paused_game = false;
 
@@ -20,28 +20,36 @@ public class PauseMenu : MonoBehaviour
 	
 	void Start()
 	{
-		manager_menuState = (LevelManager)FindObjectOfType(typeof(LevelManager));
+		level_manager = (LevelManager)FindObjectOfType(typeof(LevelManager));
 	}
 
 	// Update is called once per frame
-	void Update () 
+	void Update() 
 	{
-		if(Input.GetKeyDown(KeyCode.Escape))
+		if(level_manager.key_enabled)
 		{
-			if(paused_game)
+			if (Input.GetKeyDown(KeyCode.Escape))
 			{
-				Resume();
+				if (paused_game)
+				{
+					Resume ();
+				} 
+				else
+				{
+					Pause ();
+				}
 			}
-			else
-			{
-				Pause();
-			}
+		} 
+		else 
+		{
 		}
 	}
 
 	// For Resume button
 	public void Resume()
 	{
+		level_manager.key_enabled = true;
+
 		pauseMenuUI.SetActive(false);
 		Time.timeScale = 1f;
 		paused_game = false;
@@ -49,6 +57,8 @@ public class PauseMenu : MonoBehaviour
 		
 	void Pause()
 	{
+		level_manager.key_enabled = false;
+
 		pauseMenuUI.SetActive(true);
 		Time.timeScale = 0f;
 		paused_game = true;
@@ -57,8 +67,6 @@ public class PauseMenu : MonoBehaviour
 	// For Restart button
 	public void LoadMenu()
 	{
-		Debug.Log("Loading menu...");
-
 		Time.timeScale = 1f;
 
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -71,30 +79,22 @@ public class PauseMenu : MonoBehaviour
 	// For Quit Button
 	public void QuitGame()
 	{
-		Debug.Log("Quitting game...");
 		Application.Quit();
 
 		#if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
 		#endif
 	}
-
+		
 	public void OptionsMenu(bool clicked)
 	{
-		Debug.Log(!manager_menuState);
-
-		if (!manager_menuState.menu_state == false) // is Gameplay Pause = False
+		if (level_manager.menu_state == false) // is Gameplay Pause = False
 		{
 			if (clicked == true)
 			{
 				optionsMenuUI.gameObject.SetActive (clicked);
 				pauseMenuUI.gameObject.SetActive (false);
 			} 
-			else
-			{
-				optionsMenuUI.gameObject.SetActive (clicked);
-				pauseMenuUI.gameObject.SetActive (true);
-			}
 		}
 	}
 }
