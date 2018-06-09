@@ -45,7 +45,6 @@ public class World : MonoBehaviour
 
 	void Start()
 	{
-
 		timer = shift_time;
 
 		shotChangeEvent (two_shot);
@@ -57,7 +56,6 @@ public class World : MonoBehaviour
 		{
 			boundary.RespawnEvent += HandleRespawnEvent;
 		}
-
 	}
 
 	// Update is called once per frame
