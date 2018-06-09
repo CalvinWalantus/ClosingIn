@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour
 	public bool key_enabled = false; 		// Player cannot press ESC in Title. 
 
     public Transform main_menu, options_menu, pause_menu;
+	public ThirdPersonUserControl user;
+
 	public CinemachineVirtualCamera look;
 	public AudioManager audioManager;
 	public GameObject mainobject;
@@ -28,12 +30,14 @@ public class LevelManager : MonoBehaviour
 	void Start ()
 	{
 		fade = false;
-		Time.timeScale = 0f;
+
+		user = FindObjectOfType<ThirdPersonUserControl>();
+		user.allow_movement = false;
 	}
 
 	void Awake()
 	{
-		worldController = FindObjectOfType<World> ();
+		worldController = FindObjectOfType<World>();
 		audioManager = FindObjectOfType<AudioManager> ();
 		look.Priority = 40;
 	}
@@ -54,7 +58,9 @@ public class LevelManager : MonoBehaviour
 		//audioManager.StartCoroutine(audioManager.fadeout());
 
 		menu_state = false;				// Player has left title to gameplay.
-		key_enabled = true;				// Player cannot use ESC while in Title screen. 
+		key_enabled = true;				// Player cannot use ESC while in Title screen.
+		user.allow_movement = true;		// Player will now move during gameplay.
+
 		fade = true;
 
 		look.Priority = -100;
