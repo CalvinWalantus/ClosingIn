@@ -21,6 +21,8 @@ public class ShiftTrigger : MonoBehaviour {
 
 	public bool toggleDimensionControl = false, toggle = false;
 
+	public bool toggleFog = false, fog = true;
+
 	void Start () {
 		worldcontroller = FindObjectOfType<World>();
 	}
@@ -32,6 +34,9 @@ public class ShiftTrigger : MonoBehaviour {
 			}
 			if (toggleDimensionControl) {
 				worldcontroller.ToggleInput(toggle);
+			}
+			if (toggleFog) {
+				worldcontroller.ToggleFog(fog);
 			}
 			Destroy(this.gameObject);
 		}
