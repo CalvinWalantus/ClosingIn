@@ -10,6 +10,10 @@ using UnityEditor.SceneManagement;
 
 public class LevelManager : MonoBehaviour 
 {
+	// True = Title as Menu State
+	// False = Gameplay Pause as Menu State
+	public bool menu_state = true;
+
     public Transform main_menu, options_menu;
 	public CinemachineVirtualCamera look;
 	public AudioManager audioManager;
@@ -20,7 +24,8 @@ public class LevelManager : MonoBehaviour
 
 	public bool fade;
 
-	void Start (){
+	void Start ()
+	{
 		fade = false;
 	}
 
@@ -55,15 +60,20 @@ public class LevelManager : MonoBehaviour
 	// Opens Option menu when player clicks Options button.
 	public void OptionsMenu(bool clicked)
 	{
-		if (clicked == true) 
+		Debug.Log(menu_state);
+
+		if (menu_state) // is Title screen
 		{
-			options_menu.gameObject.SetActive (clicked);
-			main_menu.gameObject.SetActive(false);
-		} 
-		else 
-		{
-			options_menu.gameObject.SetActive(clicked);
-			main_menu.gameObject.SetActive(true);
+			if (clicked == true) 
+			{
+				options_menu.gameObject.SetActive (clicked);
+				main_menu.gameObject.SetActive (false);
+			} 
+			else
+			{
+				options_menu.gameObject.SetActive (clicked);
+				main_menu.gameObject.SetActive (true);
+			}
 		}
 	}
 

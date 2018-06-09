@@ -6,7 +6,7 @@ public class TorchFlame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this.gameObject
+		//this.gameObject;
 	}
 	
 	// Update is called once per frame
