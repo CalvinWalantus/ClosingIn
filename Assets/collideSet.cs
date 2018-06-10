@@ -14,8 +14,11 @@ public class collideSet : MonoBehaviour {
 	public float platformWaitTime;
 	// Use this for initialization
 	void Start () {
-		foreach (GameObject airwall in airWalls) {
-			airwall.GetComponent<BoxCollider> ().enabled = false;
+		if (airWalls.Length > 0) {
+			foreach (GameObject airwall in airWalls) {
+			
+				airwall.GetComponent<BoxCollider> ().enabled = false;
+			}
 		}
 		platformMoveTime = GetComponentInParent<MovingPlatform>().moveTime;
 		platformWaitTime = GetComponentInParent<MovingPlatform>().waitsecond;
