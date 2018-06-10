@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class FreelookFindPlayer : MonoBehaviour {
 
-	public float x_constant, y_constant, x_scalar = 1000, y_scalar = 1000;
+	float x_constant, y_constant, x_scalar = 5.0f, y_scalar = 5.0f;
 
 	public Slider Xsensitivity, Ysensitivity;
 	// Use this for initialization
@@ -43,12 +43,12 @@ public class FreelookFindPlayer : MonoBehaviour {
 
 	void ValueChangeCheckX() {
 		float value = x_constant + x_scalar * Xsensitivity.value;
-		GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = (value > 0)? value : 10;
+		GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = (value > 0)? value : 0.1f;
 
 	}
 
 	void ValueChangeCheckY() {
 		float value = y_constant + y_scalar * Ysensitivity.value;
-		GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = (value > 0)? value : 10;
+		GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = (value > 0)? value : 0.1f;
 	}
 }
