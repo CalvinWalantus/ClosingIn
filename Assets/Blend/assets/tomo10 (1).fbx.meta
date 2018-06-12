@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 5ea9de2237926394a8601db50ec45093
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone.010.L
+    100004: Bone.010.R
+    100006: Bone.011.L
+    100008: Bone.011.R
+    100010: Bone.012.L
+    100012: Bone.012.R
+    100014: Bone.013.L
+    100016: Bone.013.R
+    100018: Bone.014.L
+    100020: Bone.014.R
+    100022: Bone.015.L
+    100024: Bone.015.R
+    100026: Bone.016.L
+    100028: Bone.016.L_end
+    100030: Bone.016.R
+    100032: Bone.016.R_end
+    100034: Bone.045
+    100036: Bone.046
+    100038: Bone.047
+    100040: Bone.048
+    100042: Bone.049
+    100044: Bone.050
+    100046: Bone.051
+    100048: Bone.051_end
+    100050: floating body
+    100052: Head
+    100054: HIPS
+    100056: InnerBody
+    100058: InnerSphere
+    100060: InnerSphere_end
+    100062: main head
+    100064: NECK
+    100066: orb1
+    100068: orb1_end
+    100070: orb2
+    100072: orb2_end
+    100074: orb3
+    100076: orb3_end
+    100078: orb4
+    100080: orb4_end
+    100082: orb5
+    100084: orb5_end
+    100086: Point
+    100088: Sphere
+    100090: Spinner
+    100092: spinning body
+    100094: spinning body_end
+    100096: tiny orb 1
+    100098: tiny orb 2
+    100100: tiny orb 3
+    100102: tiny orb 4
+    100104: tiny orb 5
+    100106: //RootNode
+    400000: Armature
+    400002: Bone.010.L
+    400004: Bone.010.R
+    400006: Bone.011.L
+    400008: Bone.011.R
+    400010: Bone.012.L
+    400012: Bone.012.R
+    400014: Bone.013.L
+    400016: Bone.013.R
+    400018: Bone.014.L
+    400020: Bone.014.R
+    400022: Bone.015.L
+    400024: Bone.015.R
+    400026: Bone.016.L
+    400028: Bone.016.L_end
+    400030: Bone.016.R
+    400032: Bone.016.R_end
+    400034: Bone.045
+    400036: Bone.046
+    400038: Bone.047
+    400040: Bone.048
+    400042: Bone.049
+    400044: Bone.050
+    400046: Bone.051
+    400048: Bone.051_end
+    400050: floating body
+    400052: Head
+    400054: HIPS
+    400056: InnerBody
+    400058: InnerSphere
+    400060: InnerSphere_end
+    400062: main head
+    400064: NECK
+    400066: orb1
+    400068: orb1_end
+    400070: orb2
+    400072: orb2_end
+    400074: orb3
+    400076: orb3_end
+    400078: orb4
+    400080: orb4_end
+    400082: orb5
+    400084: orb5_end
+    400086: Point
+    400088: Sphere
+    400090: Spinner
+    400092: spinning body
+    400094: spinning body_end
+    400096: tiny orb 1
+    400098: tiny orb 2
+    400100: tiny orb 3
+    400102: tiny orb 4
+    400104: tiny orb 5
+    400106: //RootNode
+    2100000: Material.001
+    2100002: Material.003
+    2100004: Material
+    2100006: Material.004
+    2100008: Material.005
+    2100010: Material.007
+    4300000: tiny orb 4
+    4300002: tiny orb 1
+    4300004: tiny orb 2
+    4300006: tiny orb 3
+    4300008: tiny orb 5
+    4300010: main head
+    4300012: Sphere
+    4300014: floating body
+    4300016: InnerBody
+    7400000: Armature|ArmatureAction
+    9500000: //RootNode
+    10800000: Point
+    13700000: floating body
+    13700002: InnerBody
+    13700004: main head
+    13700006: Sphere
+    13700008: tiny orb 1
+    13700010: tiny orb 2
+    13700012: tiny orb 3
+    13700014: tiny orb 4
+    13700016: tiny orb 5
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
