@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[RequireComponent(typeof(Hv_RandomDrone4_AudioLib))]
 public class MovingPlatform : ComplexCompressable {
 
 	public bool moving = true;
@@ -23,8 +24,15 @@ public class MovingPlatform : ComplexCompressable {
 
 	// Use this for initialization
 	void Start () {
-		
-		origin = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+
+        if (!GetComponent<Hv_RandomDrone4_AudioLib>())
+        {
+            gameObject.AddComponent<Hv_RandomDrone4_AudioLib>();
+        }
+
+        GetComponent<Hv_RandomDrone4_AudioLib>().SendEvent(Hv_RandomDrone4_AudioLib.Event.Offevent);
+
+        origin = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
 		current_destination = destination.position;
 
 		if (trigger != null && trigger.gameObject.activeSelf) {
@@ -42,9 +50,11 @@ public class MovingPlatform : ComplexCompressable {
 
 		if (moving) {
 			float step = velocity * Time.deltaTime;
-			if (step == 3)
-				moving = false;
-			if (wait == false) {
+            if (step == 3) {
+                moving = false;
+                GetComponent<Hv_RandomDrone4_AudioLib>().SendEvent(Hv_RandomDrone4_AudioLib.Event.Offevent);
+            }
+            if (wait == false) {
 				
 				transform.position = Vector3.MoveTowards (gameObject.transform.position, current_destination, step);
 			}
@@ -71,7 +81,9 @@ public class MovingPlatform : ComplexCompressable {
 
 	public void TriggerHit (int trigger_id) {
 		moving = true;
-	}
+        GetComponent<Hv_RandomDrone4_AudioLib>().SendEvent(Hv_RandomDrone4_AudioLib.Event.Onevent);
+        Debug.Log("trigger hit");
+    }
 
 	public override void ComplexCompress (int two_shot, Vector3 player_position) {
 

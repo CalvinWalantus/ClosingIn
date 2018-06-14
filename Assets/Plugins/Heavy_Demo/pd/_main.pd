@@ -1,0 +1,87 @@
+#N canvas 187 81 1920 997 10;
+#X obj 322 260 dac~;
+#X obj 88 132 square;
+#X floatatom 32 99 5 0 0 0 - - -, f 5;
+#X msg 485 169 1;
+#X msg 530 169 0;
+#X obj 548 126 loadbang;
+#X obj 325 186 *~;
+#X obj 32 35 loadbang;
+#X obj 485 105 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 32 67 314;
+#X obj 96 59 r freq @hv_param 0 1000 314;
+#X obj 485 127 select 1;
+#X obj 32 170 *~;
+#X msg 168 153 1;
+#X msg 290 153 0;
+#X obj 146 121 loadbang;
+#X obj 215 104 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 215 127 select 1;
+#X obj 89 170 *~;
+#X msg 209 153 0;
+#X msg 251 153 1;
+#X obj 88 113 / 4;
+#X obj 485 56 r onOff;
+#X obj 215 81 r waveToggle @hv_param 0 1 1;
+#X obj 32 128 osc~;
+#X text 685 336 Toggle #1 (T1) turns the sound on and off;
+#X text 685 355 Toggle #2 (T2) switches between Sine and Square wave
+;
+#X text 687 41 Example PD Patch for Unity implementation with the Heavy
+Compiler. Made for use in conjunction with the video series by Jeff
+Ahking Wolphox.com;
+#X text 684 194 This patch plays a simple waveform with parameters
+that toggle the volume \, wavetype \, and adjust the frequency.;
+#X text 685 225 For more information \, visit https://enzienaudio.com/docs/unity.html
+;
+#X text 686 308 Guide:;
+#X text 507 103 T1;
+#X text 500 37 P1;
+#X text 237 101 T2;
+#X text 298 58 P2;
+#X text 157 42 P3;
+#X text 111 114 A1;
+#X text 683 399 This patch has three adjustable parameters. Parameter
+#1 (P1) is a private parameter that can receive a 'Bang' from Unity
+script. It toggles the volume on and off. Parameter #2 (P2) is a public
+parameter that can receive a 'bang' or a float from Unity Script \,
+but is intended to receive a 'bang'. It toggles between a sine and
+a square wave. Parameter #3 (P3) is a public parameter that is intended
+to receive a float. It adjusts the pitch. This patch contains one abstraction.
+Abstraction #1 (A1) - see object named 'square'. Emits a square wave.
+;
+#X obj 422 13 r bang @hv_event;
+#X connect 1 0 18 0;
+#X connect 2 0 24 0;
+#X connect 2 0 21 0;
+#X connect 3 0 6 1;
+#X connect 4 0 6 1;
+#X connect 5 0 3 0;
+#X connect 6 0 0 0;
+#X connect 6 0 0 1;
+#X connect 7 0 9 0;
+#X connect 8 0 11 0;
+#X connect 9 0 2 0;
+#X connect 10 0 2 0;
+#X connect 11 0 3 0;
+#X connect 11 1 4 0;
+#X connect 12 0 6 0;
+#X connect 13 0 12 1;
+#X connect 14 0 12 1;
+#X connect 15 0 13 0;
+#X connect 15 0 19 0;
+#X connect 16 0 17 0;
+#X connect 17 0 13 0;
+#X connect 17 0 19 0;
+#X connect 17 1 14 0;
+#X connect 17 1 20 0;
+#X connect 18 0 6 0;
+#X connect 19 0 18 1;
+#X connect 20 0 18 1;
+#X connect 21 0 1 0;
+#X connect 22 0 8 0;
+#X connect 23 0 16 0;
+#X connect 24 0 12 0;
+#X connect 38 0 8 0;
