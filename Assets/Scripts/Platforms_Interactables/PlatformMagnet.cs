@@ -25,14 +25,14 @@ public class PlatformMagnet : MonoBehaviour
 				other.transform.parent = null;
 			}
 
-            if (useGrandparent)
+            /*if (useGrandparent)
             {
                 gameObject.transform.parent.parent.GetComponent<Hv_RandomDrone4_AudioLib>().SendEvent(Hv_RandomDrone4_AudioLib.Event.Offevent);
             }
             else
             {
                 gameObject.transform.parent.GetComponent<Hv_RandomDrone4_AudioLib>().SendEvent(Hv_RandomDrone4_AudioLib.Event.Offevent);
-            }
+            }*/
         }
 	}
 }

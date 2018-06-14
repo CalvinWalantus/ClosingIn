@@ -10,6 +10,8 @@ public class CheckPoint : MonoBehaviour {
 
 	public ParticleSystem flame;
 
+    public AudioSource startSound, loop;
+
 	// Use this for initialization
 	void Start () {
 		checkPointsList = FindObjectsOfType<CheckPoint>();
@@ -19,8 +21,11 @@ public class CheckPoint : MonoBehaviour {
 	void Update () {
 		if (this.activated == true && !flame.isPlaying) {
 			flame.Play();
+            startSound.Play();
+            StartCoroutine(PlayLoopAfterStart());
 		} else if (this.activated == false) {
 			flame.Stop ();
+            loop.Stop();
 		}
 		//Debug.Log (this.GetComponentInChildren<ParticleSystem> ().isPlaying);
 	}
@@ -47,4 +52,13 @@ public class CheckPoint : MonoBehaviour {
 		}
 		return result;
 	}
+
+    private IEnumerator PlayLoopAfterStart()
+    {
+        while (startSound.isPlaying)
+        {
+            yield return 1; 
+        }
+        loop.Play();
+    }
 }
