@@ -7,7 +7,7 @@ public class PatchController : MonoBehaviour {
 
     World world_controller;
     Hv_shiftingDrone_AudioLib heavy_patch;
-    float volume = 0.7f;
+    public float volume = 0.7f;
     
     // Use this for initialization
 	void Start () {
@@ -15,12 +15,12 @@ public class PatchController : MonoBehaviour {
         world_controller.shiftEvent += HandleShift;
 
         heavy_patch = GetComponent<Hv_shiftingDrone_AudioLib>();
-        //heavy_patch.SetFloatParameter(Hv_shiftingDrone_AudioLib.Parameter.Vol, 0.0f);
+        heavy_patch.SetFloatParameter(Hv_shiftingDrone_AudioLib.Parameter.Vol, 0.0f);
 	}
 	
     private void HandleShift(bool dim, float time)
     {
-        //heavy_patch.SetFloatParameter(Hv_shiftingDrone_AudioLib.Parameter.Vol, volume);
+        heavy_patch.SetFloatParameter(Hv_shiftingDrone_AudioLib.Parameter.Vol, volume);
         heavy_patch.SendEvent(Hv_shiftingDrone_AudioLib.Event.Startfade);
 
         StartCoroutine(WaitForEnd(time));

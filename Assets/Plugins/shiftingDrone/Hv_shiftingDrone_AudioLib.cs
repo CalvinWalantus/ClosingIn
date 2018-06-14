@@ -86,6 +86,17 @@ public class Hv_shiftingDrone_Editor : Editor {
     GUI.enabled = true;
     GUILayout.BeginVertical();
     EditorGUILayout.Space();
+    EditorGUI.indentLevel++;
+    
+    // vol
+    GUILayout.BeginHorizontal();
+    float vol = _dsp.GetFloatParameter(Hv_shiftingDrone_AudioLib.Parameter.Vol);
+    float newVol = EditorGUILayout.Slider("vol", vol, 0.0f, 1.0f);
+    if (vol != newVol) {
+      _dsp.SetFloatParameter(Hv_shiftingDrone_AudioLib.Parameter.Vol, newVol);
+    }
+    GUILayout.EndHorizontal();
+    EditorGUI.indentLevel--;
   }
 }
 #endif // UNITY_EDITOR
@@ -105,6 +116,20 @@ public class Hv_shiftingDrone_AudioLib : MonoBehaviour {
     Endfade = 0x5C9E3CE3,
     Fulllevel = 0x5DD7349E,
     Startfade = 0x2785BC4A,
+  }
+  
+  // Parameters are used to send float messages into the patch context (thread-safe).
+  // Example usage:
+  /*
+    void Start () {
+        Hv_shiftingDrone_AudioLib script = GetComponent<Hv_shiftingDrone_AudioLib>();
+        // Get and set a parameter
+        float vol = script.GetFloatParameter(Hv_shiftingDrone_AudioLib.Parameter.Vol);
+        script.SetFloatParameter(Hv_shiftingDrone_AudioLib.Parameter.Vol, vol + 0.1f);
+    }
+  */
+  public enum Parameter : uint {
+    Vol = 0x8559698F,
   }
   
   // Delegate method for receiving float messages from the patch context (thread-safe).
@@ -131,6 +156,7 @@ public class Hv_shiftingDrone_AudioLib : MonoBehaviour {
   }
   public delegate void FloatMessageReceived(FloatMessage message);
   public FloatMessageReceived FloatReceivedCallback;
+  public float vol = 0.5f;
 
   // internal state
   private Hv_shiftingDrone_Context _context;
@@ -146,6 +172,26 @@ public class Hv_shiftingDrone_AudioLib : MonoBehaviour {
   // see Hv_shiftingDrone_AudioLib.Event for definitions
   public void SendEvent(Hv_shiftingDrone_AudioLib.Event e) {
     if (IsInstantiated()) _context.SendBangToReceiver((uint) e);
+  }
+  
+  // see Hv_shiftingDrone_AudioLib.Parameter for definitions
+  public float GetFloatParameter(Hv_shiftingDrone_AudioLib.Parameter param) {
+    switch (param) {
+      case Parameter.Vol: return vol;
+      default: return 0.0f;
+    }
+  }
+
+  public void SetFloatParameter(Hv_shiftingDrone_AudioLib.Parameter param, float x) {
+    switch (param) {
+      case Parameter.Vol: {
+        x = Mathf.Clamp(x, 0.0f, 1.0f);
+        vol = x;
+        break;
+      }
+      default: return;
+    }
+    if (IsInstantiated()) _context.SendFloatToReceiver((uint) param, x);
   }
   
   public void FillTableWithMonoAudioClip(string tableName, AudioClip clip) {
@@ -165,6 +211,10 @@ public class Hv_shiftingDrone_AudioLib : MonoBehaviour {
 
   private void Awake() {
     _context = new Hv_shiftingDrone_Context((double) AudioSettings.outputSampleRate);
+  }
+  
+  private void Start() {
+    _context.SendFloatToReceiver((uint) Parameter.Vol, vol);
   }
   
   private void Update() {
