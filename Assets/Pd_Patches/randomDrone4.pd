@@ -40,12 +40,16 @@
 #X obj 835 650 *~;
 #X obj 637 688 +~;
 #X obj 637 726 *~ 0.5;
-#X obj 704 1009 dac~;
+#X obj 712 1043 dac~;
 #X obj 717 944 *~;
 #X msg 806 879 1;
 #X msg 851 879 0;
 #X obj 766 761 r Onevent @hv_event;
 #X obj 909 756 r Offevent @hv_event;
+#X obj 719 997 *~;
+#X obj 776 967 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 797 937 r vol @hv_param;
 #X connect 0 0 20 0;
 #X connect 1 0 13 0;
 #X connect 2 0 3 0;
@@ -87,9 +91,12 @@
 #X connect 38 0 39 1;
 #X connect 39 0 40 0;
 #X connect 40 0 42 0;
-#X connect 42 0 41 0;
-#X connect 42 0 41 1;
+#X connect 42 0 47 0;
 #X connect 43 0 42 1;
 #X connect 44 0 42 1;
 #X connect 45 0 43 0;
 #X connect 46 0 44 0;
+#X connect 47 0 41 0;
+#X connect 47 0 41 1;
+#X connect 48 0 47 1;
+#X connect 49 0 48 0;

@@ -81,6 +81,17 @@ public class Hv_RandomDrone4_Editor : Editor {
     GUI.enabled = true;
     GUILayout.BeginVertical();
     EditorGUILayout.Space();
+    EditorGUI.indentLevel++;
+    
+    // vol
+    GUILayout.BeginHorizontal();
+    float vol = _dsp.GetFloatParameter(Hv_RandomDrone4_AudioLib.Parameter.Vol);
+    float newVol = EditorGUILayout.Slider("vol", vol, 0.0f, 1.0f);
+    if (vol != newVol) {
+      _dsp.SetFloatParameter(Hv_RandomDrone4_AudioLib.Parameter.Vol, newVol);
+    }
+    GUILayout.EndHorizontal();
+    EditorGUI.indentLevel--;
   }
 }
 #endif // UNITY_EDITOR
@@ -99,6 +110,20 @@ public class Hv_RandomDrone4_AudioLib : MonoBehaviour {
   public enum Event : uint {
     Offevent = 0x94855CF8,
     Onevent = 0xF370C745,
+  }
+  
+  // Parameters are used to send float messages into the patch context (thread-safe).
+  // Example usage:
+  /*
+    void Start () {
+        Hv_RandomDrone4_AudioLib script = GetComponent<Hv_RandomDrone4_AudioLib>();
+        // Get and set a parameter
+        float vol = script.GetFloatParameter(Hv_RandomDrone4_AudioLib.Parameter.Vol);
+        script.SetFloatParameter(Hv_RandomDrone4_AudioLib.Parameter.Vol, vol + 0.1f);
+    }
+  */
+  public enum Parameter : uint {
+    Vol = 0x8559698F,
   }
   
   // Delegate method for receiving float messages from the patch context (thread-safe).
@@ -125,6 +150,7 @@ public class Hv_RandomDrone4_AudioLib : MonoBehaviour {
   }
   public delegate void FloatMessageReceived(FloatMessage message);
   public FloatMessageReceived FloatReceivedCallback;
+  public float vol = 0.5f;
 
   // internal state
   private Hv_RandomDrone4_Context _context;
@@ -140,6 +166,26 @@ public class Hv_RandomDrone4_AudioLib : MonoBehaviour {
   // see Hv_RandomDrone4_AudioLib.Event for definitions
   public void SendEvent(Hv_RandomDrone4_AudioLib.Event e) {
     if (IsInstantiated()) _context.SendBangToReceiver((uint) e);
+  }
+  
+  // see Hv_RandomDrone4_AudioLib.Parameter for definitions
+  public float GetFloatParameter(Hv_RandomDrone4_AudioLib.Parameter param) {
+    switch (param) {
+      case Parameter.Vol: return vol;
+      default: return 0.0f;
+    }
+  }
+
+  public void SetFloatParameter(Hv_RandomDrone4_AudioLib.Parameter param, float x) {
+    switch (param) {
+      case Parameter.Vol: {
+        x = Mathf.Clamp(x, 0.0f, 1.0f);
+        vol = x;
+        break;
+      }
+      default: return;
+    }
+    if (IsInstantiated()) _context.SendFloatToReceiver((uint) param, x);
   }
   
   public void FillTableWithMonoAudioClip(string tableName, AudioClip clip) {
@@ -159,6 +205,10 @@ public class Hv_RandomDrone4_AudioLib : MonoBehaviour {
 
   private void Awake() {
     _context = new Hv_RandomDrone4_Context((double) AudioSettings.outputSampleRate);
+  }
+  
+  private void Start() {
+    _context.SendFloatToReceiver((uint) Parameter.Vol, vol);
   }
   
   private void Update() {
